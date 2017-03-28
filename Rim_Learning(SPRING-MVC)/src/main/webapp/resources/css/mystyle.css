@@ -1,0 +1,300 @@
+
+
+body {
+    padding-top: 0px; 
+    
+    }
+
+
+
+.business-header {
+	position:relative;
+    height: 400px;
+    background: url('../img/logo-banner-search-1.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+      margin-top: -21px;
+    
+    
+}
+.d{
+		
+	height: 400px;
+	background-color:rgba(0,0,0,0.5);
+
+	
+}
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-fixed-top{
+	
+	
+	    background-color: #fff;
+    border-color:#fff;
+} 
+
+
+.tagline {
+    text-shadow: 0 0 10px #000;
+    color: #fff;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+
+.form-group .input-group .form-control{
+	
+	
+	position: absolute;
+    top: 153px;
+    height: 57px;
+    left: 281px;
+    width: 600px;
+    color: #728592;
+font-size: 24px;
+background: #fff;
+}
+.form-group .input-group  .input-group-btn .btn{
+	    position: absolute;
+    left: 880px;
+    top: 153px;
+    height: 57px;
+    width: 65px;
+
+}
+
+
+.navbar-default .navbar-nav>li>a{
+	
+	font-size: 16px;
+	
+}
+
+
+
+.navbar-default .navbar-nav>li>a:hover{
+	
+  
+    background-color: transparent;	
+   
+
+	    color:#61bd5e;
+	
+	
+}
+
+.navbar-default .navbar-brand {
+   
+      font-size: 37px;
+}
+.gretting{
+	position: absolute;
+    left:252px;
+    top: 190px;
+    color:#fff;
+  
+    }
+    
+    
+.img-responsive{
+max-height: 128px;
+    margin-left: 540px;
+    margin-top: 81px;    	
+    	
+    	
+    }
+    
+
+    
+    hr.small {
+   ax-width: 400px;
+    margin: 15px auto;
+    border-width: 3px;
+    width: 280px;
+    border-color: #61bd5e;
+}
+
+
+ .sec{
+	
+	background-color:#61bd5e;
+      height: 222px;
+	
+	
+}
+.boxes-icon {
+    color: #333;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+}
+.circle {
+    border-radius: 50%;
+}
+
+.circle-icon {
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    padding: 30px;
+    padding-top: 32px;
+    padding-left: 28px;
+}
+.sec .img-responsive {
+	
+	    position: absolute;
+    right: 34px;
+    top: -99px;
+    max-height: 352px;
+    height: 193px;
+    width: 275px;
+	
+}
+
+.fa-trophy {color: #61bd5e;
+font-size: 40px;
+line-height: 40px;
+vertical-align: middle;
+	
+	
+}
+.fa-graduation-cap{
+	color: #61bd5e;
+}
+.fa-book{color: #61bd5e;}
+.fa-paper-plane{color: #61bd5e;}
+.fa-desktop{
+	color: #61bd5e;
+font-size: 40px;
+line-height: 40px;
+vertical-align: middle;
+	
+	
+}
+   .sec .text-center{
+    	
+    	margin-top: 9px;
+    	
+    }
+    
+    
+    
+    
+    /*section contactus */
+   
+
+
+ .he{
+  text-align: center;
+ 
+  text-shadow: 1px 1px 0 white;
+}
+
+form {
+  max-width: 600px;
+  text-align: center;
+  margin: 20px auto;
+}
+form input, form textarea {
+  border: 0;
+  outline: 0;
+  padding: 1em;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  margin-top: 1em;
+  font-family: 'Merriweather', sans-serif;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  resize: none;
+}
+form input:focus, form textarea:focus {
+  box-shadow: 0 0px 2px #61bd5e !important;
+}
+form #input-submit {
+  color: white;
+  background: #61bd5e;
+  cursor: pointer;
+}
+form #input-submit:hover {
+  box-shadow: 0 1px 1px 1px #61bd5e;
+}
+form textarea {
+  height: 126px;
+}
+
+.half {
+  float: left;
+  width: 48%;
+  margin-bottom: 1em;
+}
+
+.right {
+  width: 50%;
+}
+
+.left {
+  margin-right: 2%;
+}
+
+
+
+
+/* section ourservice  */
+
+
+
+.featurette-divider {
+    margin: 80px 0;
+    
+}
+.jumbotron>hr {
+    border-top-color: #61bd5e;
+}
+
+.featurette {
+    overflow: hidden;
+}
+
+.featurette-image.pull-left {
+   
+        margin-left: 40px;
+    
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.featurette-image.pull-right {
+    margin-left: 40px;
+   
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.featurette-heading {
+    font-size: 50px;
+}
+
+
+/*footer */
+.footer{
+
+position: relative;
+    margin-left: 530px;
+    font-size: 14px;
+}
+
