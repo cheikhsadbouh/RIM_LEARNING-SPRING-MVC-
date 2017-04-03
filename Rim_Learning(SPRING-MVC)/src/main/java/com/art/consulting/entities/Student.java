@@ -1,5 +1,6 @@
 package com.art.consulting.entities;
 
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -15,11 +16,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.ColumnDefault;
+
 
 
 @Entity
 public class Student extends User implements Serializable{
 	 
+
 	  @Id
 	  @GeneratedValue(strategy=GenerationType.AUTO)
 	  @Column(unique = true, nullable = false)
@@ -27,10 +31,16 @@ public class Student extends User implements Serializable{
 	  
 	  private String firstName ;
 	  private String lastName;
+	  private String username;
 	  private String email;
 	  private String urlPhoto;
 	  private String password ;
 	  private String section ;
+	    
+	  @Column(columnDefinition = " varchar(23) default 'Student'", insertable=false)
+	  private String role ;
+	  @Column(columnDefinition = "TINYINT default '1'", insertable=false)
+	  private int enabled ;
 	  
 	@OneToMany(targetEntity=Notification.class,mappedBy="studentId",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<Notification> notification ;
@@ -46,73 +56,155 @@ public class Student extends User implements Serializable{
 	public Student (){
 		
 	}
-	public Student(int studentId, String firstName, String lastName, String email, String urlPhoto, String password,
-			String section, List<Notification> notification, List<Training> training) {
+
+
+	
+
+	public Student(int studentId, String firstName, String lastName, String username, String email, String urlPhoto,
+			String password, String section, String role, int enabled, List<Notification> notification,
+			List<Training> training) {
 		super();
 		this.studentId = studentId;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.username = username;
 		this.email = email;
 		this.urlPhoto = urlPhoto;
 		this.password = password;
 		this.section = section;
+		this.role = role;
+		this.enabled = enabled;
 		this.notification = notification;
 		this.training = training;
 	}
+
+
+
+
 	public int getStudentId() {
 		return studentId;
 	}
+
+
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
+
+
 	public String getFirstName() {
 		return firstName;
 	}
+
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
+
 	public String getLastName() {
 		return lastName;
 	}
+
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
 	public String getEmail() {
 		return email;
 	}
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 	public String getUrlPhoto() {
 		return urlPhoto;
 	}
+
+
 	public void setUrlPhoto(String urlPhoto) {
 		this.urlPhoto = urlPhoto;
 	}
+
+
 	public String getPassword() {
 		return password;
 	}
+
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
 	public String getSection() {
 		return section;
 	}
+
+
 	public void setSection(String section) {
 		this.section = section;
 	}
+
+
+	public String getRole() {
+		return role;
+	}
+
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+
 	public List<Notification> getNotification() {
 		return notification;
 	}
+
+
 	public void setNotification(List<Notification> notification) {
 		this.notification = notification;
 	}
+
+
 	public List<Training> getTraining() {
 		return training;
 	}
+
+
 	public void setTraining(List<Training> training) {
 		this.training = training;
 	}
+
+
+
+
+	public int getEnabled() {
+		return enabled;
+	}
+
+
+
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+
+
 	
 	  
 	

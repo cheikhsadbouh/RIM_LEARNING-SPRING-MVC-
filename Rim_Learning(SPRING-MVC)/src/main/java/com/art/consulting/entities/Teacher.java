@@ -32,6 +32,14 @@ public class Teacher  extends User  implements Serializable{
 	  private String urlPhoto;
 	  private String password ;
 	  private String section ;
+	  private String username;
+	  private String poneNumber;
+	  private String item ;
+	  @Column(columnDefinition = " varchar(23) default 'Teacher'", insertable=false)
+	  private String role ;
+	  @Column(columnDefinition = "TINYINT default '1'", insertable=false)
+	  private int enabled ;
+	
 
 
 	@OneToMany(targetEntity=Homepage.class,mappedBy="teacher",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
@@ -55,8 +63,9 @@ public class Teacher  extends User  implements Serializable{
 
 
 	public Teacher(int teacherId, String firstName, String lastName, String email, String urlPhoto, String password,
-			String section, List<Homepage> post, List<Training> training, List<Notification> notification) {
-		super();
+			String section, String username, String poneNumber, String item, String role, int enabled,
+			List<Homepage> post, List<Training> training, List<Notification> notification) {
+		
 		this.teacherId = teacherId;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -64,10 +73,27 @@ public class Teacher  extends User  implements Serializable{
 		this.urlPhoto = urlPhoto;
 		this.password = password;
 		this.section = section;
+		this.username = username;
+		this.poneNumber = poneNumber;
+		this.item = item;
+		this.role = role;
+		this.enabled = enabled;
 		this.post = post;
 		this.training = training;
 		this.notification = notification;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -188,6 +214,91 @@ public class Teacher  extends User  implements Serializable{
 	public void setNotification(List<Notification> notification) {
 		this.notification = notification;
 	}
+
+
+
+
+
+
+
+	public String getRole() {
+		return role;
+	}
+
+
+
+
+
+
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+
+
+
+
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+
+
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+
+
+
+
+
+	public int getEnabled() {
+		return enabled;
+	}
+
+
+
+
+
+
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+
+
+
+	public String getPoneNumber() {
+		return poneNumber;
+	}
+
+
+
+	public void setPoneNumber(String poneNumber) {
+		this.poneNumber = poneNumber;
+	}
+
+
+
+	public String getItem() {
+		return item;
+	}
+
+
+
+	public void setItem(String item) {
+		this.item = item;
+	}
+	
 	
 	
 	

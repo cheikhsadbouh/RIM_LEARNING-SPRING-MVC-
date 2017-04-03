@@ -1,4 +1,4 @@
-package com.art.consulting;
+package com.art.consulting.web.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -30,5 +30,17 @@ public class HomeController {
 		
 		return "home";
 	}
+	
+	@RequestMapping(value = "/login")
+	public String login() {
+		logger.info("Welcome login" );
+		
+		
+		
+		return "login";
+	}
+	
+	
+	
 	
 }
