@@ -99,14 +99,27 @@ function FormValidation_teacher(){
 	}
 	
 	
-	if(user_firstname!="" && user_lastname!="" && user_email!="" && user_tel!="" && list!="" ){
-		
-		// $('#thankyouModal').modal('show');
-		$("form").on('submit', function(){
-			   $('#thankyouModal').show();
-			});
-		
-		
-	}
+	
 }
+
+
+//show model onload
+
+
+$(document).ready(function () {
+
+	$('#memberModal').modal('show');
+
+});
+
+$(document).ready(function () {
+
+	$('#login_error').modal('show');
+
+});
+
+
+	
+	
+
 

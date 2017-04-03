@@ -67,6 +67,7 @@ input {
     width: 100%;
     padding: .8em 0 10px .8em;
     background-color: #61bd5e;
+    border-radius: 11px;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -232,34 +233,22 @@ margin-left: 2px;
     background-image: none;
     border: 1px solid #ccc;
      }
-/* 
+/*login img  */
 
-.form-group .form-control  .op{
-  font-family: serif;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 3;
-  padding: 10px;
+#img_logo{
+    max-width: 100px;
+    max-height: 100px
+    }
+    
+    
+    
+    /*alert in erro_login */
+    
+    
+    
+    .alert {
+    padding: 2px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 16px;
 }
-
-.form-group  .form-control .op:hover {
-  background: black;
-  color: red;
-}
-
-.form-group  .form-control .op:active {
-  background: yellow;
-  color: blue;
-}
-
-.form-group  .form-control .op:focus {
-  background: green;
-  colour: orange;
-}
-
-.form-group  .form-control .op:selected {
-  background: red;
-  color: yellow;
-}
-* 
-* */

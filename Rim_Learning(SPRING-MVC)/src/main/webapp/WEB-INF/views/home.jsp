@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,7 +64,7 @@
                    <a href="#">
                    <span class="glyphicon glyphicon-user" ></span> s'inscrire</a>
                    </li>
-      <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
+      <li  data-toggle="modal" data-target="#login"><a href="#"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -88,7 +88,7 @@
        <div class="gretting">
      
    <div class="col-xs-12">
-     <h1>commencez à apprendre avec <span style="color:#61bd5e;">RIM LEARNING</span></h1>
+     <h1>commencez Ã  apprendre avec <span style="color:#61bd5e;">RIM LEARNING</span></h1>
       
      <hr class="small">
      <div class="row">
@@ -132,7 +132,7 @@
                 <h3 style="color:#fff;">
                   Les Meilleurs professeurs
                 </h3>
-                <p style="color:#fff;">nous offrons à nos étudiants les meilleurs professeurs pour obtenir  le bac</p>
+                <p style="color:#fff;">nous offrons Ã  nos Ã©tudiants les meilleurs professeurs pour obtenir  le bac</p>
             </div>
              <div class="col-xs-12 col-md-4   text-center">
               <i class="fa fa-desktop fa-3x circle-icon"></i>
@@ -159,10 +159,10 @@
  
         <div class="featurette" id="about">
             <img class="featurette-image img-circle img-responsive pull-right" src="<c:url value="/resources/img/b.png"/>">
-            <h2 class="featurette-heading">cours plus travaux dirigés
+            <h2 class="featurette-heading">cours plus travaux dirigÃ©s
                 
             </h2>
-            <p class="lead"> Écrire quelque chose à propos  de ce service </p>
+            <p class="lead"> Ã‰crire quelque chose Ã  propos  de ce service </p>
         </div>
 
         <hr class="featurette-divider">
@@ -170,8 +170,8 @@
         <!-- Second Featurette -->
         <div class="featurette" id="services">
             <img class="featurette-image img-circle img-responsive pull-left" src="<c:url value="/resources/img/se.png"/>">
-            <h2 class="featurette-heading">La visioconférence </h2>
-             <p class="lead"> Écrire quelque chose à propos  de ce service </p>
+            <h2 class="featurette-heading">La visioconfÃ©rence </h2>
+             <p class="lead"> Ã‰crire quelque chose Ã  propos  de ce service </p>
         </div>
 
         <hr class="featurette-divider">
@@ -179,8 +179,8 @@
         <!-- Third Featurette -->
         <div class="featurette" id="contact">
             <img class="featurette-image img-circle img-responsive pull-right" src="<c:url value="/resources/img/c.png"/>">
-            <h2 class="featurette-heading">La Conférence</h2>
-                 <p class="lead"> Écrire quelque chose à propos  de ce service</p>
+            <h2 class="featurette-heading">La ConfÃ©rence</h2>
+                 <p class="lead"> Ã‰crire quelque chose Ã  propos  de ce service</p>
         </div>
          <hr class="featurette-divider">
            <!-- fourth Featurette -->
@@ -188,7 +188,7 @@
             <img class="featurette-image img-circle img-responsive pull-left" src="<c:url value="/resources/img/img6.png"/>">
             <h2 class="featurette-heading">Discuter avec votre professeur
                
-                 <p class="lead"> Écrire quelque chose à propos  de ce service</p>
+                 <p class="lead"> Ã‰crire quelque chose Ã  propos  de ce service</p>
             </h2>
 
         </div>
@@ -239,7 +239,7 @@
 			<div id="signup-tab-content" class="active">
 				<form class="signup-form" action="<c:url value="/student"/>" method="post"  onsubmit="return FormValidation_student();">
 				    <input type="text" class="input"  name="firstName"id="user_firstname" autocomplete="off" placeholder="nom">
-					<input type="text" class="input"  name="lastName"  id="user_lastname" autocomplete="off" placeholder="Prénom">
+					<input type="text" class="input"  name="lastName"  id="user_lastname" autocomplete="off" placeholder="PrÃ©nom">
 					<input type="email" class="input" name="email" id="user_email" autocomplete="off" placeholder="Email">
 					<input type="text" class="input"  name="username" id="user_name" autocomplete="off" placeholder="Nom d'utilisateur">
 					<input type="password" class="input" name="password" id="user_pass" autocomplete="off" placeholder="mot de passe">
@@ -278,20 +278,20 @@
 			<div id="signup2-tab-content">
 				<form class="login-form" action="<c:url value="/teacher"/>" method="post"  onsubmit="return FormValidation_teacher();">
 				     <input type="text" class="input" name="firstName" id="firstname" autocomplete="off" placeholder="nom">
-					 <input type="text" class="input"  name="lastName" id="lastname" autocomplete="off" placeholder="Prénom">
+					 <input type="text" class="input"  name="lastName" id="lastname" autocomplete="off" placeholder="PrÃ©nom">
 				     <input type="email" class="input" name="email" id="email" autocomplete="off" placeholder="Email">
-			         <input type="tel" class="input"  name="poneNumber" id="user_tel" autocomplete="off" placeholder="numéro de téléphone">
+			         <input type="tel" class="input"  name="poneNumber" id="user_tel" autocomplete="off" placeholder="numÃ©ro de tÃ©lÃ©phone">
 			
 			      
 						 <div class="form-group">
 						  <select class="form-control" id="list" name="item">
 						  
-						    <option value="select">sélectionner une matière</option>
-						    <option  value="mathématique"> mathématique</option>
+						    <option value="select">sÃ©lectionner une matiÃ¨re</option>
+						    <option  value="mathÃ©matique"> mathÃ©matique</option>
 						    <option  value="science">science</option>
 						    <option   value="physique">physique</option>
 						    <option   value="arabe">arabe</option>
-						    <option   value="français">français</option>
+						    <option   value="franÃ§ais">franÃ§ais</option>
 						    <option  value="Anglais">Anglais</option>
 						  </select>
 						</div>
@@ -320,8 +320,7 @@
 </div>
 					
 					
-
-					<input type="submit" class="button" value="s'inscrire">
+	              <input type="submit" class="button" value="s'inscrire">
 				</form><!--.signup-form-->
 				
 			</div><!--.signup-tab-content-->
@@ -331,6 +330,75 @@
  
  </div>
  <!-- end model signup -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <!-- login section  -->
+       <!--  begin  model for login -->
+ 
+ 
+ <!-- Modal -->
+<div id="login" class="modal fade" role="dialog">
+ 
+        
+<div class="form-wrap">
+		<div class="tabs">
+				<div class="modal-header" align="center">
+					<img class="img-circle" id="img_logo" src="<c:url value="/resources/img/user.png"/>">
+					
+				</div>
+		
+		</div><!--.tabs-->
+
+		<div class="tabs-content">
+			<div id="signup-tab-content" class="active">
+				<form class="signup-form" action="<c:url value="/login"/>" method="POST"  onsubmit="return FormValidation_login();">
+				 
+					<input type="text" class="input"  name="user" id="loginname" autocomplete="off" placeholder="Nom d'utilisateur">
+					<input type="password" class="input" name="pass" id="loginpass" autocomplete="off" placeholder="mot de passe">
+	
+		
+		
+		     
+                <button  class="button btn">se connecter <i class="fa fa-sign-in fa-1x"></i></button>
+            
+					
+					
+					
+					
+					
+				</form><!--.signup-form-->
+			</div></div><!-- content end  -->
+			
+			</div><!-- form-wrap end -->
+			</div><!-- end model login -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  <!-- footer -->
@@ -343,20 +411,6 @@
 
 
 
-<!-- model after signup -->
-<div class="modal fade" id="thankyouModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Thank you for pre-registering!</h4>
-      </div>
-      <div class="modal-body">
-          <p>Thanks for getting in touch!</p>                     
-      </div>    
-    </div>
-  </div>
-</div>
 
  
 
@@ -372,42 +426,11 @@
  
       
        <script src="<c:url value="/resources/js/signup.js"/>"></script>
-       <!-- 
        
-       
- <div class="form-group">
+       <script src="<c:url value="/resources/js/login.js"/>"></script>
+      
+
  
-  <select class="form-control" id="sel1">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-  </select>
-</div>
-       	
-					<div class="col-xs-12 ">	
-					
-					
-					<label class="col-xs-3">
-					<input class="check" type="checkbox" value="">
-					 <span class="checkbox-inline ">C</span>
-					</label>
-					<label class="col-xs-3">
-					<input class="check" type="checkbox" value="">
-					 <span class="checkbox-inline ">C</span>
-					</label>
-					<label class="col-xs-3">
-					<input class="check" type="checkbox" value="">
-					 <span class="checkbox-inline ">C</span>
-					</label>
-					<label class="col-xs-3">
-					<input class="check" type="checkbox" value="">
-					 <span class="checkbox-inline ">C</span>
-					</label>
-					
-					</div>
-				
-       
-        -->
+ 
   </body>
 </html>

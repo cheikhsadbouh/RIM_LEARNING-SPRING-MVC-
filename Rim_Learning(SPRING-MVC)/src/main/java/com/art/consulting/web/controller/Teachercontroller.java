@@ -50,7 +50,7 @@ public class Teachercontroller {
 		}
 		
 		
-       return "home";
+       return "after_teacher_signup";
 	}
 
 }

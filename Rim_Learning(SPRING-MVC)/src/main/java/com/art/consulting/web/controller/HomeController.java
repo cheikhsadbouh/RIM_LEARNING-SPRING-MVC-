@@ -24,20 +24,34 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		logger.info("Welcome home! The client locale is {}." );
+		logger.info("Welcome home! " );
 		
 		
 		
 		return "home";
 	}
 	
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login() {
+		
+		
 		logger.info("Welcome login" );
 		
 		
 		
-		return "login";
+		return "nothing";
+	}
+	
+	
+	@RequestMapping(value = "/login_error")
+	public String login_error() {
+		
+		
+		logger.info("Welcome login_error");
+		
+		
+		
+		return "login_error";
 	}
 	
 	

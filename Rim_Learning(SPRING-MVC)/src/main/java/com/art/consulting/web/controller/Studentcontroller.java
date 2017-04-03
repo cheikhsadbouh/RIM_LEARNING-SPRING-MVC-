@@ -39,7 +39,7 @@ public class Studentcontroller {
 		    	  logger.error("problem with adding student " +e.getMessage());
 		    }
 		   
-		return "home";
+		return "after_student_signup";
 		
   
 	}
