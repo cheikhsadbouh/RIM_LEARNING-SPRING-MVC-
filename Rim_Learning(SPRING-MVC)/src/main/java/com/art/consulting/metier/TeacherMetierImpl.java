@@ -7,8 +7,9 @@ import javax.mail.internet.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;  
-@Component
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;  
+@Service
 public class TeacherMetierImpl  implements TeacherMetier{
 	private static final Logger logger = LoggerFactory.getLogger(TeacherMetierImpl.class);
 
@@ -67,9 +68,9 @@ public class TeacherMetierImpl  implements TeacherMetier{
            	logger.info("email  sent successfully" );
           } catch (MessagingException e) {
         	  
-        	  throw new RuntimeException(e);
+        	 
           
-       	  // logger.error(" error while sending email  sent " +e.getStackTrace());
+       	   logger.error(" error while sending email  sent " +e.getStackTrace());
           }    
              
 		
