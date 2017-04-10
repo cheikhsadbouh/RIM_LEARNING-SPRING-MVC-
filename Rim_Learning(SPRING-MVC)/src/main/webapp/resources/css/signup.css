@@ -66,14 +66,14 @@ input {
   .form-wrap form .button {
     width: 100%;
     padding: .8em 0 10px .8em;
-    background-color: #61bd5e;
+    background-color: #71c9c6;
     border-radius: 11px;
     border: none;
     color: #fff;
     cursor: pointer;
     text-transform: uppercase; }
     .form-wrap form .button:hover {
-      background-color: #61bd5e; }
+      background-color: #71c9c6; }
   .form-wrap form .checkbox {
     visibility: hidden;
     padding: 20px;
@@ -157,13 +157,13 @@ margin-left: 2px;
 
 /* Checked state */
 .control input:checked ~ .control__indicator {
-	background: #61bd5e;
+	background: #71c9c6;
 }
 
 /* Hover state whilst checked */
 .control:hover input:not([disabled]):checked ~ .control__indicator,
 .control input:checked:focus ~ .control__indicator {
-	background: #61bd5e;
+	background: #71c9c6;
 }
 
 
@@ -252,3 +252,18 @@ margin-left: 2px;
     border: 1px solid transparent;
     border-radius: 16px;
 }
+
+.modal-body{
+	
+	background-color: #dff0d8;
+	
+	
+	
+	
+	
+}
+
+
+
+
+

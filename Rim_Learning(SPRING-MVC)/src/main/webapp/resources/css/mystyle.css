@@ -84,15 +84,13 @@ background: #fff;
 
 
 .navbar-default .navbar-nav>li>a:hover{
-	
-  
+	 
     background-color: transparent;	
-   
-
-	    color:#61bd5e;
+ 	    color:#71c9c6;
 	
 	
 }
+
 
 .navbar-default .navbar-brand {
    
@@ -101,17 +99,19 @@ background: #fff;
 .gretting{
 	position: absolute;
     left:252px;
-    top: 190px;
+    top: 219px;
     color:#fff;
+   
   
     }
     
     
 .img-responsive{
-max-height: 128px;
-    margin-left: 540px;
-    margin-top: 81px;    	
-    	
+  
+   
+        max-height: 230px;
+    margin-top: 45px;
+    margin-left: 506px;
     	
     }
     
@@ -122,13 +122,13 @@ max-height: 128px;
     margin: 15px auto;
     border-width: 3px;
     width: 280px;
-    border-color: #61bd5e;
+    border-color: #71c9c6;
 }
 
 
  .sec{
 	
-	background-color:#61bd5e;
+	background-color:#71c9c6;
       height: 222px;
 	
 	
@@ -159,7 +159,7 @@ max-height: 128px;
 	
 	    position: absolute;
     right: 34px;
-    top: -99px;
+    top: -67px;
     max-height: 352px;
     height: 193px;
     width: 275px;
@@ -223,15 +223,15 @@ form input, form textarea {
   resize: none;
 }
 form input:focus, form textarea:focus {
-  box-shadow: 0 0px 2px #61bd5e !important;
+  box-shadow: 0 0px 2px #71c9c6 !important;
 }
 form #input-submit {
   color: white;
-  background: #61bd5e;
+  background: #71c9c6;
   cursor: pointer;
 }
 form #input-submit:hover {
-  box-shadow: 0 1px 1px 1px #61bd5e;
+  box-shadow: 0 1px 1px 1px #71c9c6;
 }
 form textarea {
   height: 126px;
@@ -263,26 +263,27 @@ form textarea {
     
 }
 .jumbotron>hr {
-    border-top-color: #61bd5e;
+    border-top-color: #71c9c6;
 }
 
 .featurette {
     overflow: hidden;
+    height: 350px;
 }
 
 .featurette-image.pull-left {
-   
-        margin-left: 40px;
-    
+    margin-left: 40px;
     max-width: 500px;
-    max-height: 500px;
+    margin-top: 5px;
+    max-height: 312px;
+      
 }
 
 .featurette-image.pull-right {
     margin-left: 40px;
-   
     max-width: 500px;
-    max-height: 500px;
+    margin-top: 35px;
+    max-height: 312px;
 }
 
 .featurette-heading {

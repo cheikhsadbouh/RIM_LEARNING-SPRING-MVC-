@@ -11,9 +11,7 @@ function FormValidation_login(){
 		user.style.borderColor="rgba(234, 0, 0, 0.81)";
 		user.focus();
 	         return false;
-	}
-	
-	if(pass.value ==''){
+	}if(pass.value ==''){
 		pass.style.borderColor="rgba(234, 0, 0, 0.81)";
 		pass.focus();
 	         return false;

@@ -35,7 +35,8 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="index.html">
-            <span style="color:#61bd5e;">  <b>Rim</b> Learning </span>
+           <span style="color:#71c9c6;">  <b>Rim</b> Learning </span>
+      <!--   <img src="<c:url value="/resources/img/rimlearninglogo.png" />">-->
                 </a>
             </div>
 
@@ -64,7 +65,9 @@
                    <a href="#">
                    <span class="glyphicon glyphicon-user" ></span> s'inscrire</a>
                    </li>
-      <li  data-toggle="modal" data-target="#login"><a href="#"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
+      <li  data-toggle="modal" data-target="#login_model">
+      <a href="#"><span class="glyphicon glyphicon-log-in"></span> se connecter</a>
+      </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -74,28 +77,28 @@
     
   
   
-   
+   <div id="home">
 
+ 
 
-
-<header class="business-header">
+<header class="business-header" >
  
        <div class="d">
        <div class="col-xs-12">
-        <img class="img-responsive" src="<c:url value="/resources/img/rimlearning2.ico"/>">
+        <img class="img-responsive" src="<c:url value="/resources/img/rimlearninglogo.png" />">
          
         </div>
        <div class="gretting">
      
    <div class="col-xs-12">
-     <h1>commencez à apprendre avec <span style="color:#61bd5e;">RIM LEARNING</span></h1>
+     <h1>commencez à apprendre avec <span style="color:#71c9c6;">RIM LEARNING</span></h1>
       
      <hr class="small">
-     <div class="row">
+     <div class="row" style="margin-left: 77px;">
     
     
      
-     <div class="col-xs-4"><i class="fa fa-graduation-cap" ></i>
+     <div class="col-xs-4"><i class="fa fa-graduation-cap"style="color:#71c9c6;" ></i>
      <span> Plus de 12 professeurs </span>
      
      </div>
@@ -104,11 +107,11 @@
      
      
      
-     <div class="col-xs-4"><i class="fa fa-book" ></i>
+     <div class="col-xs-4"><i class="fa fa-book" style="color:#71c9c6;" ></i>
      <span >Plus de 2000 cours</span>     
      </div>
       
-     <div class="col-xs-4"><i class="fa fa-paper-plane" ></i>
+     <div class="col-xs-4"><i class="fa fa-paper-plane" style="color:#71c9c6;" ></i>
      <span>Apprendre en ligne</span>
      
      </div>
@@ -128,14 +131,14 @@
    
    <div class="sec">
            <div class="col-xs-12 col-md-4  text-center">
-              <i class="fa fa-trophy fa-3x circle-icon"></i>
+              <i class="fa fa-trophy fa-3x circle-icon" style="color:#71c9c6;"></i>
                 <h3 style="color:#fff;">
                   Les Meilleurs professeurs
                 </h3>
                 <p style="color:#fff;">nous offrons à nos étudiants les meilleurs professeurs pour obtenir  le bac</p>
             </div>
              <div class="col-xs-12 col-md-4   text-center">
-              <i class="fa fa-desktop fa-3x circle-icon"></i>
+              <i class="fa fa-desktop fa-3x circle-icon" style="color:#71c9c6;"></i>
                 <h3 style="color:#fff;">Apprendre en ligne
                 </h3>
                 <p style="color:#fff;"> Nos professeurs vous offre les meilleurs cours en ligne</p>
@@ -344,7 +347,7 @@
  
  
  <!-- Modal -->
-<div id="login" class="modal fade" role="dialog">
+<div id="login_model" class="modal fade" role="dialog">
  
         
 <div class="form-wrap">
@@ -386,7 +389,7 @@
  
  
  
- 
+ </div>
  
  
  
@@ -405,7 +408,7 @@
  
  
  
-<p class="footer">Copyright &copy;   <span style="color:#61bd5e;">  <b>Rim Learning</b> </span>2017</p>
+<p class="footer">Copyright &copy;   <span style="color:#71c9c6;">  <b>Rim Learning</b> </span>2017</p>
                       <hr class="small" >
    
 

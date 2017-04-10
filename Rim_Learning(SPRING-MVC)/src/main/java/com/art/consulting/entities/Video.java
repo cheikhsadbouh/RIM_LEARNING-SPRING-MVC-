@@ -15,6 +15,7 @@ public class Video {
 	private int  idVideo;
 	
 	private String dashUrl ;
+	private String title ;
 	private String hlsUrl;
 	
 	@ManyToOne
@@ -25,13 +26,18 @@ public class Video {
 	public Video() {}
 
 
-	public Video(int idVideo, String dashUrl, String hlsUrl, Training training) {
+
+
+	public Video(int idVideo, String dashUrl, String title, String hlsUrl, Training training) {
 		super();
 		this.idVideo = idVideo;
 		this.dashUrl = dashUrl;
+		this.title = title;
 		this.hlsUrl = hlsUrl;
 		this.training = training;
 	}
+
+
 
 
 	public int getIdVideo() {
@@ -72,6 +78,21 @@ public class Video {
 	public void setTraining(Training training) {
 		this.training = training;
 	}
+
+
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	
 
+	
 }

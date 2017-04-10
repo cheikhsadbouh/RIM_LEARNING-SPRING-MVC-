@@ -54,6 +54,39 @@ public class HomeController {
 		return "login_error";
 	}
 	
+
+	@RequestMapping(value = "/student_home_page")
+	public String test() {
+		
+		
+		logger.info("Welcome test");
+		
+		
+		
+		return "student_home_page";
+	}
+	
+	@RequestMapping(value = "/news")
+	public String test7() {
+		
+		
+		logger.info("Welcome test");
+		
+		
+		
+		return "post_page";
+	}
+	@RequestMapping(value = "/cours")
+	public String cours() {
+		
+		
+		logger.info("Welcome cours");
+		
+		
+		
+		return "cours";
+	}
+	
 	
 	
 	

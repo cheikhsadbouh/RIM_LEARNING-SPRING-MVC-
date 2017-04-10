@@ -27,9 +27,13 @@
                  <h4 class="modal-title" id="memberModalLabel">MERCI !</h4>
 
             </div>
-            <div class="modal-body">
+            <div class="modal-body" >
             
-                <p><h2>Votre compte a été créé avec succès</h2></p>
+                
+                <div class="alert alert-success" role="alert">
+                   <p><h2>Votre compte a été créé avec succès</h2></p>
+                
+                </div>
                 
             </div>
             <div class="modal-footer">
