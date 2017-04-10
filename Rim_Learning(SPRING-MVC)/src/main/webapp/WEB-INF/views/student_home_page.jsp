@@ -9,12 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Bootstrap 101 Template</title>
-
+  
    
     <!-- Bootstrap -->
  
       <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
-      
+
 
     <!-- my style -->
    
@@ -574,11 +574,9 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
  
-     
        <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
-    <!-- bitdash player -->
-  <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7/bitmovinplayer.js"></script>
-   
+  
+     
    <style>
 video {
     width: 100%;
@@ -592,6 +590,12 @@ video {
 </style>   
  
       <script type="text/javascript">
+      
+      
+      
+     
+    
+    
 $(function() {
     var $menu = $('#menu'), 
         $target = $('#target');
@@ -615,29 +619,7 @@ $(function() {
 	
     // Your fnNamt function here
 
-    
-    if (location.protocol === "file:") {
-    document.getElementById("webserver-warning").style.display = "block";
-  }
-
-  var conf = {
-    key:       "91941868-f5a0-4c8d-ad12-b270b60ce8dd",
-    source: {
-      dash:        "<c:url value='/resources/formations/formation-math/nombre-complexe/video1/511344.mpd' />",
-      hls:         " <c:url value='/resources/formations/formation-math/nombre-complexe/video1/511344.m3u8' />",
-      poster:      "<c:url value='/resources/formations/formation-math/nombre-complexe/' />"
-     
-    }
-  };
-  var player = bitmovin.player("player");
-
-  player.setup(conf).then(function(value) {
-    // Success
-    console.log("Successfully created bitmovin player instance");
-  }, function(reason) {
-    // Error!
-    console.log("Error while creating bitmovin player instance");
-  });
+  
 
 </script>
      

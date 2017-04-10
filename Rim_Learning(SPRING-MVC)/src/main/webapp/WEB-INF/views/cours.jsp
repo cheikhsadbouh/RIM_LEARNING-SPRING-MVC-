@@ -20,6 +20,9 @@
      <link href="<c:url value="/resources/css/cours.css" />" rel="stylesheet">
       <!-- myfont -->
      <link href="<c:url value="/resources/css/font-awesome/css/font-awesome.min.css" />" rel="stylesheet">
+      <!-- bitdash player -->
+  <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7/bitmovinplayer.js"></script>
+  
   </head>
   <body>
   
@@ -185,6 +188,30 @@
       <div id="player"></div>
     </div>
 
+<script type="text/javascript">
+  if (location.protocol === "file:") {
+    document.getElementById("webserver-warning").style.display = "block";
+  }
+
+  var conf = {
+    key:       "91941868-f5a0-4c8d-ad12-b270b60ce8dd",
+    source: {
+      dash:        "<c:url value='/resources/formations/formation-math/nombre-complexe/video1/511344.mpd' />",
+      hls:         " <c:url value='/resources/formations/formation-math/nombre-complexe/video1/511344.m3u8' />",
+      poster:      "<c:url value='/resources/formations/formation-math/nombre-complexe/' />"
+     
+    }
+  };
+  var player = bitmovin.player("player");
+
+  player.setup(conf).then(function(value) {
+    // Success
+    console.log("Successfully created bitmovin player instance");
+  }, function(reason) {
+    // Error!
+    console.log("Error while creating bitmovin player instance");
+  });
+</script>
       </div>
       
       <div class="clo-xs-4">
@@ -271,6 +298,8 @@
 
   </div>
 </div>
+
+ 
 		</div><!-- end id cours -->
   
   
@@ -282,9 +311,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
   <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
-  <!-- bitdash player -->
-  <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7/bitmovinplayer.js"></script>
-  
+ 
      
 
       <style>
@@ -299,30 +326,6 @@ video {
 }
 </style>
 
- <script type="text/javascript">
-  if (location.protocol === "file:") {
-    document.getElementById("webserver-warning").style.display = "block";
-  }
-
-  var conf = {
-    key:       "91941868-f5a0-4c8d-ad12-b270b60ce8dd",
-    source: {
-      dash:        "<c:url value='/resources/formations/formation-math/nombre-complexe/video1/511344.mpd' />",
-      hls:         " <c:url value='/resources/formations/formation-math/nombre-complexe/video1/511344.m3u8' />",
-      poster:      "<c:url value='/resources/formations/formation-math/nombre-complexe/' />"
-     
-    }
-  };
-  var player = bitmovin.player("player");
-
-  player.setup(conf).then(function(value) {
-    // Success
-    console.log("Successfully created bitmovin player instance");
-  }, function(reason) {
-    // Error!
-    console.log("Error while creating bitmovin player instance");
-  });
-</script>
  
   </body>
 </html>
