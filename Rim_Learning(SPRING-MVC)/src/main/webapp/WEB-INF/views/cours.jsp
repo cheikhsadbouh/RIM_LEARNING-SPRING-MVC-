@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,12 @@
   <body>
   
  <div id="cours">
+ 
+ 
       <link href="<c:url value="/resources/css/cours.css" />" rel="stylesheet">
+       
+     <script src="<c:url value="/resources/js/player.js"/>"></script>
+      
  	<div class="col-md-12">
             <div class="panel with-nav-tabs panel-success" id="borderheader">
                 <div class="panel-heading" id="header">
@@ -44,18 +49,24 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="tab1success">
+                        
+                        
+                        <c:forEach var="i" items="${list}">
+                          
+
+                        
                         <div class="col-sm-6">
 						  <div class="col-item">
                                 <div class="photo">
-                                    <img src="<c:url value="/resources/img/card.png" />" class="img-responsive" alt="a" />
+                                    <img src="<c:url value="${i.url_photo_poster}" />" class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-4">
                                             <h5>
-                                                nom de formation</h5>
+                                               <c:out value="${i.name}"/></h5>
                                             <h5 class="price-text-color">
-                                                1000 UM</h5>
+                                               <c:out value="${i.price} UM"/> </h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-8">
                                             <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
@@ -65,12 +76,21 @@
                                     </div>
                                     <div class="separator clear-left">
                                         <p class="btn-add ">
-                                           <a href="#" class="hidden-sm btn btn-default" data-toggle="modal" data-target="#myModal"> <i class="fa fa-shopping-cart"></i>abonner
+                                           <a href="#" onclick="myFunc('<c:out value='${i.name}u'/>','<c:out value="${i.name}p"/>')" class="hidden-sm btn btn-default" data-toggle="modal" data-target="<c:out value="#${i.name}rt"/>"> <i class="fa fa-shopping-cart"></i>abonner
                                            </a></p>
                                         <p class="btn-details ">
-                                            <a href="#" class="hidden-sm  btn btn-default " data-toggle="modal" data-target="#details"><i class="fa fa-list"></i>Plus de détails
-                                            </a></p>
+                                          <c:forEach var="t" items="${i.video}">  
+                                        <c:if test = "${t.title eq 'presentation '}">
+                                            <a href="#" class="hidden-sm  btn btn-default " data-toggle="modal" data-target="<c:out value="#${i.name}y"/>"
+                                             onclick="player('${pageContext.request.contextPath}<c:out value="${t.dashUrl}"/>','${pageContext.request.contextPath}<c:out value="${t.hlsUrl}"/>','${pageContext.request.contextPath}<c:out value="${t.url_photo_poster}"/>','<c:out value="${i.name}player"/>')">
+                                             <i class="fa fa-list"></i>Plus de détails
+                                            </a>
+                                         </c:if>
+                                          </c:forEach>
+                                            </p>
+                                            
                                     </div>
+                                    
                                     <div class="clearfix">
                                     </div></div>
                                     
@@ -81,49 +101,14 @@
                                
 						
 					</div><!-- end content -->
-				</div>
-                        
-                        <!-- end card1 -->
-                        
-                          <div class="col-sm-6">
-						  <div class="col-item">
-                                <div class="photo">
-                                    <img src="<c:url value="/resources/img/card.png" />" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-4">
-                                            <h5>
-                                                nom de formation</h5>
-                                            <h5 class="price-text-color">
-                                                1000 UM</h5>
-                                        </div>
-                                        <div class="rating hidden-sm col-md-8">
-                                            <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                            </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                            </i><i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add ">
-                                           <a href="#" class="hidden-sm btn btn-default  "> <i class="fa fa-shopping-cart"></i>abonner
-                                           </a></p>
-                                        <p class="btn-details ">
-                                            <a href="#" class="hidden-sm btn btn-default "><i class="fa fa-list"></i>Plus de détails
-                                            </a></p>
-                                    </div>
-                                    <div class="clearfix">
-                                    </div></div>
-                                    
-                                    
-                                    
-                                    	
-                                    
-                               
-						
-					</div><!-- end content -->
-				</div>
-                       <!-- end card2 -->
+					
+					
+				</div><!-- end card and col -->
+
+        
+				
+				
+                        </c:forEach><!-- end foreach -->
                         
                         
                         </div><!-- end cours c -->
@@ -137,36 +122,67 @@
         </div>
         
         
+                
+  <c:forEach var="i" items="${list}">
         
-        
-        
-        
-          
-  <!-- model abonner -->
+        				<!-- model abonner -->
   <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
 
-  </div>
-</div>
+
+<div id="<c:out value="${i.name}rt"/>" class="modal fade" >
+ 
+        
+<div class="form-wrap">
+		<div class="tabs">
+				<div class="modal-header" >
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<div id="data" align="center">  
+     <p>formation : <c:out value="${i.name}"/></p>
+       <p> prix : <c:out value="${i.price} UM"/></p>
+          <p>période d'accès: 1 mois </p>
+     
+     </div>
+					
+				</div>
+		
+		</div><!--.tabs-->
+
+		<div class="tabs-content">
+			<div id="signup-tab-content" class="active">
+				<form class="signup-form"    id="<c:out value="${i.name}34"/>"  >
+				 
+				 
+<input type="text" class="input"  name="phone_user" id="phone" autocomplete="off"required title="Lütfen işaretli yerleri doldurunuz " placeholder="numéro de téléphone">
+
+
+                  
+<input id="" type="hidden" class="form-control" name="TRAININGID" value="<c:out value="${i.idTraining}"/>"    >   
+<input id="" type="hidden" class="form-control" name="PRICE" value="<c:out value="${i.price}"/>" >   
+<input id="<c:out value="${i.name}u"/>" type="hidden" class="form-control" name="USER" value=""> 
+<input id="<c:out value="${i.name}p"/>" type="hidden" class="form-control" name="PRIMARY" value=""> 
+		     
+  <button  id="ibutton" type="submit" class="button btn"  onclick="getSubList('<c:out value="${i.name}rt"/>','<c:out value="${i.name}34"/>')">
+  Envoyer la demande <i class="fa fa-sign-in fa-1x"></i></button>
+            
+					
+					
+					
+					
+					
+				</form><!--.signup-form-->
+			</div></div><!-- content end  -->
+			
+			</div><!-- form-wrap end -->
+			
+			</div><!-- end model login -->
+ 
+ 
+     
 
 <!-- model delaits -->
 
-<div id="details" class="modal fade" role="dialog">
+<div id="<c:out value="${i.name}y"/>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -180,38 +196,12 @@
       <div class="clo-xs-4">
       <h4 class="text-center">
 	Présentation de la formation</h4>
-    <!--    <video width="400" controls poster="<c:url value="/resources/img/postervideo.jpg" />">
-  <source src="<c:url value="/resources/img/rt.mp4" />" type="video/mp4">
-  
-</video>-->
+   
     <div class="player-wrapper">
-      <div id="player"></div>
+      <div id="<c:out value="${i.name}player"/>"></div>
     </div>
 
-<script type="text/javascript">
-  if (location.protocol === "file:") {
-    document.getElementById("webserver-warning").style.display = "block";
-  }
 
-  var conf = {
-    key:       "91941868-f5a0-4c8d-ad12-b270b60ce8dd",
-    source: {
-      dash:        "<c:url value='/resources/formations/formation-math/nombre-complexe/video1/511344.mpd' />",
-      hls:         " <c:url value='/resources/formations/formation-math/nombre-complexe/video1/511344.m3u8' />",
-      poster:      "<c:url value='/resources/formations/formation-math/nombre-complexe/' />"
-     
-    }
-  };
-  var player = bitmovin.player("player");
-
-  player.setup(conf).then(function(value) {
-    // Success
-    console.log("Successfully created bitmovin player instance");
-  }, function(reason) {
-    // Error!
-    console.log("Error while creating bitmovin player instance");
-  });
-</script>
       </div>
       
       <div class="clo-xs-4">
@@ -223,7 +213,8 @@
                 </div>
                 <div class="panel-body" id="padingbody">
                  <div class="well" style="max-height: 100px;overflow: auto;">
-                <ul class="list-group checked-list-box">      
+                <ul class="list-group checked-list-box">   
+                 <c:forEach var="t" items="${i.video}">   
                   <li class="list-group-item">
                   
   
@@ -232,37 +223,15 @@
      <i class="fa fa-play-circle fa-2x"></i>
      </div>
      <div class="media-body"> 
-     <span class="h4">titre de video </span> 
+     <span class="h4"><c:out value="${t.title}"/> </span> 
     
       
      <span class="pull-right"><i class="fa fa-lock fa-2x" aria-hidden="true"></i></span>
 
      </div>
      </div> <!-- titre video -->
-                  
-                  
-                  
-                  </li>
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <i class="fa fa-play-circle fa-2x"></i>
-     </div>
-     <div class="media-body"> 
-     <span class="h4">titre de video </span> 
-    
-      
-     <span class="pull-right"><i class="fa fa-lock fa-2x" aria-hidden="true"></i></span>
-
-     </div>
-     </div> <!-- titre video -->
-                  
-                  
-                  
-                  </li>
-                 
+                    </li>
+                  </c:forEach><!-- end foreach -->
                 </ul>
                 </div>
                 
@@ -294,12 +263,68 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
+     
     </div>
-
+ 
   </div>
 </div>
+        
+  
+                        </c:forEach><!-- end foreach -->
 
  
+ 
+ 
+ 
+ <div id="response" class="modal fade" >
+ 
+        
+<div class="form-wrap">
+		<div class="tabs">
+				<div class="modal-header" >
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+					
+					
+				</div>
+		
+		</div><!--.tabs-->
+
+		<div class="tabs-content">
+			<div id="signup-tab-content" class="active">
+				 
+		     
+  
+	<div id="data3">  
+	<br>
+    
+  <p align="left"> 
+       Merci pour votre fidélité,
+       </p>
+       
+ <p align="center" >
+Vous avez 24 heures pour envoyer du crédit à notre numéro
+ <i class="glyphicon glyphicon-earphone"  style="color:#71c9c6;"></i><b style="color:#71c9c6;"> 36408642</b>
+</p>
+ <div id="color">
+   <p align="left">NB :  </p>
+La demande sera rejetée après cette période
+       
+ 
+ </div>
+  
+     
+     </div>
+  
+					
+					
+					
+					
+				
+			</div></div><!-- content end  -->
+			
+			</div><!-- form-wrap end -->
+			
+			</div><!-- end model login -->
 		</div><!-- end id cours -->
   
   
@@ -310,21 +335,30 @@
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-  <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
+    
+     <script src="<c:url value="/resources/js/player.js"/>"></script>
+       <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
+   
  
      
 
-      <style>
+   <style type="text/css">
 video {
     width: 100%;
     height: auto;
-        margin-top: -64px;
+    margin-top: -64px;
 }
 
-  .bmpui-ui-watermark {
+  .bmpui-ui-watermark{
   display: none;
 }
 </style>
+
+<script type="text/javascript">
+
+
+
+</script>
 
  
   </body>

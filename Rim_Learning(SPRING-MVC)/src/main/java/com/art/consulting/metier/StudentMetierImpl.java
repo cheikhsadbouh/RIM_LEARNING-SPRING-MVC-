@@ -17,6 +17,12 @@ public class StudentMetierImpl implements StudentMetier{
 		StudentRepository.save(student);
 		
 	}
+
+	@Override
+	public Student findbyname(String name) {
+		
+		return  StudentRepository.findUserByName(name);
+	}
 	
 	
 	

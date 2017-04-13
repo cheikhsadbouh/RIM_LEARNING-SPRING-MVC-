@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +22,9 @@
      <link href="<c:url value="/resources/css/font-awesome/css/font-awesome.min.css" />" rel="stylesheet">
      
       <link href="<c:url value="/resources/css/student_home_page.css" />" rel="stylesheet">
+        <!-- bitdash player -->
+  <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7/bitmovinplayer.js"></script>
+  
   </head>
   <body>
   
@@ -92,8 +95,30 @@
      <img data-no-retina="" id="imgprofile" class="img-circle img-responsive img-bordered-primary" src="<c:url value="/resources/img/avatar6.png" />" alt="student">
      </li>
      <li class="text-center">
-     <h4 class="text-capitalize">Username</h4>
-     <p class="text-muted text-capitalize">terminal D</p>
+     <script type="text/javascript">
+     var r= '<c:out value="${sessionScope.name}" />' ;
+     var section= '<c:out value="${sessionScope.sec}" />';
+     var primary='<c:out value="${sessionScope.primary}" />';
+   
+     localStorage.setItem("username",r);
+     localStorage.setItem("pr",primary);
+     localStorage.setItem("section",section);
+     </script>
+     <h4 class="text-capitalize">
+     
+      <script type="text/javascript">
+    document.write(localStorage.username);
+     
+     </script>
+     
+     </h4>
+     <p class="text-muted text-capitalize">
+       <script type="text/javascript">
+    document.write(localStorage.section);
+     
+     </script>
+     
+     </p>
      </li>
      
      <li>
@@ -103,7 +128,7 @@
      <div class="btn-group-vertical btn-block"> 
      <a href="" class="btn btn-default" id="btndefault">
      <i class="fa fa-cog pull-right"></i>Modifier le compte</a> <br>
-     <a href="" class="btn btn-default" id="btndefault">
+     <a href="<c:url value="/cheikh" />" class="btn btn-default" id="btndefault">
      <i class="fa fa-sign-out pull-right"></i>Déconnexion</a></div></li></ul></div></div></div>
      <!-- end panel user profile -->
     
@@ -573,9 +598,10 @@
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/player.js"/>"></script>
  
        <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
-  
+       
      
    <style>
 video {
@@ -591,6 +617,7 @@ video {
  
       <script type="text/javascript">
       
+	
       
       
      
@@ -603,8 +630,11 @@ $(function() {
     $menu.on('click', '> li > a', function(event) {
         var $this = $(this);
         event.preventDefault();
-        $target.load($this.attr('href'));
+       $target.load($this.attr('href'));
       //  $('#result').load('ajax/test.html #container');
+     
+
+
     });
 });
 
@@ -620,6 +650,7 @@ $(function() {
     // Your fnNamt function here
 
   
+    
 
 </script>
      

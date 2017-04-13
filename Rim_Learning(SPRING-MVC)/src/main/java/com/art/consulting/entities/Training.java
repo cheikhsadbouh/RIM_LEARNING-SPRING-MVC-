@@ -27,13 +27,14 @@ public class Training  implements Serializable{
 	private String name ;
 	private String type ;
 	private int price;
-     
+	private String url_photo_poster;
+    private String presentation_video ;
 	
 	@ManyToOne
 	@JoinColumn(name="teacher_id")
 	private Teacher teacherId ;
 	
-	@OneToMany(targetEntity=Video.class,mappedBy="training",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToMany(targetEntity=Video.class,mappedBy="training",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private List<Video> video ;
 	
 	
@@ -51,13 +52,34 @@ public class Training  implements Serializable{
 	
 	
 	
-	public Training(int idTraining, String name, String type, int price) {
-	
+
+
+
+	public Training(int idTraining, String name, String type, int price, String url_photo_poster,
+			String presentation_video, Teacher teacherId, List<Video> video,
+			List<com.art.consulting.entities.Student> student) {
+		super();
 		this.idTraining = idTraining;
 		this.name = name;
 		this.type = type;
 		this.price = price;
+		this.url_photo_poster = url_photo_poster;
+		this.presentation_video = presentation_video;
+		this.teacherId = teacherId;
+		this.video = video;
+		Student = student;
 	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -142,6 +164,45 @@ public class Training  implements Serializable{
 	public void setStudent(List<Student> student) {
 		Student = student;
 	}
+
+
+
+
+
+
+
+	public String getUrl_photo_poster() {
+		return url_photo_poster;
+	}
+
+
+
+
+
+
+
+	public void setUrl_photo_poster(String url_photo_poster) {
+		this.url_photo_poster = url_photo_poster;
+	}
+
+
+
+
+
+
+	public String getPresentation_video() {
+		return presentation_video;
+	}
+
+
+
+
+
+
+	public void setPresentation_video(String presentation_video) {
+		this.presentation_video = presentation_video;
+	}
+	
 	
 	
 	

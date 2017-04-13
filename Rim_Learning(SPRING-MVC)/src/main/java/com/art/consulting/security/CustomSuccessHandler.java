@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -20,11 +21,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomSuccessHandler implements AuthenticationSuccessHandler  {
 
-	
+	private String  username ;
 	protected Log logger = LogFactory.getLog(this.getClass());
-	 
-    private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-   
+	
+	  
+	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, 
       HttpServletResponse response, Authentication authentication)
@@ -38,6 +39,9 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler  {
       HttpServletResponse response, Authentication authentication)
       throws IOException {
   
+    	 username= (String )request.getParameter("user");
+         logger.info(request.getParameter("user"));
+         logger.info(request.getParameter("pass"));
         String targetUrl = determineTargetUrl(authentication);
  
         if (response.isCommitted()) {
@@ -46,8 +50,10 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler  {
               + targetUrl);
             return;
         }
- 
+       
         redirectStrategy.sendRedirect(request, response, targetUrl);
+       
+       
     }
  
     protected String determineTargetUrl(Authentication authentication) {
@@ -66,7 +72,9 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler  {
         }
  
         if (isUser) {
-            return "/student_home_page";
+        
+        	
+            return "/student_home_page/?user="+EncryptionUtil.encode(username);
         } else if (isAdmin) {
             return "/teacher_home_page";
         } else {

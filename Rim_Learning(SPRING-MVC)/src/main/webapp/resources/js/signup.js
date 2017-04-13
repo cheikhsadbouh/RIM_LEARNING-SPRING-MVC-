@@ -112,6 +112,7 @@ $(document).ready(function () {
 
 });
 
+
 $(document).ready(function () {
 
 	$('#login_error').modal('show');
@@ -121,5 +122,4 @@ $(document).ready(function () {
 
 	
 	
-
 
