@@ -10,5 +10,6 @@ public interface TrainingRepository extends JpaRepository<Training, Integer> {
 
 
 
+
 	
 }

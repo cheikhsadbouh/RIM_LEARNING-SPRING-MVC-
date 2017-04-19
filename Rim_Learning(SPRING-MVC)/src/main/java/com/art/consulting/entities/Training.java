@@ -28,11 +28,12 @@ public class Training  implements Serializable{
 	private String type ;
 	private int price;
 	private String url_photo_poster;
-    private String presentation_video ;
+    private String presentation_video;
 	
 	@ManyToOne
 	@JoinColumn(name="teacher_id")
 	private Teacher teacherId ;
+	
 	
 	@OneToMany(targetEntity=Video.class,mappedBy="training",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private List<Video> video ;

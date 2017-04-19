@@ -23,7 +23,6 @@
      
       <link href="<c:url value="/resources/css/student_home_page.css" />" rel="stylesheet">
         <!-- bitdash player -->
-  <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7/bitmovinplayer.js"></script>
   
   </head>
   <body>
@@ -99,7 +98,7 @@
      var r= '<c:out value="${sessionScope.name}" />' ;
      var section= '<c:out value="${sessionScope.sec}" />';
      var primary='<c:out value="${sessionScope.primary}" />';
-   
+   console.log(r);
      localStorage.setItem("username",r);
      localStorage.setItem("pr",primary);
      localStorage.setItem("section",section);
@@ -139,9 +138,10 @@
    
 <div  class="panel-group" >
 <ul class="list-unstyled">
+ 
 
     <li> 
-     <a href=""  class="btn btn-default text-center btn-block">Mes Cours
+     <a href="<c:url value='/mycourses/${sessionScope.name}  #home' />" id="courses"  class="btn btn-default text-center btn-block">Mes Cours
      </a>
      </li>
      </ul>
@@ -598,6 +598,8 @@
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+      <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7/bitmovinplayer.js"></script>
+    
     <script src="<c:url value="/resources/js/player.js"/>"></script>
  
        <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
@@ -638,7 +640,22 @@ $(function() {
     });
 });
 
+ 
 
+$(function() {
+    var $menu = $('#courses'), 
+        $target = $('#target');
+
+    $menu.on('click', '', function(event) {
+        var $this = $(this);
+        event.preventDefault();
+       $target.load($this.attr('href'));
+      //  $('#result').load('ajax/test.html #container');
+     
+
+
+    });
+});
 	
 	$(document).ready(function () {
 		
@@ -650,7 +667,56 @@ $(function() {
     // Your fnNamt function here
 
   
+    $(function() {
+   
+//     var i= setInterval(function(){
+    	
+//     	if($('#list').length > 0){
+   		
+   		
+//    		 var $menu = $('#list'), 
+//    	        $target = $('#target');
+
+//    	    $menu.on('click', '', function(event) {
+   	    	
+//    	        var $this = $(this);
+//    	        event.preventDefault();
+//    	       $target.load("/rim_learning_spring_mvc/playlist #palylist");
+   	       
+   	       
+   	  
+   	   
+
+//    	    });
+   	    
+//   }
+//     },1000);
+   
     
+    
+    
+   	
+ 
+   
+ var intervalId=   setInterval(function(){
+	 
+
+ 	   if($('#new').length > 0){
+ 	
+ 	  
+       	
+           
+       }
+    	},1000);
+ 
+ 
+ 
+    
+    });
+
+
+
+
 
 </script>
      

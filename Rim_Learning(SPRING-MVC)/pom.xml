@@ -185,6 +185,13 @@
     <artifactId>mail</artifactId>
     <version>1.4.7</version>
 </dependency>
+
+<!-- rest -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>1.9</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>
@@ -222,6 +229,7 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
+            
         </plugins>
     </build>
     <artifactId>rim_learning_spring_mvc</artifactId>

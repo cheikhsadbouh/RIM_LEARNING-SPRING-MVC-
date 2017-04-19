@@ -1,232 +1,253 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.14" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.art.consulting.entities.Training" project="Rim_Learning(SPRING-MVC)" 
-    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Training.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="419" width="175" x="634" y="1473"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="com.art.consulting.entities.Visiotable" project="Rim_Learning(SPRING-MVC)" 
+  <class id="1" language="java" name="com.art.consulting.entities.Visiotable" project="Rim_Learning(SPRING-MVC)" 
     file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Visiotable.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="203" width="148" x="-33" y="-48"/>    
+    <position height="203" width="148" x="141" y="-42"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.art.consulting.entities.Homepage" project="Rim_Learning(SPRING-MVC)" 
+  <class id="2" language="java" name="com.art.consulting.entities.Homepage" project="Rim_Learning(SPRING-MVC)" 
     file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Homepage.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="239" width="172" x="-117" y="1473"/>    
+    <position height="239" width="172" x="1340" y="1362"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.art.consulting.entities.Library" project="Rim_Learning(SPRING-MVC)" 
-    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Library.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="203" width="130" x="240" y="-48"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="com.art.consulting.entities.Tutotable" project="Rim_Learning(SPRING-MVC)" 
-    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Tutotable.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="239" width="159" x="435" y="852"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="com.art.consulting.entities.Teacher" project="Rim_Learning(SPRING-MVC)" 
-    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Teacher.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="581" width="512" x="-117" y="852"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="com.art.consulting.entities.Video" project="Rim_Learning(SPRING-MVC)" 
+  <class id="3" language="java" name="com.art.consulting.entities.Video" project="Rim_Learning(SPRING-MVC)" 
     file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Video.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="293" width="176" x="634" y="852"/>    
+    <position height="401" width="238" x="1643" y="1929"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="com.art.consulting.entities.Notification" project="Rim_Learning(SPRING-MVC)" 
-    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Notification.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="275" width="211" x="357" y="537"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="com.art.consulting.entities.Paymentstorage" project="Rim_Learning(SPRING-MVC)" 
-    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Paymentstorage.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="311" width="210" x="495" y="-48"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="com.art.consulting.entities.Student" project="Rim_Learning(SPRING-MVC)" 
+  <class id="4" language="java" name="com.art.consulting.entities.Student" project="Rim_Learning(SPRING-MVC)" 
     file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Student.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="545" width="424" x="831" y="-48"/>    
+    <position height="707" width="500" x="1921" y="1929"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="com.art.consulting.entities.Temporarystudent" project="Rim_Learning(SPRING-MVC)" 
-    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Temporarystudent.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="311" width="207" x="1295" y="-48"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="12" language="java" name="com.art.consulting.entities.ConferenceTable" project="Rim_Learning(SPRING-MVC)" 
+  <class id="5" language="java" name="com.art.consulting.entities.ConferenceTable" project="Rim_Learning(SPRING-MVC)" 
     file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/ConferenceTable.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="365" width="213" x="1542" y="-48"/>    
+    <position height="365" width="213" x="329" y="-42"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="13">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="14" name="teacherId"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
+  <class id="6" language="java" name="com.art.consulting.entities.StudentTrainingTemporary" 
+    project="Rim_Learning(SPRING-MVC)" 
+    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/StudentTrainingTemporary.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="383" width="298" x="582" y="-42"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.art.consulting.entities.Training" project="Rim_Learning(SPRING-MVC)" 
+    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Training.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="527" width="392" x="1643" y="1362"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.art.consulting.entities.User" project="Rim_Learning(SPRING-MVC)" 
+    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/User.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="473" width="255" x="1340" y="-42"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.art.consulting.entities.Library" project="Rim_Learning(SPRING-MVC)" 
+    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Library.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="203" width="130" x="920" y="-42"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.art.consulting.entities.Tutotable" project="Rim_Learning(SPRING-MVC)" 
+    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Tutotable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="239" width="159" x="2030" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.art.consulting.entities.Teacher" project="Rim_Learning(SPRING-MVC)" 
+    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Teacher.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="851" width="650" x="1340" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.art.consulting.entities.Notification" project="Rim_Learning(SPRING-MVC)" 
+    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Notification.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="275" width="211" x="2210" y="-42"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.art.consulting.entities.Paymentstorage" project="Rim_Learning(SPRING-MVC)" 
+    file="/Rim_Learning(SPRING-MVC)/src/main/java/com/art/consulting/entities/Paymentstorage.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="311" width="210" x="1090" y="-42"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="14">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="15" name="post"/>      
+      <multiplicity id="16" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="16">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="17" name="notification"/>      
-      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="19">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="20" name="teacherId"/>      
-      <multiplicity id="21" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="22">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="23" name="post"/>      
-      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="25">    
-    <bendpoint x="840" y="537"/>    
-    <bendpoint x="840" y="852"/>    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="26" name="training"/>      
-      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="29" name="training"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="32" name="notification"/>      
-      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="34">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="35" name="training"/>      
-      <multiplicity id="36" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="37">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="38" name="studentId"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="40">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="41" name="trainingId"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="44" name="video"/>      
-      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
+  <association id="17">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="18" name="training"/>      
+      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="47" name="teacher"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
+  <association id="20">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="21" name="teacher"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="23">    
+    <bendpoint x="2240" y="1362"/>    
+    <bendpoint x="2240" y="471"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="24" name="notification"/>      
+      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="27" name="training"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="30" name="Student"/>      
+      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="33" name="notification"/>      
+      <multiplicity id="34" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <bendpoint x="2219" y="471"/>    
+    <bendpoint x="2219" y="1362"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="36" name="studentId"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="39" name="training"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="41">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="42" name="trainingId"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="44">    
+    <bendpoint x="1309" y="1362"/>    
+    <bendpoint x="1309" y="471"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="45">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <association id="46">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="47" name="video"/>      
+      <multiplicity id="48" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="49">    
-    <bendpoint x="861" y="852"/>    
-    <bendpoint x="861" y="537"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="50" name="Student"/>      
-      <multiplicity id="51" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="50" name="teacherId"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="53" name="teacherId"/>      
+      <multiplicity id="54" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

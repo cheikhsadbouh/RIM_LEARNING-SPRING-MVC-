@@ -138,10 +138,10 @@ public class HomeController {
 	        (
 			 @RequestParam("PRICE") String PRICE
 			,@RequestParam("TRAININGID") String TRAININGID
-			,@RequestParam("PRIMARY") String PRIMARY
+			,@RequestParam("USER") String USER
 			,@RequestParam("phone_user") String phone_user
 			, @ModelAttribute("student") StudentTrainingTemporary trainingtable
-			) {
+			) {  
 		 
 //logger.info(PRICE);
 //		
@@ -149,13 +149,13 @@ public class HomeController {
 //		logger.info(PRIMARY);
 //		logger.info(phone_user);
 		 
-			trainingtable.setIdStudent(PRIMARY);
+			trainingtable.setUser(USER);
 			trainingtable.setIdTraining(TRAININGID);
 			trainingtable.setPhoneNumberStudent(phone_user);
 			trainingtable.setPriceTraining(PRICE);	
     
     
-   trainingmetier.newTrainingRequrst(trainingtable);
+            trainingmetier.newTrainingRequrst(trainingtable);
 		
 		 
 		

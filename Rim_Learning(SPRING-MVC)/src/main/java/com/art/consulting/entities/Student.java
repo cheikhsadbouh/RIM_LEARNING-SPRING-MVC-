@@ -46,7 +46,7 @@ public class Student extends User implements Serializable{
 	private List<Notification> notification ;
 	
 	
-	@ManyToMany
+	@ManyToMany()
 	@JoinTable(name="join_student_training",
 	joinColumns={@JoinColumn(name="studentId")},
 	inverseJoinColumns={@JoinColumn(name="idTraining")})

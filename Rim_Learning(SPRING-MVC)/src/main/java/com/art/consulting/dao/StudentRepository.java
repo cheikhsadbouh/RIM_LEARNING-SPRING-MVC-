@@ -11,6 +11,6 @@ public interface StudentRepository  extends JpaRepository<Student, Integer>{
 	 @Query("FROM Student t  where t.username = :user") 
 	    public  Student findUserByName(@Param("user") String User);
 
-	
+
 	
 }

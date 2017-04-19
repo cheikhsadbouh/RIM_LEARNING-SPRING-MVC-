@@ -17,23 +17,35 @@ public class StudentTrainingTemporary  implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO) 	 
 	private int  id ;
-	private String idTraining;
-	private String idStudent ;
+	private String idTraining;    
+	private String user ;
 	private String priceTraining ;
 	private String phoneNumberStudent ;
 	
+
 	
 	public StudentTrainingTemporary(){}
 	
-	public StudentTrainingTemporary(int id, String idTraining, String idStudent, String priceTraining,
+	public StudentTrainingTemporary(int id, String idTraining, String user, String priceTraining,
 			String phoneNumberStudent) {
 		
 		this.id = id;
 		this.idTraining = idTraining;
-		this.idStudent = idStudent;
+		this.user = user;
 		this.priceTraining = priceTraining;
 		this.phoneNumberStudent = phoneNumberStudent;
 	}
+	
+	
+	
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -46,12 +58,7 @@ public class StudentTrainingTemporary  implements Serializable {
 	public void setIdTraining(String idTraining) {
 		this.idTraining = idTraining;
 	}
-	public String getIdStudent() {
-		return idStudent;
-	}
-	public void setIdStudent(String idStudent) {
-		this.idStudent = idStudent;
-	}
+	
 	public String getPriceTraining() {
 		return priceTraining;
 	}

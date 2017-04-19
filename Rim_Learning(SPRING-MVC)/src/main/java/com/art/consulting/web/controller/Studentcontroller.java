@@ -1,6 +1,9 @@
 package com.art.consulting.web.controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -15,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.art.consulting.entities.Student;
+import com.art.consulting.entities.StudentsTrainings;
+import com.art.consulting.entities.Training;
 import com.art.consulting.metier.StudentMetier;
+import com.art.consulting.metier.TrainingMetier;
 import com.art.consulting.security.EncryptionUtil;
 
 @Controller
@@ -28,6 +34,20 @@ public class Studentcontroller {
 	
 	@Autowired
 	HttpSession session ;
+	
+	@Autowired
+	private TrainingMetier trainingmetier ;
+	
+
+	public TrainingMetier getTrainingmetier() {
+		return trainingmetier;
+	}
+
+
+	public void setTrainingmetier(TrainingMetier trainingmetier) {
+		this.trainingmetier = trainingmetier;
+	}
+
 
 	public void addStudent(Student student) {
 		studentMetier.addStudent(student);
@@ -62,7 +82,7 @@ public class Studentcontroller {
 		
 	    session.setAttribute("name", EncryptionUtil.decode(User));
 	    session.setAttribute("primary", s.getStudentId());
-  		 remenber  =  (String) session.getAttribute("name");
+  		remenber  =  (String) session.getAttribute("name");
   		session.setAttribute("sec",s.getSection() );
   		
   		// model.addAttribute("U",EncryptionUtil.decode(User) );
@@ -101,6 +121,44 @@ public class Studentcontroller {
   
 	}
 	
+	
+	@RequestMapping(value = "/playlist/{id}")
+	public String Studentplaylist(@ModelAttribute("id") String idtraining, Model model ) {
+	
+		logger.info("id training :"+idtraining);
+		 
+		 Training playlist= trainingmetier.findone(Integer.valueOf(idtraining));
+		 model.addAttribute("playlist",  playlist.getVideo() );
+		
+		
+		return "playlistvideo";
+		
+		
+		
+  
+	}
+	@RequestMapping(value = "/mycourses/{user}")
+	public String mycourseslist(@ModelAttribute("user") String user , Model model ) {
+	
+		
+		
+		 
+		 
+		 
+		
+		Student std =   studentMetier.findbyname(user);
+		model.addAttribute("usertrainings",  std.getTraining() );
+		
+		 
+		logger.info("get user  :"+user+" trainings");
+		logger.info("get user  :"+std.getUsername()+" trainings");
+		 
+		return "mycourses";
+		
+		
+		
+  
+	}
 	
 	
 	

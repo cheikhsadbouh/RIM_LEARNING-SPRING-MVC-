@@ -67,6 +67,36 @@ public class TrainingMetierImpl  implements TrainingMetier {
 		
 		
 	}
+
+
+
+
+	@Override
+	public List<StudentTrainingTemporary> findByPhoneNumberStudent(String phonenumberstudent) {
+		
+		
+		return askfortraining.findByPhoneNumberStudent(phonenumberstudent);
+	}
+
+
+
+
+	@Override
+	public void delete(Integer id) {
+		
+		
+		askfortraining.delete(id);
+		
+	}
+
+
+
+
+	@Override
+	public Training findone(Integer id) {
+		
+		return trainingrepository.findOne(id);
+	}
 	
 	
 

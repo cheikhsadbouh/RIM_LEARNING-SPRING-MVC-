@@ -4,6 +4,26 @@
 
 
 
+
+//playlist
+
+
+function playlist(X){
+	
+	
+	alert("trainig id is :"+X);
+	 $target = $('#target');
+	     //  preventDefault();
+	       $target.load("/rim_learning_spring_mvc/playlist/"+X+" #palylist");
+	       
+	       
+}
+
+
+
+
+
+
 //submit form payment 
 
  
@@ -106,3 +126,5 @@ function getSubList(X,formw) {
     		    });
     		  });
     	  }
+
+
