@@ -25,21 +25,41 @@ function player(X,Y,Z,U){
 		     
 		    }
 		  };
-		  var player = bitmovin.player(U);
+		   player = bitmovin.player(U);
+		   if(player.isSetup()){
+				
+				player.destroy();
+				 player = bitmovin.player(U);
+				 player.setup(conf).then(function(value) {
+					    // Success
+					    console.log("Successfully created bitmovin player instance");
+					 }, function(reason) {
+					    // Error!
+					    console.log("Error while creating bitmovin player instance");
+					 });
+			}else{
+				
+				
+				 player.setup(conf).then(function(value) {
+					    // Success
+					    console.log("Successfully created bitmovin player instance");
+					 }, function(reason) {
+					    // Error!
+					    console.log("Error while creating bitmovin player instance");
+					 });
+				
+				
+				
+				
+				
+			}
 
-		  player.setup(conf).then(function(value) {
-		    // Success
-		    console.log("Successfully created bitmovin player instance");
-		  }, function(reason) {
-		    // Error!
-		    console.log("Error while creating bitmovin player instance");
-		  });
 	
 
 }
-function playerv2(X,Y,U){
+function playerv2(X,Y,U,P){
 	
-
+	var player;
 
 
 	 if (location.protocol === "file:") {
@@ -49,12 +69,12 @@ function playerv2(X,Y,U){
 	// document.getElementById("player-wrapper").innerHTML = "";
 
 
-	jQuery('.player-wrapper').html('');
+	jQuery('.pa').html('');
 	// $( "<div>ggggggg</div>" ).appendTo( "#player-wrapper" );
 	// var $e = $("<div>", {id: "newDiv1", name: 'test', class: "aClass"});
 	
 	 // add the element to the body
-	 $(".player-wrapper").append("<div id="+U+"></div>");
+	 $(".pa").append("<div id="+U+"></div>");
 //alert(U);
 	// var element = document.createElement("div");
 	//  element.setAttribute("id",U);
@@ -67,7 +87,7 @@ function playerv2(X,Y,U){
 		    source: {
 		      dash:        X,
 		      hls:         Y,
-		      poster:      ""
+		      poster:      P
 		     
 		    }
 		  };
@@ -99,11 +119,22 @@ function playerv2(X,Y,U){
 				
 				
 			}
+		  
+		  }
 
-		
-		
-	
 
-}
+
+
+ 
+
+
+
+
+
+
+
+ 
+ 
+
 
 

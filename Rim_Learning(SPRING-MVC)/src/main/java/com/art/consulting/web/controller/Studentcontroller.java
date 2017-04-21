@@ -2,6 +2,8 @@ package com.art.consulting.web.controller;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.art.consulting.entities.Student;
+import com.art.consulting.entities.StudentTrainingTemporary;
 import com.art.consulting.entities.StudentsTrainings;
 import com.art.consulting.entities.Training;
 import com.art.consulting.metier.StudentMetier;
@@ -143,13 +146,92 @@ public class Studentcontroller {
 		
 		
 		 
-		 
-		 
+		 List<String> timing = new ArrayList<String>();
 		
 		Student std =   studentMetier.findbyname(user);
-		model.addAttribute("usertrainings",  std.getTraining() );
 		
-		 
+		
+		
+		 List <StudentsTrainings> listtrainings =trainingmetier.findByUsernameInDuplicatedTrainings(user);
+		 Iterator  itr = listtrainings.iterator();
+		   while(itr.hasNext()){
+			   
+			   
+			   StudentsTrainings   training = (StudentsTrainings) itr.next();
+			   
+			   
+			   Integer [] date=trainingmetier.getdatedefference(training.getExpired_data());
+			      
+			   logger.info("if date []");
+			if(date[0]< 0 || date[1] < 0|| date[2] < 0|| date[3] < 0){
+				logger.info("d5al v date negative ");     
+				logger.info("date[0]"+date[0]);
+				logger.info("date[1]"+date[1]);
+				logger.info("date[2]"+date[2]);
+				logger.info("date[3]"+date[3]);
+				logger.info("date[4]"+date[4]);
+				
+				trainingmetier.deletefromduplicatedtraings(Integer.valueOf(training.getId()));
+		     
+				
+				 List<Training> lst = studentMetier.findbyname(user).getTraining();
+				  Iterator i =   lst.iterator();
+				   
+				  logger.info("list size before ---->"+lst.size());
+				  logger.info("id std traingsduplicated :"+training.getIdTraining());
+			      while(i.hasNext()){
+			    	  Training traininng = (Training) i.next();
+			    	 
+			    	logger.info("id trainig iterator :"+traininng.getIdTraining());
+			    	  
+			    	 logger.info("id trainingstable :"+training.getIdTraining());
+			    	   if(training.getIdTraining().equals(Integer.toString(traininng.getIdTraining())) ){
+			    		   
+			    		   logger.info("is equas ");
+			    		    
+			    		    	  i.remove();
+			    		    	  logger.info(" break section ! ");
+			    		           break;
+			    		           
+			    		   
+			    		   
+			    	   }
+			    	      
+			    	   
+			    	 
+			      }
+			      
+                   std.setTraining(lst);
+                   logger.info("list size after ---->"+lst.size());
+                   logger.info("set std list done ! ");
+	    		   studentMetier.addStudent(std);
+	    		   logger.info("update list std  done ! ");
+		    
+		    
+		    
+			}else{
+				//String s =  Arrays.toString(date);
+				timing.add(training.getExpired_data());
+				
+				  logger.info(" else section  ");
+				  
+		
+				  
+				  
+			
+				
+			}
+			   
+			    
+		   }  
+		   
+		/*  List<Training> lss = studentMetier.findbyname(user).getTraining();
+		   lss.clear();
+		   std.setTraining(lss);
+		   studentMetier.addStudent(std);*/
+		
+		   model.addAttribute("usertrainings", studentMetier.findbyname(user).getTraining() );
+		 model.addAttribute("listtiming", timing );
 		logger.info("get user  :"+user+" trainings");
 		logger.info("get user  :"+std.getUsername()+" trainings");
 		 

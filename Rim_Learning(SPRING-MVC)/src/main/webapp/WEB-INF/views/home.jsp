@@ -432,8 +432,31 @@
        
        <script src="<c:url value="/resources/js/login.js"/>"></script>
       
+      
+       <script type="text/javascript">
+ Notification.requestPermission().then(function(result){
+
+notify();
+});
+
+
+  function notify() {
+    var notification = new Notification('TITLE OF NOTIFICATION', {
+      icon: 'http://carnes.cc/jsnuggets_avatar.jpg',
+      body: "Hey! You are on notice!",
+    });
+
+    notification.onclick = function () {
+      window.open("http://carnes.cc");      
+    };
+    setTimeout(notification.close.bind(notification), 7000); 
+  }
+
+
+
+ </script>
 
  
- 
+
   </body>
 </html>

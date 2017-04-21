@@ -147,7 +147,7 @@ public class HomeController {
 //		
 //		logger.info(TRAININGID);
 //		logger.info(PRIMARY);
-//		logger.info(phone_user);
+//		logger.info(phone_user);   
 		 
 			trainingtable.setUser(USER);
 			trainingtable.setIdTraining(TRAININGID);

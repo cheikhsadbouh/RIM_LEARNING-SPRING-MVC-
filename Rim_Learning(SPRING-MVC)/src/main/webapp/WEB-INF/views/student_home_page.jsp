@@ -68,11 +68,36 @@
                    <span  class="fa fa-video-camera" aria-hidden="true" ></span> visioconférence </a>
                    </li>
       <li>
-      <a href="#">
-                   <span   class="fa fa-bell fa-fw" aria-hidden="true"  ></span> notification</a>
+      <!-- <a href="#">
+                   <span   class="fa fa-bell fa-fw" aria-hidden="true"  ></span> notification</a> -->
+    
+     <div class="dropdown">
+  <a id="dLabel" role="button"  class="dropdown-toggle "  data-toggle="dropdown" href="#">
+    <i class="glyphicon glyphicon-bell"></i>notification
+  </a>
+  
+  <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
+    
+   <div class="notification-heading"><h4 class="menu-title">Notifications</h4><h4 class="menu-title pull-right">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></h4>
+    </div>
+     <li class="divider"></li>
+     <div class="notifications-wrapper" id="notificationplace">
+   
+    
+      
+    
+  
+   
+
+   </div>
+    <li class="divider"></li>
+    <div class="notification-footer"><h4 class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></h4></div>
+  </ul>
+  
+</div>
     
     
-      </li>
+      </li><!-- end li notification -->
                   
                 </ul>
             </div>
@@ -556,9 +581,15 @@
  </div><!-- end of col-X -->
       </div><!-- fixed -->
    <div class="col-lg-9 col-md-9 col-sm-8">
-   <div class="row" id="target">
- 
- 
+   <div class="row" >
+<div class="row" id="target">
+
+
+
+
+
+
+</div>
      
      
      </div><!-- end row -->
@@ -601,7 +632,8 @@
       <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7/bitmovinplayer.js"></script>
     
     <script src="<c:url value="/resources/js/player.js"/>"></script>
- 
+  
+    <link href="<c:url value="/resources/css/notification.css" />" rel="stylesheet">
        <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
        
      
@@ -653,13 +685,14 @@ $(function() {
       //  $('#result').load('ajax/test.html #container');
      
 
-
     });
 });
 	
 	$(document).ready(function () {
 		
 		$('#target').load('/rim_learning_spring_mvc/news #home');
+		
+	//	$('#notificationplace').load('/rim_learning_spring_mvc/notificationstudent  #home');
 
 	});
 	
@@ -669,29 +702,31 @@ $(function() {
   
     $(function() {
    
-//     var i= setInterval(function(){
+   /*   var i= setInterval(function(){
     	
-//     	if($('#list').length > 0){
-   		
-   		
-//    		 var $menu = $('#list'), 
-//    	        $target = $('#target');
 
-//    	    $menu.on('click', '', function(event) {
-   	    	
-//    	        var $this = $(this);
-//    	        event.preventDefault();
-//    	       $target.load("/rim_learning_spring_mvc/playlist #palylist");
-   	       
-   	       
-   	  
-   	   
-
-//    	    });
-   	    
-//   }
-//     },1000);
+    },10000); */
    
+    
+		
+		setTimeout(function() {
+
+		     
+   		 var id=   '<c:out value="${sessionScope.primary}" />';
+		//$('').load('/rim_learning_spring_mvc/notificationstudent/'+id+  '');
+			  $.ajax({
+			    method: 'GET',
+			    url: '/rim_learning_spring_mvc/notificationstudent/'+id,
+			    success: function(res) {
+			      console.log(res);
+			    //  $('#notificationplace').html($(res).find('#home').html());
+			      var content = $('<div>').append(res).find('#home');
+			       $('#notificationplace').html( content );
+			    },
+			    async: false
+			  });
+			}, 1000);
+    
     
     
     

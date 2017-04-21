@@ -50,6 +50,15 @@
   <beans:property name="password" value="toor" />
  </beans:bean>
  
- <util:list id="list">
- </util:list>
+ <context:annotation-config />
+ 
+<beans:bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+	<beans:bean id="duplicatedtable" class="com.art.consulting.entities.StudentsTrainings">
+		
+	</beans:bean>
+	
+	<!-- <beans:bean id="notificationtb" class="com.art.consulting.entities.Notification">
+		
+	</beans:bean> -->
 </beans:beans>

@@ -24,8 +24,19 @@
 
 <div id="home">
 <link href="<c:url value="/resources/css/mycourses.css" />" rel="stylesheet">
+ <c:set var="count" value="1" scope="application" />
+ <c:set var="obj" value="0" scope="application" />
  <c:forEach var="i" items="${usertrainings}">
-             
+           <c:if test="${count mod 2 != 0 and count != 1 }">  
+            
+         
+            <div class="clearfix">
+                                    </div>
+     
+            
+    
+</c:if>  
+ <c:set var="count" value="${count+1}" scope="application" />
                <div class="col-sm-6">
 						  <div class="col-item">
                                      <div class="photo"  >
@@ -58,9 +69,27 @@
                                     <div class="separator clear-left">
                                        
                                         <p class="btn-details ">
-                                            
-                                   duree d'access
-                                          
+                                             
+                                             
+                               
+                                   
+                          <c:forEach items="${listtiming}" var="list"   begin="${obj}" end="${obj}" varStatus="status">  
+                         
+
+                                   <c:out value="Cette formation est disponible jusqu'à le  "/> 
+                                        <c:out value="${list}"/> 
+                                         
+                                     <%--  <c:if test="${list eq status.first}">
+									     <c:out value="${list}"/> 
+									    </c:if> --%>
+                                    
+                               <%--   <c:set var="status.index" value="${items.size}"/> --%>             
+                                                
+                                   
+                                    
+									
+								</c:forEach>  
+                                        <c:set var="obj" value="${obj+1}" scope="application" />    
                                             </p>
                                             
                                     </div>

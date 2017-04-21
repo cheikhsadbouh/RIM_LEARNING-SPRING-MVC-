@@ -24,31 +24,173 @@
   <body > 
  
  <div class="col-lg-9 col-md-9 col-sm-8" id="palylist">
- 
+   <link href="<c:url value="/resources/css/playlist.css" />" rel="stylesheet">
  <div class="col-lg-9 col-md-9 col-sm-8">
  
  
- 
-  <div class="player-wrapper">
   
+  <div class="player-wrapper" >
+    <div class="pa">
     
-     
-     
     </div>
     
+     
+    </div>
+   
+     <br>
+ <div class="row">
  
  
+      <div class="col-md-12">
+     <div class="panel panel-success rounded shadow" id="borderheader">
+   <div class="panel-heading no-border" id="header">
+   <div class="pull-left half">
+   <div class="media">
+   <div class="media-object  "> 
+   
+   <div class="actions ">
+   <div class="btn-group">
+    <button type="button" class="btn btn-link">
+    <i class="fa fa-thumbs-o-up"></i> aimer</button> 
+</div>
+<div class="pull-right"><strong>1.789</strong> personnes ont aimé cet article</div></div>
+   
+   </div>
+   <div class="media-body">
+    <a href="#" class="media-heading block mb-0 h4 text-white"></a>
+    
+     </div>
+     </div>
+     </div>
+    
+     <div class="clearfix"></div>
+     </div>
+     <div class="panel-body no-padding"> 
+     
+     
+         <div class="well" style="max-height: 900px;overflow: auto;" id="listcomment">
+         
+         <div class="media inner-all no-margin">
+     <div class="pull-left"> 
+     <img src="<c:url value="/resources/img/avatar6.png" />" alt="..." class="img-post2">
+     </div>
+     <div class="media-body"> 
+     <a href="#" class="h4">user_name</a> <br>
+     <small class="block text-muted">merci  ! prof </small> 
+     <em class="text-xs text-muted pull-right"> 
+     <span class="text-danger">Il y a 2 heures</span></em>
+     </div>
+     </div> <!-- end comment 1 -->
+     
+     <div class="media inner-all no-margin">
+     <div class="pull-left"> 
+     <img src="<c:url value="/resources/img/avatar6.png" />" alt="..." class="img-post2">
+     </div>
+     <div class="media-body"> 
+     <a href="#" class="h4">user_name</a> <br>
+     <small class="block text-muted">merci  ! prof </small> 
+     <em class="text-xs text-muted pull-right"> 
+     <span class="text-danger">Il y a 2 heures</span></em>
+     </div>
+     </div> <!-- end comment 1 -->
+     <div class="media inner-all no-margin">
+     <div class="pull-left"> 
+     <img src="<c:url value="/resources/img/avatar6.png" />" alt="..." class="img-post2">
+     </div>
+     <div class="media-body"> 
+     <a href="#" class="h4">user_name</a> <br>
+     <small class="block text-muted">merci  ! prof </small> 
+     <em class="text-xs text-muted pull-right"> 
+     <span class="text-danger">Il y a 2 heures</span></em>
+     </div>
+     </div> <!-- end comment 1 -->
+     <div class="media inner-all no-margin">
+     <div class="pull-left"> 
+     <img src="<c:url value="/resources/img/avatar6.png" />" alt="..." class="img-post2">
+     </div>
+     <div class="media-body"> 
+     <a href="#" class="h4">user_name</a> <br>
+     <small class="block text-muted">merci  ! prof </small> 
+     <em class="text-xs text-muted pull-right"> 
+     <span class="text-danger">Il y a 2 heures</span></em>
+     </div>
+     </div> <!-- end comment 1 -->
+     <div class="media inner-all no-margin">
+     <div class="pull-left"> 
+     <img src="<c:url value="/resources/img/avatar6.png" />" alt="..." class="img-post2">
+     </div>
+     <div class="media-body"> 
+     <a href="#" class="h4">user_name</a> <br>
+     <small class="block text-muted">merci  ! prof </small> 
+     <em class="text-xs text-muted pull-right"> 
+     <span class="text-danger">Il y a 2 heures</span></em>
+     </div>
+     </div> <!-- end comment 1 -->
+     <div class="media inner-all no-margin">
+     <div class="pull-left"> 
+     <img src="<c:url value="/resources/img/avatar6.png" />" alt="..." class="img-post2">
+     </div>
+     <div class="media-body"> 
+     <a href="#" class="h4">user_name</a> <br>
+     <small class="block text-muted">merci  ! prof </small> 
+     <em class="text-xs text-muted pull-right"> 
+     <span class="text-danger">Il y a 2 heures</span></em>
+     </div>
+     </div> <!-- end comment 1 -->
+     <div class="media inner-all no-margin">
+     <div class="pull-left"> 
+     <img src="<c:url value="/resources/img/avatar6.png" />" alt="..." class="img-post2">
+     </div>
+     <div class="media-body"> 
+     <a href="#" class="h4">user_name</a> <br>
+     <small class="block text-muted">merci  ! prof </small> 
+     <em class="text-xs text-muted pull-right"> 
+     <span class="text-danger">Il y a 2 heures</span></em>
+     </div>
+     </div> <!-- end comment 1 -->
+         </div>
+     
+     
+    
+     
+
+    
+     
+     
+    
+     </div>
+     <!-- footer commnent  -->
+     <div
+class="panel-footer"> <input
+type="email" class="form-control" placeholder="Write a comment..."></div>
+     
+     
+     </div>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     </div><!-- end deuxeime poster -->
  
+ </div><!-- end row media -->
  
  
  </div><!-- end col1 -->
   <c:set var="count" value="1" scope="application" />
  <div class="col-lg-3 col-md-3 col-sm-4" >
  
-         <div class="well" style="max-height: 900px;overflow: auto;">
+         <div class="well" style="max-height: 500px;overflow: auto;" id="listvideo">
     <ul class="list-group checked-list-box">   
                  <c:forEach var="i" items="${playlist}">
-         <li class="list-group-item" onclick="playerv2('${pageContext.request.contextPath}${i.dashUrl}','${pageContext.request.contextPath}${i.hlsUrl}','rt${count}');">
+         <li id="aa${count}" class="list-group-item btn" onclick="playerv2('${pageContext.request.contextPath}${i.dashUrl}','${pageContext.request.contextPath}${i.hlsUrl}','rt${count}','${pageContext.request.contextPath}${i.url_photo_poster}');">
                   
   
                   <div class="media inner-all no-margin">

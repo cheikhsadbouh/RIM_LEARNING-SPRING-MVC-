@@ -11,10 +11,33 @@
 function playlist(X){
 	
 	
-	alert("trainig id is :"+X);
+	//alert("trainig id is :"+X);
 	 $target = $('#target');
 	     //  preventDefault();
-	       $target.load("/rim_learning_spring_mvc/playlist/"+X+" #palylist");
+	       $target.load("/rim_learning_spring_mvc/playlist/"+X+" #palylist", function(){ 
+	    	   
+	    	   	$("#aa1").click(function() {
+		       	   // alert("clicked:" + this.id);
+		       	});
+
+		       $("#aa1").trigger("click");  
+	    	   
+	       });
+	       
+	       
+
+	    
+	    		
+			   
+	    		  
+	       	//alert("player-wrapper is here");
+	       	
+	    
+	        
+	 
+	      
+	       
+	       
 	       
 	       
 }

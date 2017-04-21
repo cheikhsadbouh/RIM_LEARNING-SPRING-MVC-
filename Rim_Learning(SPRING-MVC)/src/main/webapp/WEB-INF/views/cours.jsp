@@ -76,13 +76,14 @@
                                     </div>
                                     <div class="separator clear-left">
                                         <p class="btn-add ">
-                                           <a href="#" onclick="myFunc('<c:out value='${i.name}u'/>','<c:out value="${i.name}p"/>')" class="hidden-sm btn btn-default" data-toggle="modal" data-target="<c:out value="#${i.name}rt"/>"> <i class="fa fa-shopping-cart"></i>abonner
+     <a href="#" onclick="myFunc('<c:out value='${i.name}u'/>','<c:out value="${i.name}p"/>')" class="hidden-sm btn btn-default" data-toggle="modal" data-target="<c:out value="#${i.name}rt"/>"> <i class="fa fa-shopping-cart"></i>abonner
                                            </a></p>
                                         <p class="btn-details ">
                                           <c:forEach var="t" items="${i.video}">  
-                                        <c:if test = "${t.title eq 'presentation '}">
+                                        <c:if test = "${t.title eq 'presentation'}">
+                                            
                                             <a href="#" class="hidden-sm  btn btn-default " data-toggle="modal" data-target="<c:out value="#${i.name}y"/>"
-                                             onclick="player('${pageContext.request.contextPath}<c:out value="${t.dashUrl}"/>','${pageContext.request.contextPath}<c:out value="${t.hlsUrl}"/>','${pageContext.request.contextPath}<c:out value="${t.url_photo_poster}"/>','<c:out value="${i.name}player"/>')">
+     onclick='player("${pageContext.request.contextPath}${t.dashUrl}","${pageContext.request.contextPath}${t.hlsUrl}","${pageContext.request.contextPath}${t.url_photo_poster}","${i.name}player");'>
                                              <i class="fa fa-list"></i>Plus de détails
                                             </a>
                                          </c:if>

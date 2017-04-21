@@ -1,7 +1,9 @@
 package com.art.consulting.entities;
 
+
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +19,10 @@ public class Notification  implements Serializable{
 	private int idNotification ;
 	private String value ;
 	
+	
+	private String state ;
+	
+	private String datenotification ;
 	@ManyToOne
 	@JoinColumn(name="teacher_id")
 	private Teacher teacherId ;
@@ -34,13 +40,85 @@ public class Notification  implements Serializable{
 
 	
 
-	public Notification(int idNotification, String value, Teacher teacherId, Student studentId) {
+
+	public Notification(int idNotification, String value, String state, String datenotification, Teacher teacherId,
+			Student studentId) {
 		super();
 		this.idNotification = idNotification;
 		this.value = value;
+		this.state = state;
+		this.datenotification = datenotification;
 		this.teacherId = teacherId;
 		this.studentId = studentId;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public String getDatenotification() {
+		return datenotification;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setDatenotification(String datenotification) {
+		this.datenotification = datenotification;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public String getState() {
+		return state;
+	}
+
+
+
+
+
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+
+
 
 
 
