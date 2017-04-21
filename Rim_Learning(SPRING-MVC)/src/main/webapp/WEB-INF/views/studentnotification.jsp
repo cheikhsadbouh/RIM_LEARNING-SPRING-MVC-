@@ -28,20 +28,72 @@
   <body>
    
    <div id="home">
+   
+    
+     <c:forEach var="i" items="${notseen}">
     <a class="content" href="#">
       
        <div class="notification-item">
-        <h4 class="item-title">Evaluation Deadline 1 · day ago</h4>
-        <p class="item-info">Marketing 101, Video Assignment</p>
+        <h4 class="item-title">  ${i.value}          </h4>
+        <p class="item-info">   ${i.state}  </p>
+         <script type="text/javascript">
+        
+           count();
+          
+           Notification.requestPermission().then(function(result){
+
+        	   notify();
+        	   });
+
+
+        	     function notify() {
+        	       var notification = new Notification('NOTIFICATION', {
+        	         icon: "<c:url value='/resources/img/rimlearninglogo.png' />",
+        	         body: "${i.value}",
+        	         
+        	       });
+        	       var s="<audio autoplay='true'> <source src='<c:url value='/resources/sound_for_notification/notif.mp3' />'></audio>";
+        	       $('body').append(s);
+
+        	       notification.onclick = function () {
+        	       //  window.open("");      
+        	       };
+        	       setTimeout(notification.close.bind(notification), 30000); 
+        	     }
+           
+           
+           
+           
+           
+           
+           
+        </script>
       </div>
        
     </a>
-     <a class="content" href="#">
-      <div class="notification-item">
-        <h4 class="item-title">Evaluation Deadline 1 · day ago</h4>
-        <p class="item-info">Marketing 101, Video Assignment</p>
+   
+  </c:forEach>
+    
+     <c:set var="count" value="1" scope="application" />
+   <c:forEach var="rt" items="${seen}">
+    <a class="content" href="#">
+    
+       <div class="notification-item">
+        <h4 class="item-title">  ${rt.value}     <span id="showTime${count}"> </span>  </h4>
+        <p class="item-info">   ${rt.state}  </p>
+        
+        <script type="text/javascript">
+        
+           //count();
+            var date='${rt.datenotification}';
+           var id='showTime${count}';
+           showDiff(date,id);  
+        </script>
       </div>
+       <c:set var="count" value="${count+1}" scope="application" />
+       
     </a>
+  </c:forEach>
    
    </div>
    
@@ -65,6 +117,6 @@
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-    
+     <script src="<c:url value="/resources/js/notification.js"/>"></script>
   
        

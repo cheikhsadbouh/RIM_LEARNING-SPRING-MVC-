@@ -7,13 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.art.consulting.entities.Notification;
+import com.art.consulting.entities.Student;
 
 
 public interface NotificationRepository  extends JpaRepository<Notification, Integer>{
 
 	
-	 @Query("FROM Notification t  where t.teacherId = :id") 
-	    public  List<Notification> getstdnotification(@Param("id") int id);
+	 @Query("FROM Notification t  where t.studentId = :id") 
+	    public  List<Notification> getstdnotification(@Param("id") Student s);
 
 	
 	

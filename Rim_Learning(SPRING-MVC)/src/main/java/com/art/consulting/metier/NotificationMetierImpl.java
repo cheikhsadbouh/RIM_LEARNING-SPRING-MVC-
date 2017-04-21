@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.art.consulting.dao.NotificationRepository;
 import com.art.consulting.entities.Notification;
+import com.art.consulting.entities.Student;
 @Service
 public  class NotificationMetierImpl  implements NotificationMetier{
 
@@ -31,9 +32,9 @@ public  class NotificationMetierImpl  implements NotificationMetier{
 	}
 
 	@Override
-	public List<Notification> getstdnotification( int id ) {
+	public List<Notification> getstdnotification( Student s  ) {
 	
-		return repo.getstdnotification(id);
+		return repo.getstdnotification(s);
 	}
 
 }

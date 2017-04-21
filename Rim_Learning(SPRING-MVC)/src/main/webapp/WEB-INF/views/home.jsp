@@ -442,10 +442,14 @@ notify();
 
   function notify() {
     var notification = new Notification('TITLE OF NOTIFICATION', {
-      icon: 'http://carnes.cc/jsnuggets_avatar.jpg',
+      icon: '<c:url value="/resources/img/rimlearninglogo.png" />',
       body: "Hey! You are on notice!",
+      sound: '',
+ 
     });
-
+   
+    var s="<audio autoplay='true'> <source src='<c:url value='/resources/sound_for_notification/notif.mp3' />'></audio>";
+    $('body').append(s);
     notification.onclick = function () {
       window.open("http://carnes.cc");      
     };

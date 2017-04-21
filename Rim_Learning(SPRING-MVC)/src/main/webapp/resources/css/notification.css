@@ -24,7 +24,7 @@
     }
     
  .menu-title {
-     color:#ff7788;
+     color:#71c9c6;
      font-size:1.5rem;
       display:inline-block;
       }
@@ -65,3 +65,28 @@
 
 
 
+#count{
+	
+	
+	width:20px;
+	height:20px;
+	background:red;
+	position:fixed;
+	right: 32px;
+    top: 1px;
+	z-index:9999;
+	border-radius:10px;
+	color:white;
+	
+}
+#number{
+	text-align:center;
+	
+}
+
+
+.fa-fw {
+    width: 1.28571429em;
+    text-align: center;
+    color: darkgrey;
+}

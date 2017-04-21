@@ -25,7 +25,7 @@
         <!-- bitdash player -->
   
   </head>
-  <body>
+  <body onload="zero()">
   
   <!-- Navigation -->
     <nav class="navbar navbar-default  navbar-fixed-top " >
@@ -72,8 +72,11 @@
                    <span   class="fa fa-bell fa-fw" aria-hidden="true"  ></span> notification</a> -->
     
      <div class="dropdown">
-  <a id="dLabel" role="button"  class="dropdown-toggle "  data-toggle="dropdown" href="#">
-    <i class="glyphicon glyphicon-bell"></i>notification
+     
+  <a id="dLabel" role="button"  class="dropdown-toggle "  data-toggle="dropdown" href="#" onclick="none();">
+   <!--  <i class="glyphicon glyphicon-bell"></i> notification -->
+  <div id="count" ><p id="number">0</p></div> 
+      <span   class="fa fa-bell fa-fw fa-2x" aria-hidden="true"  ></span></a>
   </a>
   
   <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
@@ -91,7 +94,7 @@
 
    </div>
     <li class="divider"></li>
-    <div class="notification-footer"><h4 class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></h4></div>
+    <div class="notification-footer"><br></div>
   </ul>
   
 </div>
@@ -635,6 +638,7 @@
   
     <link href="<c:url value="/resources/css/notification.css" />" rel="stylesheet">
        <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
+       <script src="<c:url value="/resources/js/notification.js"/>"></script>
        
      
    <style>
@@ -709,10 +713,10 @@ $(function() {
    
     
 		
-		setTimeout(function() {
+    setInterval(function() {
 
 		     
-   		 var id=   '<c:out value="${sessionScope.primary}" />';
+   		  var id=   '<c:out value="${sessionScope.name}" />';
 		//$('').load('/rim_learning_spring_mvc/notificationstudent/'+id+  '');
 			  $.ajax({
 			    method: 'GET',
@@ -723,8 +727,9 @@ $(function() {
 			      var content = $('<div>').append(res).find('#home');
 			       $('#notificationplace').html( content );
 			    },
+			   
 			    async: false
-			  });
+			  });   
 			}, 1000);
     
     
