@@ -65,7 +65,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler  {
             if (grantedAuthority.getAuthority().equals("Student")) {
                 isUser = true;
                 break;
-            } else if (grantedAuthority.getAuthority().equals("TEACHER")) {
+            } else if (grantedAuthority.getAuthority().equals("Teacher")) {
                 isAdmin = true;
                 break;
             }
@@ -76,7 +76,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler  {
         	
             return "/student_home_page/?user="+EncryptionUtil.encode(username);
         } else if (isAdmin) {
-            return "/teacher_home_page";
+            return "/teacher_home/?user="+EncryptionUtil.encode(username);
         } else {
            throw new IllegalStateException();
         }

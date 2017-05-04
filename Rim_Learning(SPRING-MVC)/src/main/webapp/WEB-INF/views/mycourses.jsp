@@ -24,6 +24,7 @@
 
 <div id="home">
 <link href="<c:url value="/resources/css/mycourses.css" />" rel="stylesheet">
+   <link href="<c:url value="/resources/css/clock.css" />" rel="stylesheet">
  <c:set var="count" value="1" scope="application" />
  <c:set var="obj" value="0" scope="application" />
  <c:forEach var="i" items="${usertrainings}">
@@ -77,16 +78,43 @@
                          
 
                                    <c:out value="Cette formation est disponible jusqu'à le  "/> 
-                                        <c:out value="${list}"/> 
+                                        <c:out value="${list}"/>  
                                          
-                                     <%--  <c:if test="${list eq status.first}">
-									     <c:out value="${list}"/> 
-									    </c:if> --%>
-                                    
-                               <%--   <c:set var="status.index" value="${items.size}"/> --%>             
-                                                
-                                   
-                                    
+              <%--                                <!-- clock -->  
+                  <c:forEach var="i" begin="1" end="4" step="1">                           
+     <div class="col-xs-6">
+      
+     <div class="countdown">
+    <div class="bloc-time days" data-init-value="24">
+      <span class="count-title">Hours</span>
+
+      <div class="figure days days-1">
+        <span class="top" id="d">1</span>
+        <span class="top-back">
+          <span>2</span>
+        </span>
+        <span class="bottom" id="da">1</span>
+        <span class="bottom-back">
+          <span>2</span>
+        </span>
+      </div>
+
+      <div class="figure days days-2">
+        <span class="top" id="ds">2</span>
+        <span class="top-back">
+          <span>2</span>
+        </span>
+        <span class="bottom"  id="df">2</span>
+        <span class="bottom-back">
+          <span>2</span>
+        </span>
+      </div>
+    </div>
+    </div>
+  </div>
+  </c:forEach>
+               --%>                   
+                                    <!-- end clock -->
 									
 								</c:forEach>  
                                         <c:set var="obj" value="${obj+1}" scope="application" />    

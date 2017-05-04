@@ -232,7 +232,7 @@ public class SmsService {
 	@GET
 	@Path("/get/{id}/{body}")
 	@Produces("text/html")
-	public String getStartingPage(@PathParam("id") String id ,@PathParam("body") String bodymsg)
+	public String getSms(@PathParam("id") String id ,@PathParam("body") String bodymsg)
 	{
 		logger.info("phone :"+id);
 		logger.info("body:"+ bodymsg);
@@ -247,8 +247,8 @@ public class SmsService {
 			 if(temporaryStudent.getPriceTraining().equals(bodymsg)){
 				 
 		    logger.info("user from temporary "+temporaryStudent.getUser());
-			logger.info("ud train :"+temporaryStudent.getIdTraining());
-			logger.info("phione :"+temporaryStudent.getPhoneNumberStudent());
+			logger.info("id train :"+temporaryStudent.getIdTraining());
+			logger.info("phone :"+temporaryStudent.getPhoneNumberStudent());
 			logger.info("price :"+temporaryStudent.getPriceTraining());
 				
 				 Student std =	studentMetier.findbyname(temporaryStudent.getUser());

@@ -68,7 +68,7 @@ function showDiff(X,id){
     	}
     	
     	  
-     } else if (days > 1){
+     } else if (days >= 1){
     	
     	document.getElementById(id).innerHTML = days+"  days  a go";
     	

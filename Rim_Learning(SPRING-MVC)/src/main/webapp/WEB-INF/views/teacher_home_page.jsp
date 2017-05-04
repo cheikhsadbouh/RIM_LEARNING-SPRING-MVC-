@@ -1,11 +1,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page session="true" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Bootstrap 101 Template</title>
@@ -25,12 +27,12 @@
         <!-- bitdash player -->
   
   </head>
-  <body onload="zero()">
+  <body>
    <script type="text/javascript">
      var r= '<c:out value="${sessionScope.name}" />' ;
      var section= '<c:out value="${sessionScope.sec}" />';
      var primary='<c:out value="${sessionScope.primary}" />';
-   console.log(r);
+   
      localStorage.setItem("username",r);
      localStorage.setItem("pr",primary);
      localStorage.setItem("section",section);
@@ -53,7 +55,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                 <ul class="nav navbar-nav navbar-right" id="menu">
                     <li>
-                        <a href="<c:url value="/news/${sessionScope.primary} #home" />" id="div1"><span class="glyphicon glyphicon-home"></span> Page d'accueil</a>
+                        <a href="<c:url value='/news/${sessionScope.primary} #home' />"" id="div1"><span class="glyphicon glyphicon-home"></span> Page d'accueil</a>
                     </li>
                     <li>
                       <li>
@@ -134,8 +136,9 @@
      <li class="text-center">
     
      <h4 class="text-capitalize">
-     
+      Professeur <br>
       <script type="text/javascript">
+     
     document.write(localStorage.username);
      
      </script>
@@ -585,6 +588,8 @@
 </div>
  </div><!-- end of col-X -->
       </div><!-- fixed -->
+      
+  <link href="<c:url value="/resources/css/notification.css" />" rel="stylesheet">
    <div class="col-lg-9 col-md-9 col-sm-8">
    <div class="row" >
 <div class="row" id="target">
@@ -593,10 +598,11 @@
 
 
 
-
 </div>
      
      
+    
+ 
      </div><!-- end row -->
      
      
@@ -628,19 +634,18 @@
 
 
 
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
      <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
       <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7/bitmovinplayer.js"></script>
-    
+     <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
     <script src="<c:url value="/resources/js/player.js"/>"></script>
-  
-    <link href="<c:url value="/resources/css/notification.css" />" rel="stylesheet">
-       <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
+
        <script src="<c:url value="/resources/js/notification.js"/>"></script>
+    
+      
        
      
    <style>
@@ -658,12 +663,14 @@ video {
       <script type="text/javascript">
       
 	
+     
+          
       
       
      
     
     
-$(function() {
+      $(document).ready(function(){
     var $menu = $('#menu'), 
         $target = $('#target');
 
@@ -676,11 +683,15 @@ $(function() {
 
 
     });
+    
+    
+    
+   
 });
 
  
 
-$(function() {
+$(document).ready(function(){
     var $menu = $('#courses'), 
         $target = $('#target');
 
@@ -706,7 +717,7 @@ $(function() {
     // Your fnNamt function here
 
   
-    $(function() {
+   $(document).ready(function(){
    
    /*   var i= setInterval(function(){
     	
@@ -715,7 +726,7 @@ $(function() {
    
     
 		
-    setInterval(function() {
+   /*  setInterval(function() {
 
 		     
    		  var id=   '<c:out value="${sessionScope.name}" />';
@@ -732,7 +743,7 @@ $(function() {
 			   
 			    async: false
 			  });   
-			}, 1000);
+			}, 1000); */
     
     
     
@@ -758,7 +769,19 @@ $(function() {
 
 
 
+   
+    	 $(document).ready(function() {
+    		
+    		 
+    		 zero(); 
+    		 
+    		 
+    	 });
+  
 
+    		 
+    		 
+    		
 
 </script>
      

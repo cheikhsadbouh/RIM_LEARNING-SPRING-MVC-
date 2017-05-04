@@ -1,17 +1,58 @@
 package com.art.consulting.metier;
 
+import com.art.consulting.dao.HomePageRepository;
+import com.art.consulting.dao.TeacherRepository;
+import com.art.consulting.dao.VoteContentRepository;
+import com.art.consulting.entities.Homepage;
 import com.art.consulting.entities.Teacher;
+import com.art.consulting.entities.VoteContent;
+
+import java.util.List;
 import java.util.Properties;    
 import javax.mail.*;    
 import javax.mail.internet.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;  
 @Service
 public class TeacherMetierImpl  implements TeacherMetier{
 	private static final Logger logger = LoggerFactory.getLogger(TeacherMetierImpl.class);
+
+	
+	@Autowired
+	private HomePageRepository homepagerepository;
+	
+	@Autowired
+	private TeacherRepository teacherrepository ;
+	@Autowired
+	 private VoteContentRepository voterepository ;
+	
+	public VoteContentRepository getVoterepository() {
+		return voterepository;
+	}
+
+	public void setVoterepository(VoteContentRepository voterepository) {
+		this.voterepository = voterepository;
+	}
+
+	public TeacherRepository getTeacherrepository() {
+		return teacherrepository;
+	}
+
+	public void setTeacherrepository(TeacherRepository teacherrepository) {
+		this.teacherrepository = teacherrepository;
+	}
+
+	public HomePageRepository getHomepagerepository() {
+		return homepagerepository;
+	}
+
+	public void setHomepagerepository(HomePageRepository homepagerepository) {
+		this.homepagerepository = homepagerepository;
+	}
 
 	@Override
 	public void sendMail(Teacher teacher) {
@@ -74,6 +115,38 @@ public class TeacherMetierImpl  implements TeacherMetier{
           }    
              
 		
+	}
+
+	@Override
+	public void save(Homepage post) {
+		
+		homepagerepository.save(post);
+		
+	}
+
+	@Override
+	public Teacher getTeacherByName(String name) {
+		
+		return teacherrepository.findTeacherByUsername(name);
+	}
+
+	@Override
+	public List<Teacher> findAll() {
+		
+		return teacherrepository.findAll();
+	}
+
+	@Override
+	public void SaveVote(VoteContent obj) {
+		
+		voterepository.save(obj);
+		
+	}
+
+	@Override
+	public Teacher findTeacherById(int id) {
+		
+		return teacherrepository.findOne(id);
 	}
 
 	

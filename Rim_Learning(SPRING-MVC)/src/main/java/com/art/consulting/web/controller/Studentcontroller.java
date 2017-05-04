@@ -87,6 +87,7 @@ public class Studentcontroller {
 	    session.setAttribute("primary", s.getStudentId());
   		remenber  =  (String) session.getAttribute("name");
   		session.setAttribute("sec",s.getSection() );
+  		session.setAttribute("img",s.getUrlPhoto() );
   		
   		// model.addAttribute("U",EncryptionUtil.decode(User) );
   		// model.addAttribute("section",s.getSection() );

@@ -79,8 +79,8 @@
     <a class="content" href="#">
     
        <div class="notification-item">
-        <h4 class="item-title">  ${rt.value}     <span id="showTime${count}"> </span>  </h4>
-        <p class="item-info">   ${rt.state}  </p>
+        <h4 class="item-title">  ${rt.value}      </h4>
+        <p class="item-info">   <span id="showTime${count}" > </span>   </p>
         
         <script type="text/javascript">
         

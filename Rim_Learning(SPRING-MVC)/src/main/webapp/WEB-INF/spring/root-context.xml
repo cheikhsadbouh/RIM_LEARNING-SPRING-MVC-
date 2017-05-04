@@ -44,8 +44,7 @@
  <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
   destroy-method="close">
   <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-  <beans:property name="url"
-   value="jdbc:mysql://localhost:3306/rim_learning" />
+  <beans:property name="url" value="jdbc:mysql://localhost:3306/rim_learning?useUnicode=yes&amp;characterEncoding=UTF-8"/>
   <beans:property name="username" value="root" />
   <beans:property name="password" value="toor" />
  </beans:bean>
@@ -55,7 +54,7 @@
 <beans:bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
 	<beans:bean id="duplicatedtable" class="com.art.consulting.entities.StudentsTrainings">
-		
+	
 	</beans:bean>
 	
 	<!-- <beans:bean id="notificationtb" class="com.art.consulting.entities.Notification">

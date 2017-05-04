@@ -20,9 +20,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.art.consulting.entities.Homepage;
 import com.art.consulting.entities.StudentTrainingTemporary;
 import com.art.consulting.entities.Training;
 import com.art.consulting.entities.Video;
+import com.art.consulting.metier.PostMetier;
+import com.art.consulting.metier.StudentMetier;
+import com.art.consulting.metier.TeacherMetier;
 import com.art.consulting.metier.TrainingMetier;
 
 /**
@@ -42,10 +46,56 @@ public class HomeController {
 	private TrainingMetier trainingmetier ;
 	
 	
+	@Autowired
+	private PostMetier postmetier ;
+	
+	@Autowired
+	private TeacherMetier teachermetier ;
+	
+	   
+
+	@Autowired
+	private StudentMetier studentMetier;
 	
 	
 	
 	
+
+
+	
+	public StudentMetier getStudentMetier() {
+		return studentMetier;
+	}
+
+
+
+
+
+
+	public void setStudentMetier(StudentMetier studentMetier) {
+		this.studentMetier = studentMetier;
+	}
+
+
+
+
+
+
+	public TeacherMetier getTeachermetier() {
+		return teachermetier;
+	}
+
+
+
+
+
+
+	public void setTeachermetier(TeacherMetier teachermetier) {
+		this.teachermetier = teachermetier;
+	}
+	
+
+
 	public TrainingMetier getTrainingmetier() {
 		return trainingmetier;
 	}
@@ -62,6 +112,15 @@ public class HomeController {
 		
 		
 		return "home";
+	}
+	@RequestMapping(value = "/clock1")
+	public String clock() {
+		logger.info("Welcome clock! " );
+		
+		
+		
+		
+		return "clock1";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -82,8 +141,7 @@ public class HomeController {
 		
 		logger.info("Welcome login_error");
 		
-		
-		
+		  
 		return "login_error";
 	}
 	
@@ -92,13 +150,25 @@ public class HomeController {
 	
 	
 	
-	@RequestMapping(value = "/news")
-	public String test7() {
+	@RequestMapping(value = "/news/{user}", method = RequestMethod.GET)
+	public String news( @ModelAttribute("user") String user, Model model ) {
 		
+		if(teachermetier.findTeacherById(Integer.valueOf(user))!=null){
+			logger.info("is request from teacher");
+			 model.addAttribute("imguser",teachermetier.findTeacherById(Integer.valueOf(user)).getUrlPhoto());
+		}else{
+			logger.info("is request from std");
+			 model.addAttribute("imguser",studentMetier.findone(Integer.valueOf(user)).getUrlPhoto());
+		}
 		
-		logger.info("Welcome news");
+		logger.info("Welcome  to news  user : "+user);
 		
+		List<Homepage> postlist = postmetier.getAllPost();
 		
+			
+		 model.addAttribute("userid",  user);
+		 model.addAttribute("lstpost",  postlist);
+		 model.addAttribute("lstprof", teachermetier.findAll());
 		
 		return "post_page";
 	}
