@@ -44,6 +44,23 @@ public class Student extends User implements Serializable{
 	  
 	@OneToMany(targetEntity=Notification.class,mappedBy="studentId",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<Notification> notification ;
+	  
+	@OneToMany(targetEntity=VoteResult.class,mappedBy="student",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<VoteResult> Voteresult ;
+	
+	@OneToMany(targetEntity=StudentConferenceTemporary.class,mappedBy="tempstudent",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<StudentConferenceTemporary> conferencetemporary ;
+	
+
+	@OneToMany(targetEntity=ConferenceJoinedStudent.class,mappedBy="idstudent",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<ConferenceJoinedStudent> conferencejoindstudent;
+	
+	
+	@OneToMany(targetEntity=GroupTemporaryStudent.class,mappedBy="student",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<GroupTemporaryStudent> grouptemporaryStudent;
+	
+	@OneToMany(targetEntity=JoinedGroupStudent.class,mappedBy="student",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<JoinedGroupStudent> JoinedgroupStudent;
 	
 	
 	@ManyToMany()
@@ -58,11 +75,13 @@ public class Student extends User implements Serializable{
 	}
 
 
-	
+
 
 	public Student(int studentId, String firstName, String lastName, String username, String email, String urlPhoto,
 			String password, String section, String role, int enabled, List<Notification> notification,
-			List<Training> training) {
+			List<VoteResult> voteresult, List<StudentConferenceTemporary> conferencetemporary,
+			List<ConferenceJoinedStudent> conferencejoindstudent, List<GroupTemporaryStudent> grouptemporaryStudent,
+			List<JoinedGroupStudent> joinedgroupStudent, List<Training> training) {
 		super();
 		this.studentId = studentId;
 		this.firstName = firstName;
@@ -75,8 +94,139 @@ public class Student extends User implements Serializable{
 		this.role = role;
 		this.enabled = enabled;
 		this.notification = notification;
+		Voteresult = voteresult;
+		this.conferencetemporary = conferencetemporary;
+		this.conferencejoindstudent = conferencejoindstudent;
+		this.grouptemporaryStudent = grouptemporaryStudent;
+		JoinedgroupStudent = joinedgroupStudent;
 		this.training = training;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public List<GroupTemporaryStudent> getGrouptemporaryStudent() {
+		return grouptemporaryStudent;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setGrouptemporaryStudent(List<GroupTemporaryStudent> grouptemporaryStudent) {
+		this.grouptemporaryStudent = grouptemporaryStudent;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public List<JoinedGroupStudent> getJoinedgroupStudent() {
+		return JoinedgroupStudent;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setJoinedgroupStudent(List<JoinedGroupStudent> joinedgroupStudent) {
+		JoinedgroupStudent = joinedgroupStudent;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public List<StudentConferenceTemporary> getConferencetemporary() {
+		return conferencetemporary;
+	}
+
+
+
+
+
+
+	public void setConferencetemporary(List<StudentConferenceTemporary> conferencetemporary) {
+		this.conferencetemporary = conferencetemporary;
+	}
+
+
+
+
+
+
+	public List<ConferenceJoinedStudent> getConferencejoindstudent() {
+		return conferencejoindstudent;
+	}
+
+
+
+
+
+
+	public void setConferencejoindstudent(List<ConferenceJoinedStudent> conferencejoindstudent) {
+		this.conferencejoindstudent = conferencejoindstudent;
+	}
+
+
+
+
+
+
+	public List<VoteResult> getVoteresult() {
+		return Voteresult;
+	}
+
+
+
+
+
+
+
+
+	public void setVoteresult(List<VoteResult> voteresult) {
+		Voteresult = voteresult;
+	}
+
+
+
+
 
 
 

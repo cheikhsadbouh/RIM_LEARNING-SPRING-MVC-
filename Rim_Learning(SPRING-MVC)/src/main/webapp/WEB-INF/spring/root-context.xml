@@ -60,4 +60,5 @@
 	<!-- <beans:bean id="notificationtb" class="com.art.consulting.entities.Notification">
 		
 	</beans:bean> -->
+
 </beans:beans>

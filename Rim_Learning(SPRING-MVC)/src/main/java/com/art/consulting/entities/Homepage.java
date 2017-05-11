@@ -37,6 +37,9 @@ public class Homepage implements Serializable{
 	@OneToMany(targetEntity=VoteContent.class,mappedBy="post",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private List<VoteContent> vote ;
 	
+	@OneToMany(targetEntity=ConferenceTable.class,mappedBy="post",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<ConferenceTable> conference ;
+	
 	public Homepage() {
 		
 		
@@ -45,14 +48,51 @@ public class Homepage implements Serializable{
 	
 
 
-	public Homepage(int idHomePage, String msg, String type_of_post, Teacher teacher, List<VoteContent> vote) {
+	public Homepage(int idHomePage, String msg, String type_of_post, Teacher teacher, List<VoteContent> vote,
+			List<ConferenceTable> conference) {
 		super();
 		this.idHomePage = idHomePage;
 		this.msg = msg;
 		this.type_of_post = type_of_post;
 		this.teacher = teacher;
 		this.vote = vote;
+		this.conference = conference;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public List<ConferenceTable> getConference() {
+		return conference;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setConference(List<ConferenceTable> conference) {
+		this.conference = conference;
+	}
+
+
+
+
+
 
 
 

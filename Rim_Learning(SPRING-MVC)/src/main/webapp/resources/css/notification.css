@@ -70,16 +70,15 @@
 
 #count{
 	
-	
-	width:20px;
-	height:20px;
-	background:red;
-	position:fixed;
-	right: 32px;
-    top: 1px;
-	z-index:9999;
-	border-radius:10px;
-	color:white;
+	    width: 35px;
+    height: 21px;
+    background: red;
+    position: fixed;
+    right: 32px;
+    top: 3px;
+    z-index: 9999;
+    border-radius: 12px;
+    color: white;
 	
 }
 #number{

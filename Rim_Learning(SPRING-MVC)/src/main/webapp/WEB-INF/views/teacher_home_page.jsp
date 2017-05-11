@@ -23,11 +23,19 @@
       <!-- myfont -->
      <link href="<c:url value="/resources/css/font-awesome/css/font-awesome.min.css" />" rel="stylesheet">
      
-      <link href="<c:url value="/resources/css/student_home_page.css" />" rel="stylesheet">
+      <link href="<c:url value="/resources/css/student_home_page.css" />"  rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+     
+ <link href="<c:url value="/resources/datetimepicker/dist/material-datetime-picker.css" />" rel="stylesheet">
+
+
+ 
+
         <!-- bitdash player -->
   
   </head>
-  <body>
+  <body id="bodys">
    <script type="text/javascript">
      var r= '<c:out value="${sessionScope.name}" />' ;
      var section= '<c:out value="${sessionScope.sec}" />';
@@ -187,6 +195,72 @@
                 </div>
                 <div class="panel-body" id="padingbody">
                  <div class="well" style="max-height: 100px;overflow: auto;">
+                <ul class="list-group checked-list-box">    
+                
+                
+                 <c:if test="${empty listgroup}">
+                 
+               <b>Pas de groupe</b> 
+                 
+                 
+                 </c:if>
+                  <c:forEach var="r" items="${listgroup}">
+                  <li class="list-group-item">
+                  
+                  
+                  <div class="media inner-all no-margin">
+     <div class="pull-left"> 
+     <img src="<c:url value="${r.urlPhoto} " />" alt="..." class="img-post2">
+     </div>
+     <div class="media-body"> 
+     <a href="#" class="h4" style="text-decoration: none;">${r.groupName} </a> 
+    <br>
+      
+    <!--  <span class="text-danger">26  étudiants</span> -->
+     </div>
+     </div> <!-- end comment 1 -->
+                  
+                  
+                  
+                  </li>
+      
+                 </c:forEach>  
+                </ul>
+                </div>
+                
+                </div>
+            </div>
+            </div></div>
+    
+    
+    
+    
+    
+    
+    
+    
+  <!-- end mes group & formation -->  
+    
+
+ </div><!-- end of col-X -->
+      </div><!-- fixed -->
+      
+  
+  
+  
+  
+<%--   <div class="col-lg-4 col-md-4 col-sm-4  pull-right">
+  
+<div id="group">
+<div  class="panel-group">
+       <div class="panel  panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Mes groupes</h3>
+                    <span class="pull-right "><i class="glyphicon glyphicon-minus"></i></span>
+                </div>
+                <div class="panel-body" id="padingbody">
+                 <div class="well" style="max-height: 100px;overflow: auto;">
                 <ul class="list-group checked-list-box">      
                   <li class="list-group-item">
                   
@@ -233,364 +307,13 @@
                 </div>
             </div>
             </div></div>
-    
-    
-    
-    
-    
-    
-    
-    
-  <!-- end mes group & formation -->  
-    
-<div id="group">
 
-<div  class="panel-group" >
-      
-     
 
-   <div class="panel  panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                       Groupes science</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
-                </div>
-                <div class="panel-body" id="padingbody">
-                 <div class="well" style="max-height: 100px;overflow: auto;">
-                <ul class="list-group checked-list-box">      
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-     <a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-<a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                 
-                </ul>
-                </div>
-                
-                </div>
-            </div><!-- groups sceince -->
-      <div class="panel  panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                       Groupes mathématique</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
-                </div>
-                <div class="panel-body" id="padingbody">
-                 <div class="well" style="max-height: 100px;overflow: auto;">
-                <ul class="list-group checked-list-box">      
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-     <a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-<a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                 
-                </ul>
-                </div>
-                
-                </div>
-            </div><!-- groups math -->  
-                
-      <div class="panel  panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Groupes physique</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
-                </div>
-                <div class="panel-body" id="padingbody">
-                 <div class="well" style="max-height: 100px;overflow: auto;">
-                <ul class="list-group checked-list-box">      
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-     <a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-<a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                 
-                </ul>
-                </div>
-                
-                </div>
-            </div><!-- groups physique -->
-            <div class="panel  panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Groupes français</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
-                </div>
-                <div class="panel-body" id="padingbody">
-                 <div class="well" style="max-height: 100px;overflow: auto;">
-                <ul class="list-group checked-list-box">      
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-     <a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-<a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                 
-                </ul>
-                </div>
-                
-                </div>
-            </div><!-- groups francais -->
-            <div class="panel  panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                       Groupes  arabe</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
-                </div>
-                <div class="panel-body" id="padingbody">
-                 <div class="well" style="max-height: 100px;overflow: auto;">
-                <ul class="list-group checked-list-box">      
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-     <a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-<a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                 
-                </ul>
-                </div>
-                
-                </div>
-            </div><!-- groups arabe -->
-            <div class="panel  panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                       Groupes anglais</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
-                </div>
-                <div class="panel-body" id="padingbody">
-                 <div class="well" style="max-height: 100px;overflow: auto;">
-                <ul class="list-group checked-list-box">      
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-     <a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                  <li class="list-group-item">
-                  
-                  
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/group.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#" class="h4">nom de group </a> 
-     <small class="block text-muted">professeur : nom de professeur</small> <br>
-     <em class="text-xs text-muted">nombre d'étudiants</em> 
-      
-     <span class="text-danger">26  étudiants</span>
-<a href="" class="btn btn-default text-center btn-block">joindre</a>
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li>
-                 
-                </ul>
-                </div>
-                
-                </div>
-            </div><!-- groups anglais -->
-      
-      
-     
-      </div><!-- end panel groups  items -->
-      
-</div>
- </div><!-- end of col-X -->
-      </div><!-- fixed -->
-      
-  <link href="<c:url value="/resources/css/notification.css" />" rel="stylesheet">
-   <div class="col-lg-9 col-md-9 col-sm-8">
+
+
+</div><!-- 3th col --> --%>
+<link href="<c:url value="/resources/css/notification.css" />" rel="stylesheet">
+   <div class="col-lg-9 col-md-9 col-sm-8 ">
    <div class="row" >
 <div class="row" id="target">
 
@@ -599,14 +322,13 @@
 
 
 </div>
-     
-     
-    
- 
+
+
      </div><!-- end row -->
      
      
   </div><!-- col-x deux -->
+  
   </div><!-- row principale -->
   </div><!-- container hole -->
   
@@ -645,8 +367,16 @@
 
        <script src="<c:url value="/resources/js/notification.js"/>"></script>
     
+
+ <script src="https://unpkg.com/babel-polyfill@6.2.0/dist/polyfill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.standalone.js"></script> -->
+  <script src="<c:url value="/resources/js/rome.js"/>"></script>
+
+ <script src="<c:url value="/resources/datetimepicker/dist/material-datetime-picker.js"/>" charset="utf-8" ></script>
+  
+
       
-       
      
    <style>
 video {
@@ -659,11 +389,40 @@ video {
   display: none;
 }
 </style>   
+<script>
+
+ function picker(){
+	
+    var picker = new MaterialDatetimePicker({})
+   
+      .on('submit', function(d) {
+    	
+        output.innerText = d;
+        
+      });
+
+    var el = document.querySelector('a#ee');
+    
+    if(el){
+    	
+    	 el.addEventListener('click', function() {
+    		
+    		if(picker!=null){
+    			picker.open();
+    		}
+    	      
+    	      picker=null;
+    	    }, false);
+    }
+   
+   
+} 
+</script>
  
       <script type="text/javascript">
       
 	
-     
+      
           
       
       
@@ -776,10 +535,17 @@ $(document).ready(function(){
     		 zero(); 
     		 
     		 
-    	 });
+    	
   
 
-    		 
+    	 });
+
+
+    	 /*browse img */
+
+    		
+
+ 
     		 
     		
 

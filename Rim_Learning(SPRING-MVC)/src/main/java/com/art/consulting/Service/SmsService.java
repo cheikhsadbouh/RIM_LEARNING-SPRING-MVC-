@@ -26,13 +26,18 @@ import org.springframework.stereotype.Component;
 
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import com.art.consulting.entities.ConferenceJoinedStudent;
+import com.art.consulting.entities.ConferenceTable;
 import com.art.consulting.entities.Notification;
 import com.art.consulting.entities.Student;
+import com.art.consulting.entities.StudentConferenceTemporary;
 import com.art.consulting.entities.StudentTrainingTemporary;
 import com.art.consulting.entities.StudentsTrainings;
 import com.art.consulting.entities.Training;
+import com.art.consulting.metier.GenericOjectMetier;
 import com.art.consulting.metier.NotificationMetier;
 import com.art.consulting.metier.StudentMetier;
+import com.art.consulting.metier.TeacherMetier;
 import com.art.consulting.metier.TrainingMetier;
 
 
@@ -77,9 +82,11 @@ public class SmsService {
 	 private StudentsTrainings  duplicatedtable  ;
 	 
 
-	 private List<Training> list= new ArrayList<>();
+	 private List<Training> list = new ArrayList<>();
 	
 	 
+	 @Autowired
+		private TeacherMetier teachermetier ;
 	 
 	 
 	 private  Training training;
@@ -89,6 +96,32 @@ public class SmsService {
 	 @Autowired  
 	 private NotificationMetier notificationMetier ;
 	
+	 @Autowired
+		private GenericOjectMetier  genericobjmetier;
+		
+		
+		
+		
+		
+		
+		public GenericOjectMetier getGenericobjmetier() {
+			return genericobjmetier;
+		}
+
+
+		
+		public void setGenericobjmetier(GenericOjectMetier genericobjmetier) {
+			this.genericobjmetier = genericobjmetier;
+		}
+	 
+	 public TeacherMetier getTeachermetier() {
+			return teachermetier;
+		}
+
+
+	public void setTeachermetier(TeacherMetier teachermetier) {
+			this.teachermetier = teachermetier;
+		}
 	  
 	public NotificationMetier getNotificationMetier() {
 		return notificationMetier;
@@ -129,18 +162,6 @@ public class SmsService {
 	public void setStudentMetier(StudentMetier studentMetier) {
 		this.studentMetier = studentMetier;
 	}
-
-
-
-
-	
-
-
-
-	
-	
-
-
 
 
 	public TrainingMetier getImetier() {
@@ -232,95 +253,153 @@ public class SmsService {
 	@GET
 	@Path("/get/{id}/{body}")
 	@Produces("text/html")
-	public String getSms(@PathParam("id") String id ,@PathParam("body") String bodymsg)
+	public String getSms(@PathParam("id") String id ,@PathParam("body") String bodymsg) throws InstantiationException, IllegalAccessException
 	{
+		boolean c =true;
 		logger.info("phone :"+id);
 		logger.info("body:"+ bodymsg);
-		
-	
-		
-	   listStudent =   Imetier.findByPhoneNumberStudent(id);
-	   Iterator  itr = listStudent.iterator();
-	   while(itr.hasNext()){
-			
-			 temporaryStudent = (StudentTrainingTemporary) itr.next();
-			 if(temporaryStudent.getPriceTraining().equals(bodymsg)){
-				 
-		    logger.info("user from temporary "+temporaryStudent.getUser());
-			logger.info("id train :"+temporaryStudent.getIdTraining());
-			logger.info("phone :"+temporaryStudent.getPhoneNumberStudent());
-			logger.info("price :"+temporaryStudent.getPriceTraining());
+		  listStudent =   Imetier.findByPhoneNumberStudent(id);
+List<StudentConferenceTemporary>  listconferencetemporary=teachermetier.findPhoneNumberStudentinConferenceTemporary(id);
+	 if(!listStudent.isEmpty()){
+		 logger.info("is training payment ");
+		 Iterator  itr = listStudent.iterator();
+		   while(itr.hasNext()){
 				
-				 Student std =	studentMetier.findbyname(temporaryStudent.getUser());
-				             
-				 String  a="com.art.consulting.entities.Training";
-				 String b="com.art.consulting.entities.Notification";
-				
-				 try {
-					 training = (Training) Class.forName(a).newInstance();
-					 notificationtb= (Notification) Class.forName(b).newInstance();
+				 temporaryStudent = (StudentTrainingTemporary) itr.next();
+				 if(temporaryStudent.getPriceTraining().equals(bodymsg)){
+					 c=false;
+			    logger.info("user from temporary "+temporaryStudent.getUser());
+				logger.info("id train :"+temporaryStudent.getIdTraining());
+				logger.info("phone :"+temporaryStudent.getPhoneNumberStudent());
+				logger.info("price :"+temporaryStudent.getPriceTraining());
 					
-				} catch (ClassNotFoundException e) {
-					logger.error(e.getMessage());
-					      
-				} catch (InstantiationException e) {
-					logger.error(e.getMessage());
-				} catch (IllegalAccessException e) {
-					logger.error(e.getMessage());
-				}
-				 
-		   
-				
-				
-					training.setIdTraining(Integer.valueOf(temporaryStudent.getIdTraining()));
+					 Student std =	studentMetier.findbyname(temporaryStudent.getUser());
+					             
+					 String  a="com.art.consulting.entities.Training";
+					 String b="com.art.consulting.entities.Notification";
 					
+					 try {
+						 training = (Training) Class.forName(a).newInstance();
+						 notificationtb= (Notification) Class.forName(b).newInstance();
+						
+					} catch (ClassNotFoundException e) {
+						logger.error(e.getMessage());
 						      
-				
-							 
-							list=std.getTraining(); //get all student trainings
-							
-							list.add(training);  //all trainings + new training
-							
-				           std.setTraining(list);// update trainings
-							studentMetier.addStudent(std);// update std
+					} catch (InstantiationException e) {
+						logger.error(e.getMessage());
+					} catch (IllegalAccessException e) {
+						logger.error(e.getMessage());
+					}
+					 
+			   
+					
+					
+						training.setIdTraining(Integer.valueOf(temporaryStudent.getIdTraining()));
+						
+							      
+					
+								 
+								list=std.getTraining(); //get all student trainings
+								
+								list.add(training);  //all trainings + new training
+								
+					           std.setTraining(list);// update trainings
+								studentMetier.addStudent(std);// update std
 
-							StudentsTrainings r = new StudentsTrainings();
-							r.setIdTraining(temporaryStudent.getIdTraining());
-							r.setUser(temporaryStudent.getUser());
-							r.setExpired_data(Imetier.getTimeafterOneMonth());
-							
-							
-							
-							
-							Imetier.addInDuplicatedTrainings(r);//save obj
-							
-							
-							Imetier.delete(temporaryStudent.getId()); // delete from temporarytable student 
-							
-							
-							
-						 logger.info("adding traing  to student done ! ");
-						 
-					//	 notificationMetier
-					if(notificationtb !=null){
-				 		logger.info("notification table here ");
-					}
-					if(notificationMetier != null){
-						logger.info("notification interface  table here ");
-					}
-						 notificationtb.setStudentId(std);
-						 notificationtb.setValue("new training  "
-						 +Imetier.gettrainingname(training.getIdTraining()).getName()
-						 +"  valable jusqua'a  "+Imetier.getTimeafterOneMonth());
-						 notificationtb.setState("not_seen");
-	                   	notificationtb.setDatenotification(new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(Calendar.getInstance().getTime()).toString());
-	                   	notificationMetier.addnotification(notificationtb);
-	                   	
-	                   	break;
-			 }
-			
+								StudentsTrainings r = new StudentsTrainings();
+								r.setIdTraining(temporaryStudent.getIdTraining());
+								r.setUser(temporaryStudent.getUser());
+								r.setExpired_data(Imetier.getTimeafterOneMonth());
+								
+								
+								
+								
+								Imetier.addInDuplicatedTrainings(r);//save obj
+								
+								
+								Imetier.delete(temporaryStudent.getId()); // delete from temporarytable student 
+								
+								
+								
+							 logger.info("adding traing  to student done ! ");
+							 
+						//	 notificationMetier
+						if(notificationtb !=null){
+					 		logger.info("notification table here ");
+						}
+						if(notificationMetier != null){
+							logger.info("notification interface  table here ");
+						}
+							 notificationtb.setStudentId(std);
+							 notificationtb.setValue("new training  "
+							 +Imetier.gettrainingname(training.getIdTraining()).getName()
+							 +"  valable jusqua'a  "+Imetier.getTimeafterOneMonth());
+							 notificationtb.setState("not_seen");
+		                   	notificationtb.setDatenotification(new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(Calendar.getInstance().getTime()).toString());
+		                   	notificationMetier.addnotification(notificationtb);
+		                   	
+		                   	break;
+				 }
+				
+			   
+			  }
+		 
+	 }//end verification if is a training payment 
+	 
+	 if(!listconferencetemporary.isEmpty() && c) { 
+		 logger.info("is conference payment ");
+		 String code ="";
+		 StudentConferenceTemporary confrencetbletemporary = genericobjmetier.createObj(StudentConferenceTemporary.class);
+		 ConferenceJoinedStudent joinedconfrencetble = genericobjmetier.createObj(ConferenceJoinedStudent.class);                 
+		 Notification notificationtable =genericobjmetier.createObj(Notification.class);
+		 
+		 Iterator  itrs = listconferencetemporary.iterator();
+		   while(itrs.hasNext()){
+				
+			   confrencetbletemporary = (StudentConferenceTemporary) itrs.next();
+				 if(confrencetbletemporary.getPrice().equals(bodymsg))
+				 {
+					 logger.info("payment process begin ");
+					 c=false;
+					 
+					 joinedconfrencetble.setIdconference(confrencetbletemporary.getConference());
+					 joinedconfrencetble.setIdstudent(confrencetbletemporary.getTempstudent());
+					 code  =teachermetier.generateCode();
+					 joinedconfrencetble.setCode(code);
+					 
+					 teachermetier.savejoinedconference(joinedconfrencetble);
+					 
+					 teachermetier.deleteStudentConferenceTemporary(confrencetbletemporary.getId());
+					 
+					 notificationtable.setStudentId(confrencetbletemporary.getTempstudent());
+					 notificationtable.setValue("welcome to joine us in  conference  "
+					 +confrencetbletemporary.getConference().getTitle()
+					 +"  la conference sera le   "+confrencetbletemporary.getConference().getDate()
+					 +"votre code de verification est :"+code
+							 );
+					 notificationtable.setState("not_seen");
+					 notificationtable.setDatenotification(new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(Calendar.getInstance().getTime()).toString());
+                   	notificationMetier.addnotification(notificationtable);
+                   	
+                   	logger.info("adding std to joineconference done ! ");
+                   	break ;
+				 
+				 }
+				 
+				 }
+		 
+		   notificationtable=null;
+		   confrencetbletemporary=null;
+		   joinedconfrencetble=null;
 		   
-		  }
+		 
+		
+
+	 }// end verification if is conference paymnet
+	 
+	  
+	
+	 
 	
 	
 	logger.info("phone number : "+id);

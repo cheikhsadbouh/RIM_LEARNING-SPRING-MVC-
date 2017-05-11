@@ -250,19 +250,19 @@
 	<div class="control-group">
 	
 	<label class="control control--radio">section C
-		<input type="radio" name="section"  value="section C" checked="checked"/>
+		<input type="radio" name="section"  value="section_C" checked="checked"/>
 		<div class="control__indicator"></div>
 	</label>
 	<label class="control control--radio">section D
-		<input type="radio" name="section" value="section D"/>
+		<input type="radio" name="section" value="section_D"/>
 		<div class="control__indicator"></div>
 	</label>
 	<label class="control control--radio" >section A
-		<input type="radio" name="section"  value="section A"/>
+		<input type="radio" name="section"  value="section_A"/>
 		<div class="control__indicator"></div>
 	</label>
 	<label class="control control--radio" >section O
-		<input type="radio" name="section" value="section O"/>
+		<input type="radio" name="section" value="section_O"/>
 		<div class="control__indicator"></div>
 	</label>
 	
@@ -301,20 +301,20 @@
 					
 					<div class="control-group">
 	
-	<label class="control control--checkbox">section C
+	<label class="control control--checkbox">section_C
 		<!-- <input type="checkbox" checked="checked"/> -->
 		<input type="radio" name="section"  value="section C" checked="checked"/>
 		<div class="control__indicator"></div>
 	</label>
-	<label class="control control--checkbox">section D
+	<label class="control control--checkbox">section_D
 		<input type="radio" name="section"  value="section D"/>
 		<div class="control__indicator"></div>
 	</label>
-	<label class="control control--checkbox">section A
+	<label class="control control--checkbox">section_A
 		<input type="radio" name="section"  value="section A"/>
 		<div class="control__indicator"></div>
 	</label>
-	<label class="control control--checkbox">section O
+	<label class="control control--checkbox">section_O
 		<input type="radio" name="section"  value="section O"/>
 		<div class="control__indicator"></div>
 	</label>

@@ -8,4 +8,5 @@ import com.art.consulting.entities.VoteContent;
 public interface VoteContentRepository   extends JpaRepository<VoteContent, Integer>{
 	
 
+	
 }

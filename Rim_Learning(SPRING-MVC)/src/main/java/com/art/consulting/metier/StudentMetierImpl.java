@@ -5,8 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.art.consulting.dao.GroupRepository;
+import com.art.consulting.dao.JoinedGroupStudentRepository;
 import com.art.consulting.dao.StudentRepository;
 import com.art.consulting.dao.StudentsTrainingsRepository;
+import com.art.consulting.entities.Groups;
+import com.art.consulting.entities.JoinedGroupStudent;
 import com.art.consulting.entities.Student;
 import com.art.consulting.entities.StudentsTrainings;
 
@@ -20,6 +24,12 @@ public class StudentMetierImpl implements StudentMetier{
 	@Autowired
 	
 	 private StudentsTrainingsRepository studenttrainings;
+	
+	@Autowired
+	private JoinedGroupStudentRepository joinedgrouprepository ;
+	
+	@Autowired
+	private GroupRepository grouprepository ;
 
 	@Override
 	public void addStudent(Student student) {
@@ -43,6 +53,18 @@ public class StudentMetierImpl implements StudentMetier{
 	public Student findone(Integer arg0) {
 		
 		return StudentRepository.findOne(arg0);
+	}
+
+	@Override
+	public List<JoinedGroupStudent> findmygroups(int id) {
+		
+		return joinedgrouprepository.findgroupsbyid(id);
+	}
+
+	@Override
+	public List<Groups> findallgroups() {
+		
+		return grouprepository.findAll();
 	}
 	
 	

@@ -1,6 +1,7 @@
 package com.art.consulting.web.controller;
 
 import java.text.DateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -20,10 +21,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.art.consulting.entities.ConferenceTable;
 import com.art.consulting.entities.Homepage;
+import com.art.consulting.entities.StudentConferenceTemporary;
 import com.art.consulting.entities.StudentTrainingTemporary;
 import com.art.consulting.entities.Training;
 import com.art.consulting.entities.Video;
+import com.art.consulting.metier.GenericOjectMetier;
 import com.art.consulting.metier.PostMetier;
 import com.art.consulting.metier.StudentMetier;
 import com.art.consulting.metier.TeacherMetier;
@@ -58,7 +62,23 @@ public class HomeController {
 	private StudentMetier studentMetier;
 	
 	
+	@Autowired
+	private GenericOjectMetier  genericobjmetier;
 	
+	
+	
+	
+	
+	
+	public GenericOjectMetier getGenericobjmetier() {
+		return genericobjmetier;
+	}
+
+
+	
+	public void setGenericobjmetier(GenericOjectMetier genericobjmetier) {
+		this.genericobjmetier = genericobjmetier;
+	}
 	
 
 
@@ -163,12 +183,14 @@ public class HomeController {
 		
 		logger.info("Welcome  to news  user : "+user);
 		
-		List<Homepage> postlist = postmetier.getAllPost();
+		 
 		
-			
+		List<Homepage> listpost =postmetier.getAllPost();
+				Collections.reverse(listpost);
 		 model.addAttribute("userid",  user);
-		 model.addAttribute("lstpost",  postlist);
+		 model.addAttribute("lstpost",listpost);
 		 model.addAttribute("lstprof", teachermetier.findAll());
+		 model.addAttribute("lstconference", teachermetier.findallconference());
 		
 		return "post_page";
 	}
@@ -237,6 +259,39 @@ public class HomeController {
 	
 		
 		
+	}
+	
+	
+	
+	
+	@RequestMapping(value = "/stdconferencetemporarystd", method = RequestMethod.POST)
+	@ResponseBody
+	public void stdconferencetemposrarystd( 
+			
+			 @RequestParam("PRICE") String PRICE
+				,@RequestParam("conferenceid") String conferenceid
+				,@RequestParam("PRIMARY") String USER
+				,@RequestParam("phone_user") String phone_user
+			) throws InstantiationException, IllegalAccessException {
+		
+		
+		
+StudentConferenceTemporary stdtemporaryconference = genericobjmetier.createObj(StudentConferenceTemporary.class);
+		
+stdtemporaryconference.setPhoneStudent(phone_user);
+stdtemporaryconference.setPrice(PRICE);
+stdtemporaryconference.setTempstudent(studentMetier.findone(Integer.parseInt(USER)));
+stdtemporaryconference.setConference(teachermetier.findconference(Integer.parseInt(conferenceid)));
+
+teachermetier.addstdtotemporaryconference(stdtemporaryconference);
+
+stdtemporaryconference=null;
+
+		logger.info("price   "+PRICE+"  conf id "+conferenceid+" user "+ USER+"  phone "+phone_user);
+		logger.info("add new std  to stdconferencetemporarystd !");
+	
+	
+		;
 	}
 	
 }

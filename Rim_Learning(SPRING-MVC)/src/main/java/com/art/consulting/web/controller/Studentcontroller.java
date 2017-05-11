@@ -18,11 +18,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.art.consulting.entities.Student;
 import com.art.consulting.entities.StudentTrainingTemporary;
 import com.art.consulting.entities.StudentsTrainings;
 import com.art.consulting.entities.Training;
+import com.art.consulting.entities.VoteContent;
+import com.art.consulting.entities.VoteResult;
+import com.art.consulting.metier.GenericOjectMetier;
+import com.art.consulting.metier.PostMetier;
 import com.art.consulting.metier.StudentMetier;
 import com.art.consulting.metier.TrainingMetier;
 import com.art.consulting.security.EncryptionUtil;
@@ -41,6 +46,36 @@ public class Studentcontroller {
 	@Autowired
 	private TrainingMetier trainingmetier ;
 	
+	@Autowired
+	private PostMetier postmetier ;
+	
+	@Autowired
+	private GenericOjectMetier  genericobjmetier;
+	
+	
+	
+	
+	
+	
+	public GenericOjectMetier getGenericobjmetier() {
+		return genericobjmetier;
+	}
+
+
+	
+	public void setGenericobjmetier(GenericOjectMetier genericobjmetier) {
+		this.genericobjmetier = genericobjmetier;
+	}
+
+	public PostMetier getPostmetier() {
+		return postmetier;
+	}
+
+
+	public void setPostmetier(PostMetier postmetier) {
+		this.postmetier = postmetier;
+	}
+
 
 	public TrainingMetier getTrainingmetier() {
 		return trainingmetier;
@@ -80,6 +115,12 @@ public class Studentcontroller {
 	@RequestMapping(value = "/student_home_page/")
 	public String StudentHomePage(@RequestParam("user") String User,Model model) {
 		
+		String Sectionc []={"science","mathematique","physique","français","arabe","anglais"};
+		String SectionD []={"science","mathematique","physique","français","arabe","anglais"};
+		String Sectiona []={};
+		String Sectiono []={};
+		
+		
 		
 		Student s =(Student)studentMetier.findbyname(EncryptionUtil.decode(User));
 		
@@ -88,13 +129,21 @@ public class Studentcontroller {
   		remenber  =  (String) session.getAttribute("name");
   		session.setAttribute("sec",s.getSection() );
   		session.setAttribute("img",s.getUrlPhoto() );
-  		
+  		switch (s.getSection()){
+  			case "section_C":{  model.addAttribute("itemtsype", Sectionc); break ; }
+  			case "section_D":{  model.addAttribute("itemtsype", SectionD); break ; }
+  			case "section_A":{   model.addAttribute("itemtsype", Sectiona); break ; }
+  			case "section_O":{   model.addAttribute("itemtsype", Sectiono); break ; }
+  			
+  		}
+  		 model.addAttribute("listofgroups",studentMetier.findallgroups());
+  		model.addAttribute("mygroups",studentMetier.findmygroups(s.getStudentId()));
   		// model.addAttribute("U",EncryptionUtil.decode(User) );
   		// model.addAttribute("section",s.getSection() );
   		logger.info("Welcome "+User);
   		logger.info("Welcome "+remenber);
 		
-        	
+  		logger.info("section  : "+s.getSection());
 	       
 
 		 
@@ -243,6 +292,108 @@ public class Studentcontroller {
   
 	}
 	
+	@RequestMapping(value = "/studentvote/{idvote}/{idstd}")
+	@ResponseBody
+	public String Studentvote(@ModelAttribute("idvote") String idvote , 
+			@ModelAttribute("idstd") String idstd) throws InstantiationException, IllegalAccessException 
+	{
+		boolean c =false ;
+		int result =0;
+		 List<VoteResult> vote = postmetier.getAllvoteresult();
+		 Iterator i = vote.iterator();
+		 
+	VoteResult tbvoteresult = genericobjmetier.createObj(VoteResult.class);
+	
+	
+		 
+		 if(vote.isEmpty()){
+			 logger.info("list is empty !");
+			 c = true ;
+			 if(studentMetier.findone(Integer.parseInt(idstd))!=null){
+				 logger.info("is a student request !");
+				 tbvoteresult.setStudent(studentMetier.findone(Integer.parseInt(idstd)));
+				 tbvoteresult.setVotecontent(postmetier.findvotebyid(Integer.parseInt(idvote)));
+				
+				 postmetier.saveVoteResult(tbvoteresult);
+		
+				VoteContent objvotecontent = postmetier.findvotebyid(Integer.parseInt(idvote));
+			   
+				 result =objvotecontent.getResult() +1 ;
+				
+				objvotecontent.setResult(result);
+				
+				postmetier.UpdateVoteContentResult(objvotecontent);
+				 
+			 }// end verification is a student request 
+			
+		 }else{
+			 
+			 logger.info("list is not  empty   !");
+			 String stdfrmdb ="";
+			 String voteidfrmdb="";
+			 while(i.hasNext()){
+				 VoteResult obj =(VoteResult) i.next();
+				 stdfrmdb= Integer.toString(obj.getStudent().getStudentId());
+					voteidfrmdb= Integer.toString(obj.getVotecontent().getId_vote_content());
+				 logger.info("stdid param  : "+idstd+" idstd  from db : "+obj.getStudent().getStudentId());
+					logger.info("idvote param : "+idvote+"idvote from db : "+obj.getVotecontent().getId_vote_content());
+				
+					
+					if( voteidfrmdb.equals(idvote)  && idstd.equals(stdfrmdb)){
+					
+					
+					logger.info("already voted to this choice !");
+					
+					c = true ;
+					break;
+					
+				
+				}
+			 }//end while
+			 
+			 
+		 }//end else 
+		 
+		 if(c!=true){
+			 
+			 logger.info("is new  vote !");
+			
+			 logger.info("idstd : "+studentMetier.findone(Integer.parseInt(idstd)));
+			
+			 logger.info("idvotecontent :"+postmetier.findvotebyid(Integer.parseInt(idvote)));
+			
+			 if(studentMetier.findone(Integer.parseInt(idstd))!=null){
+				 logger.info("is a student request !");
+				 tbvoteresult.setStudent(studentMetier.findone(Integer.parseInt(idstd)));
+				 tbvoteresult.setVotecontent(postmetier.findvotebyid(Integer.parseInt(idvote)));
+				
+				 postmetier.saveVoteResult(tbvoteresult);
+		
+				VoteContent objvotecontent = postmetier.findvotebyid(Integer.parseInt(idvote));
+			   
+				 result =objvotecontent.getResult() +1 ;
+				
+				objvotecontent.setResult(result);
+				
+				postmetier.UpdateVoteContentResult(objvotecontent);
+				 
+			 }// end verification is a student request 
+			 
+			 
+		 }//end add new vote
+		 
+		 tbvoteresult= null;
+		 
+	
+		
+       logger.info("idvote :"+idvote);
+       logger.info("idstd :"+idstd);
+		   
+		
+		
+	
+	     return ""+postmetier.findvotebyid(Integer.parseInt(idvote)).getResult();
+	}
 	
 	
 	
