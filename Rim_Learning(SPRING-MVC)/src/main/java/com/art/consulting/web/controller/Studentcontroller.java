@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.art.consulting.entities.GroupTemporaryStudent;
+import com.art.consulting.entities.Groups;
+import com.art.consulting.entities.GroupsPosts;
+import com.art.consulting.entities.GroupsPostsTemporary;
+import com.art.consulting.entities.JoinedGroupStudent;
 import com.art.consulting.entities.Student;
 import com.art.consulting.entities.StudentTrainingTemporary;
 import com.art.consulting.entities.StudentsTrainings;
@@ -29,6 +34,7 @@ import com.art.consulting.entities.VoteResult;
 import com.art.consulting.metier.GenericOjectMetier;
 import com.art.consulting.metier.PostMetier;
 import com.art.consulting.metier.StudentMetier;
+import com.art.consulting.metier.TeacherMetier;
 import com.art.consulting.metier.TrainingMetier;
 import com.art.consulting.security.EncryptionUtil;
 
@@ -52,7 +58,20 @@ public class Studentcontroller {
 	@Autowired
 	private GenericOjectMetier  genericobjmetier;
 	
-	
+	@Autowired
+	private TeacherMetier teachermetier ;
+	public TeacherMetier getTeachermetier() {
+		return teachermetier;
+	}
+
+
+
+
+
+
+	public void setTeachermetier(TeacherMetier teachermetier) {
+		this.teachermetier = teachermetier;
+	}
 	
 	
 	
@@ -113,7 +132,7 @@ public class Studentcontroller {
 	  String remenber;
 	  
 	@RequestMapping(value = "/student_home_page/")
-	public String StudentHomePage(@RequestParam("user") String User,Model model) {
+	public String StudentHomePage(@RequestParam("user") String User,Model model) throws InstantiationException, IllegalAccessException {
 		
 		String Sectionc []={"science","mathematique","physique","français","arabe","anglais"};
 		String SectionD []={"science","mathematique","physique","français","arabe","anglais"};
@@ -137,9 +156,22 @@ public class Studentcontroller {
   			
   		}
   		 model.addAttribute("listofgroups",studentMetier.findallgroups());
-  		model.addAttribute("mygroups",studentMetier.findmygroups(s.getStudentId()));
-  		// model.addAttribute("U",EncryptionUtil.decode(User) );
-  		// model.addAttribute("section",s.getSection() );
+  		
+  		List<JoinedGroupStudent> j=studentMetier.findmygroups(s); 
+  		ArrayList<Groups> mygroups =  genericobjmetier.createObj(ArrayList.class);
+  		Iterator rt = j.iterator();
+  		 JoinedGroupStudent joingroup = genericobjmetier.createObj(JoinedGroupStudent.class);
+  		if(rt.hasNext()){
+  			
+  			joingroup=(JoinedGroupStudent)rt.next();
+  			
+  			mygroups.add(studentMetier.findGroupById(joingroup.getGroup().getIdGroups()));
+  			
+  		}
+  		model.addAttribute("mygroups",mygroups);
+  		joingroup=null;
+  		mygroups=null;
+
   		logger.info("Welcome "+User);
   		logger.info("Welcome "+remenber);
 		
@@ -147,7 +179,7 @@ public class Studentcontroller {
 	       
 
 		 
-	
+  	
 			
 			
 	
@@ -397,8 +429,87 @@ public class Studentcontroller {
 	
 	
 	
-	
-	
+	      
+	 
+		@RequestMapping(value = "/joingrouprequest", method = RequestMethod.POST)
+		@ResponseBody
+		public void  askForjoingroup
+		        (
+				 @RequestParam("PRICE") String PRICE
+				,@RequestParam("phone_user") String phone
+				,@RequestParam("groupid") String groupid
+				,@RequestParam("user") String user
+				) throws InstantiationException, IllegalAccessException
+	 {
+			
+			logger.info("new request  from user id :"+user+"to join group id :"+ groupid);
+			
+		GroupTemporaryStudent  temptable=	genericobjmetier.createObj(GroupTemporaryStudent.class);
+		temptable.setPhoneNumber(phone);
+		temptable.setPrice(PRICE);
+		temptable.setStudent(studentMetier.findbyname(user));
+		temptable.setGroup(studentMetier.findGroupById(Integer.parseInt(groupid)));
+		
+		studentMetier.addStudentToTemporaryGroup(temptable);
+		temptable=null;
+			
+			logger.info("price "+PRICE+" ph :"+phone+" grpid : "+groupid+" user :"+user);
+			
+			
+			
+	 }
+		
+		@RequestMapping(value = "/mygroup/{idgrp}/{iduser}", method = RequestMethod.GET)
+		public String  mygroup(@ModelAttribute("idgrp") String  id
+				,@ModelAttribute("iduser") String userid
+				, Model model)
+		{
+			 model.addAttribute("userid",  userid);
+			 model.addAttribute("idgrps",  id);
+			 model.addAttribute("list_temp_post", studentMetier.find_grp_temp_post(studentMetier.findGroupById(Integer.parseInt(id))));
+			 model.addAttribute("lstprof", teachermetier.findAll());
+			
+			logger.info("id grp :"+id);
+			logger.info("id user :"+userid);
+			
+			return "mygroup";
+		}
 	
 
+		
+		@RequestMapping(value = "/group_post_temp", method = RequestMethod.POST)
+		@ResponseBody
+		public void  validationpost(
+				  @RequestParam("content") String content
+				 , @RequestParam("iduser") String iduser
+				 , @RequestParam("howis") String howis
+				 , @RequestParam("idgrps") String idgrps
+				) throws InstantiationException, IllegalAccessException
+		{
+			
+			
+			if(howis.equals("student")){
+				GroupsPostsTemporary tbobj=	genericobjmetier.createObj(GroupsPostsTemporary.class);
+				
+				tbobj.setContent(content);
+				tbobj.setStudentpost(studentMetier.findone(Integer.parseInt(iduser)));
+				tbobj.setGroup_post(studentMetier.findGroupById(Integer.parseInt(idgrps)));
+				studentMetier.add_grp_temp_post(tbobj);
+				tbobj=null;
+			}
+			else{
+				GroupsPosts tb=	genericobjmetier.createObj(GroupsPosts.class);
+				   
+				
+				tb.setContent(content);
+				tb.setGroup_post(studentMetier.findGroupById(Integer.parseInt(idgrps)));
+				tb.setTeacher(teachermetier.findTeacherById(Integer.parseInt(iduser)));
+				
+				teachermetier.add_post_to_group(tb);
+			tb=null;
+			}
+			logger.info("conetnt   "+content+"  iduser  "+iduser+"   howis "+howis+"  grpid "+idgrps);
+			
+			
+		}
 }

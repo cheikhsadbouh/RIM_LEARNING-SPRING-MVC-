@@ -62,6 +62,14 @@ public class Teacher  extends User  implements Serializable{
 	private List<ConferenceTable> teacherconference ;
 	
 	
+	@OneToMany(targetEntity=GroupsPosts.class,mappedBy="teacher_grp_post",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<GroupsPosts> Groupsposts;
+	
+	
+	
+	
+	
+	
 	@ManyToMany()
 	@JoinTable(name="join_teachers_groups",
 	joinColumns={@JoinColumn(name="teacherId")},
@@ -75,13 +83,11 @@ public class Teacher  extends User  implements Serializable{
 		
 	}
 
-
-
-
 	public Teacher(int teacherId, String firstName, String lastName, String email, String urlPhoto, String password,
 			String section, String username, String poneNumber, String item, String role, int enabled,
 			List<Homepage> post, List<Training> training, List<Notification> notification,
-			List<ConferenceTable> teacherconference, List<com.art.consulting.entities.Groups> groups) {
+			List<ConferenceTable> teacherconference, List<GroupsPosts> groupsposts,
+			List<GroupsPostsTemporary> groupsPoststemporary, List<com.art.consulting.entities.Groups> groups) {
 		super();
 		this.teacherId = teacherId;
 		this.firstName = firstName;
@@ -99,8 +105,136 @@ public class Teacher  extends User  implements Serializable{
 		this.training = training;
 		this.notification = notification;
 		this.teacherconference = teacherconference;
+		Groupsposts = groupsposts;
+	
 		Groups = groups;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public List<GroupsPosts> getGroupsposts() {
+		return Groupsposts;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setGroupsposts(List<GroupsPosts> groupsposts) {
+		Groupsposts = groupsposts;
+	}
+
+
+
+
+
 
 
 

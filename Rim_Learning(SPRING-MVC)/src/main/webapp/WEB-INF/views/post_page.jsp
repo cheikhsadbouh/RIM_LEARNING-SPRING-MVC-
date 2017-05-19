@@ -29,20 +29,21 @@
   
   <div id="home" >
    
-   				
+   		<div class="">		
 					
-     <div class="col-lg-5 col-md-5 col-sm-11  pull-right">
+     <div class="  col-lg-5 col-md-5 col-sm-11  pull-right">
   
-<div id="group">
+<div id="group" class="">
 
 <div  class="panel-group">
        <div class="panel  panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">
                          Conference</h3>
+                          <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
                     <span class="pull-right "><i class=""></i></span>
                 </div>
-                <div class="panel-body" id="padingbody">
+                <div class="panel-body " id="padingbody">
                      <div class="well" style="max-height: 71px;overflow: auto;">
                 <ul class="list-group checked-list-box">      
                 
@@ -189,8 +190,8 @@
 
 </div><!-- 3th col --> 
    
-   
-   
+
+   </div>
    
    
    
@@ -218,16 +219,20 @@
   <!-- - -->
 
 
-
+<div class="">
   
    <c:set var="count" value="1" scope="application" />
   <c:set var="p" value="1" scope="application" />
   <c:set var="rt" value="1" scope="application" />
+   <c:set var="ws" value="1" scope="application" />
  
     <c:forEach var="i" items="${lstprof}">
    <c:if test="${i.teacherId eq userid}">
+   
+    <c:set var="ws" value="${ws+1}" scope="application" />
+ 
   <!-- col-md-offset-3 -->
-   <div class="col-md-6 custom " style=" margin-left: 5.333333%;">
+   <div class="  col-md-6 col-xs-12 custom " style=" margin-left: 5.333333%;">
      <div class="row">
      
         <div class=" col-md-12 col-xs-12">
@@ -309,7 +314,13 @@
     </c:forEach><!-- end foreach post -->
    
   
+    <c:if test="${ws eq 1 }">
+     <div class="col-md-6  col-xs-12 custom " style=" margin-left: 5.333333%;">
+     <div class="clearfix">
+                                   </div> 
+     </div>
     
+    </c:if>
     
  
   
@@ -344,9 +355,9 @@
       
      
    
-  <div class=" col-md-6  custom  " >
+  <div class=" col-md-6  col-xs-12  custom  " >
    
-    <div class="panel panel-success rounded shadow  " id="borderheader">
+    <div class="panel panel-success rounded shadow   " id="borderheader">
    <div class="panel-heading no-border" id="header">
    <div class="pull-left half">
    <div class="media">
@@ -438,7 +449,7 @@ class="pull-right"><button type="button" class="btn btn-link">	<i class="fa fa-e
     <c:if test="${ j.type_of_post eq 'vote'}">
     
      
-     <div class="col-md-6 custom" >
+     <div class="col-md-6  col-xs-12  custom" >
      <div class="panel panel-success rounded shadow " id="borderheader">
    <div class="panel-heading no-border" id="header">
    <div class="pull-left half">
@@ -600,7 +611,7 @@ class="pull-right"><button type="button" class="btn btn-link">	<i class="fa fa-e
     </c:if><!-- end verfication post is vote post ? -->
     
     <c:if test="${ j.type_of_post eq 'payment'}">
-     <div class="col-md-6 custom">
+     <div class="col-md-6  col-xs-12  custom">
     
     <div class="panel panel-success rounded shadow " id="borderheader">
    <div class="panel-heading no-border" id="header">
@@ -662,7 +673,7 @@ class="pull-right"><button type="button" class="btn btn-link">	<i class="fa fa-e
          
            <!-- Modal -->
 
-
+ 
 
 <div id="<c:out value="${rt}rts"/>" class="modal fade" >
  
@@ -698,11 +709,6 @@ class="pull-right"><button type="button" class="btn btn-link">	<i class="fa fa-e
   <button  id="ibutton" type="submit" class="button btn"  onclick="getSubpayment('<c:out value="${rt}rts"/>','<c:out value="${rt}34"/>')">
   Envoyer la demande <i class="fa fa-sign-in fa-1x"></i></button>
             
-					
-					
-					
-					
-					
 				</form><!--.signup-form-->
 			</div></div><!-- content end  -->
 			
@@ -955,7 +961,11 @@ pour confirmer votre inscription dans ce événement il faut envoyer du crédit 
 			</div><!-- form-wrap end -->
 			
 			</div><!-- end model -->
+			
+			</div>
  
+ </div>
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
      <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
     

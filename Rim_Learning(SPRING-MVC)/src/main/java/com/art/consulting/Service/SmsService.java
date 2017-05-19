@@ -28,6 +28,8 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import com.art.consulting.entities.ConferenceJoinedStudent;
 import com.art.consulting.entities.ConferenceTable;
+import com.art.consulting.entities.GroupTemporaryStudent;
+import com.art.consulting.entities.JoinedGroupStudent;
 import com.art.consulting.entities.Notification;
 import com.art.consulting.entities.Student;
 import com.art.consulting.entities.StudentConferenceTemporary;
@@ -260,7 +262,9 @@ public class SmsService {
 		logger.info("body:"+ bodymsg);
 		  listStudent =   Imetier.findByPhoneNumberStudent(id);
 List<StudentConferenceTemporary>  listconferencetemporary=teachermetier.findPhoneNumberStudentinConferenceTemporary(id);
-	 if(!listStudent.isEmpty()){
+List<GroupTemporaryStudent> listgrouptemporary= studentMetier.findPhoneStudentInTemporaryGroup(id);
+
+if(!listStudent.isEmpty()){
 		 logger.info("is training payment ");
 		 Iterator  itr = listStudent.iterator();
 		   while(itr.hasNext()){
@@ -396,7 +400,47 @@ List<StudentConferenceTemporary>  listconferencetemporary=teachermetier.findPhon
 		
 
 	 }// end verification if is conference paymnet
-	 
+	 if(!listgrouptemporary.isEmpty() && c) { 
+		 logger.info("is group payment ");
+		 Iterator  itr = listgrouptemporary.iterator();
+		 GroupTemporaryStudent temptable = genericobjmetier.createObj(GroupTemporaryStudent.class);
+		 JoinedGroupStudent joingroup = genericobjmetier.createObj(JoinedGroupStudent.class);
+		 Notification notificationtable =genericobjmetier.createObj(Notification.class);
+		   while(itr.hasNext()){
+				
+			   temptable = (GroupTemporaryStudent) itr.next();
+				 if(temptable.getPrice().equals(bodymsg))
+				 {
+					 logger.info("payment process begin ");
+					 c=false;
+					 joingroup.setStudent(temptable.getStudent());
+					 joingroup.setGroup(temptable.getGroup());
+					 joingroup.setExpiredDate(studentMetier.getDateAfterThreeDays());
+					 
+					 studentMetier.addStudentToGroup(joingroup);
+					 
+					 studentMetier.deleteStudentFromtempgroup(temptable.getIdGroupTemporary());
+					 
+					 
+					 notificationtable.setStudentId(temptable.getStudent());
+					 notificationtable.setValue("Vous êtes les bienvenus dans  group   "
+					 +temptable.getGroup().getGroupName()
+					 +"vous avez l'acces jusqu'à  "+joingroup.getExpiredDate()
+							 );
+					 notificationtable.setState("not_seen");
+					 notificationtable.setDatenotification(new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(Calendar.getInstance().getTime()).toString());
+                   	notificationMetier.addnotification(notificationtable);
+					 
+					 temptable=null;
+					 joingroup=null;
+					 notificationtable=null;
+					
+					 break;
+				 }
+		 
+		   }//en while
+		 
+	 }// end verification if is group_join paymnet
 	  
 	
 	 

@@ -40,17 +40,23 @@ public class Groups  implements Serializable {
 	@OneToMany(targetEntity=GroupTemporaryStudent.class,mappedBy="group",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<GroupTemporaryStudent> grouptemporaryStudent;
 	
-	@OneToMany(targetEntity=JoinedGroupStudent.class,mappedBy="group",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToMany(targetEntity=JoinedGroupStudent.class,mappedBy="groups",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<JoinedGroupStudent> JoinedgroupStudent;
+	
+
+	@OneToMany(targetEntity=GroupsPosts.class,mappedBy="group_post",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<GroupsPosts> Groupsposts;
 	
 	
 	
 	public Groups(){}
 
 
+	
+
 	public Groups(int idGroups, String groupName, String itemType, String section, String urlPhoto,
 			List<Teacher> teacher, List<GroupTemporaryStudent> grouptemporaryStudent,
-			List<JoinedGroupStudent> joinedgroupStudent) {
+			List<JoinedGroupStudent> joinedgroupStudent, List<GroupsPosts> groupsposts) {
 		super();
 		this.idGroups = idGroups;
 		this.groupName = groupName;
@@ -60,7 +66,34 @@ public class Groups  implements Serializable {
 		this.teacher = teacher;
 		this.grouptemporaryStudent = grouptemporaryStudent;
 		JoinedgroupStudent = joinedgroupStudent;
+		Groupsposts = groupsposts;
 	}
+
+
+
+
+
+
+
+
+
+	public List<GroupsPosts> getGroupsposts() {
+		return Groupsposts;
+	}
+
+
+
+
+
+
+
+
+
+	public void setGroupsposts(List<GroupsPosts> groupsposts) {
+		Groupsposts = groupsposts;
+	}
+
+
 
 
 

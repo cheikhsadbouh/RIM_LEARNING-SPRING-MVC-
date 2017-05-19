@@ -187,7 +187,7 @@
      </li>
      </ul>
       
-       <div class="panel  panel-success">
+       <div class="panel  panel-success ">
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         Mes groupes</h3>
@@ -213,7 +213,7 @@
      <img src="<c:url value="${r.urlPhoto} " />" alt="..." class="img-post2">
      </div>
      <div class="media-body"> 
-     <a href="#" class="h4" style="text-decoration: none;">${r.groupName} </a> 
+     <a href="#"  onclick="getgroup('${r.idGroups}')" class="h4" style="text-decoration: none;">${r.groupName} </a> 
     <br>
       
     <!--  <span class="text-danger">26  étudiants</span> -->
@@ -314,14 +314,14 @@
 </div><!-- 3th col --> --%>
 <link href="<c:url value="/resources/css/notification.css" />" rel="stylesheet">
    <div class="col-lg-9 col-md-9 col-sm-8 ">
-   <div class="row" >
+   
 <div class="row" id="target">
 
 
 
 
 
-</div>
+
 
 
      </div><!-- end row -->
@@ -541,10 +541,16 @@ $(document).ready(function(){
     	 });
 
 
-    	 /*browse img */
+    
+    	 
+    	 function getgroup(grp){
+   		  var primary='<c:out value="${sessionScope.primary}" />';
+   		$('#target').load('/rim_learning_spring_mvc/mygroup/'+grp+'/'+primary+'  #home');
+   	}
 
     		
 
+    	
  
     		 
     		

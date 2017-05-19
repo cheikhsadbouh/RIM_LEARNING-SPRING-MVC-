@@ -22,11 +22,11 @@ public class JoinedGroupStudent    implements Serializable {
 	  
 		@ManyToOne
 		@JoinColumn(name="id_student")
-		private  Student student ;
+		private  Student students ;
 		
 		@ManyToOne
 		@JoinColumn(name="id_group")
-		private  Groups group ;
+		private  Groups groups ;
 
 		
 		public JoinedGroupStudent(){}
@@ -36,8 +36,8 @@ public class JoinedGroupStudent    implements Serializable {
 			super();
 			this.id = id;
 			this.expiredDate = expiredDate;
-			this.student = student;
-			this.group = group;
+			this.students = student;
+			this.groups = group;
 		}
 		
 		
@@ -59,19 +59,19 @@ public class JoinedGroupStudent    implements Serializable {
 		}
 
 		public Student getStudent() {
-			return student;
+			return students;
 		}
 
 		public void setStudent(Student student) {
-			this.student = student;
+			this.students = student;
 		}
 
 		public Groups getGroup() {
-			return group;
+			return groups;
 		}
 
 		public void setGroup(Groups group) {
-			this.group = group;
+			this.groups = group;
 		}
 		
 		

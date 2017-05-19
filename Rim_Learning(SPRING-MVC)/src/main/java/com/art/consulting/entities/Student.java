@@ -59,8 +59,16 @@ public class Student extends User implements Serializable{
 	@OneToMany(targetEntity=GroupTemporaryStudent.class,mappedBy="student",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<GroupTemporaryStudent> grouptemporaryStudent;
 	
-	@OneToMany(targetEntity=JoinedGroupStudent.class,mappedBy="student",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToMany(targetEntity=JoinedGroupStudent.class,mappedBy="students",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<JoinedGroupStudent> JoinedgroupStudent;
+	
+	
+	@OneToMany(targetEntity=GroupsPosts.class,mappedBy="student_grp_post",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<GroupsPosts> Groupsposts;
+	
+	@OneToMany(targetEntity=GroupsPostsTemporary.class,mappedBy="studentpost",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<GroupsPostsTemporary> GroupsPoststemporary;
+	
 	
 	
 	@ManyToMany()
@@ -75,13 +83,12 @@ public class Student extends User implements Serializable{
 	}
 
 
-
-
 	public Student(int studentId, String firstName, String lastName, String username, String email, String urlPhoto,
 			String password, String section, String role, int enabled, List<Notification> notification,
 			List<VoteResult> voteresult, List<StudentConferenceTemporary> conferencetemporary,
 			List<ConferenceJoinedStudent> conferencejoindstudent, List<GroupTemporaryStudent> grouptemporaryStudent,
-			List<JoinedGroupStudent> joinedgroupStudent, List<Training> training) {
+			List<JoinedGroupStudent> joinedgroupStudent, List<GroupsPosts> groupsposts,
+			List<GroupsPostsTemporary> groupsPoststemporary, List<Training> training) {
 		super();
 		this.studentId = studentId;
 		this.firstName = firstName;
@@ -99,8 +106,80 @@ public class Student extends User implements Serializable{
 		this.conferencejoindstudent = conferencejoindstudent;
 		this.grouptemporaryStudent = grouptemporaryStudent;
 		JoinedgroupStudent = joinedgroupStudent;
+		Groupsposts = groupsposts;
+		GroupsPoststemporary = groupsPoststemporary;
 		this.training = training;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public List<GroupsPostsTemporary> getGroupsPoststemporary() {
+		return GroupsPoststemporary;
+	}
+
+
+
+
+
+
+	public void setGroupsPoststemporary(List<GroupsPostsTemporary> groupsPoststemporary) {
+		GroupsPoststemporary = groupsPoststemporary;
+	}
+
+
+
+
+
+
+	public List<GroupsPosts> getGroupsposts() {
+		return Groupsposts;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setGroupsposts(List<GroupsPosts> groupsposts) {
+		Groupsposts = groupsposts;
+	}
+
+
+
+
+
 
 
 

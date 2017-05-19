@@ -621,4 +621,85 @@ function submit_to_controller(){
 	
 }
 
+function validationgrpsub(frm,mdl){
+	alert("validation");
+	var phonenumber =document.getElementById('phones');
+	
+		if(phonenumber.value.trim()==""){
+			alert(" empty");
+			return false;
+			
+		}else
+			{
+			 Subgrppayment(frm,mdl);
+			return true ;
+			}
+	
+	
+}
+
+function Subgrppayment(formw,X){
+	
+	 $('#'+formw).submit(function(event) {
+		    event.preventDefault(); // Prevent the form from submitting via the browser
+		    var form = $(this);
+		    $.ajax({
+		      type: 'POST',
+		      url: '/rim_learning_spring_mvc/joingrouprequest',
+		      data: form.serialize()
+		    }).done(function(data) {
+		      // Optionally alert the user of success here...
+		    	
+		    	$('#'+X).modal('hide')
+		    	$('#responsegrprst').modal('show');
+		    }).fail(function(data) {
+		      // Optionally alert the user of an error here...
+		    	
+		    });
+		  });
+	
+	
+}
+
+
+function validgrp_post(){
+	
+	var content =document.getElementById('content');
+	
+	if(content.value.trim()==""){
+		alert(" empty");
+		return false;
+		
+	}else 
+		{
+		
+		alert(content.value);
+		
+		getSubpostgrp();
+		return false ;
+		}
+	
+}
+
+
+
+function getSubpostgrp() {
+	
+		    // Prevent the form from submitting via the browser
+		    
+		    $.ajax({
+		      type: 'POST',
+		      url: '/rim_learning_spring_mvc/group_post_temp',
+		      data:  $("#newpostgrp").serialize()
+		    }).done(function(data) {
+		      // Optionally alert the user of success here...
+		    	var content =document.getElementById('content');
+		    	content.value = '';
+		    	alert("success");
+		    }).fail(function(data) {
+		      // Optionally alert the user of an error here...
+		    	alert("error");
+		    });
+	 
+}
 		  

@@ -200,7 +200,7 @@
      <img src="<c:url value="${r.urlPhoto} " />" alt="..." class="img-post2">
      </div>
      <div class="media-body"> 
-     <a href="#" class="h4" style="text-decoration: none;">${r.groupName} </a> 
+     <a href="#"  onclick="getgroup('${r.idGroups}')" class="h4" style="text-decoration: none;">${r.groupName} </a> 
     <br>
       
     <!--  <span class="text-danger">26  étudiants</span> -->
@@ -236,7 +236,7 @@
       
                 
 
-
+ <c:set var="py" value="1" scope="application" />
 <c:forEach var="item" items="${itemtsype}">
  <c:set var="count" value="1" scope="application" />
    <div class="panel  panel-success">
@@ -250,7 +250,7 @@
                 <ul class="list-group checked-list-box">  
                   
                     <c:forEach var="grp" items="${listofgroups}">
-                   
+                    
                      <c:if test="${grp.itemType eq item }">
                       <c:set var="count" value="${count+1}" scope="application" />
                   <li class="list-group-item">
@@ -265,11 +265,50 @@
       <c:forEach var="n" items="${grp.teacher}">
      <small class="block text-muted"> ${n.username}</small> <br>
     </c:forEach>
-     <a href="" class="btn btn-default text-center btn-block">joindre</a>
+     <a href="" class="btn btn-default text-center btn-block" 
+      data-toggle="modal" data-target="<c:out value="#${py}py"/>">joindre</a>
+     
+     <!-- begin model payment ! -->
+     <div id="<c:out value="${py}py"/>" class="modal fade" >
+ 
+        
+<div class="form-wrap">
+		<div class="tabs">
+				<div class="modal-header" >
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<div id="data" align="center">  
+     <p>Titre de conference : </p>
+       <p> Date : </p>
+          <p>Prix: 1000 UM  </p>
+     
+     </div>
+					
+				</div>
+		
+		</div><!--.tabs-->
+		<div class="tabs-content">
+			<div id="signup-tab-content" class="active">
+				<form class="signup-form"    id="<c:out value="${py}34"/>" >
+<input type="text" class="input"  name="phone_user" id="phones" autocomplete="off"required title=" " placeholder="numéro de téléphone">                  
+<input id="" type="hidden" class="form-control" name="groupid" value="<c:out value="${grp.idGroups}"/>"    >   
+<input id="" type="hidden" class="form-control" name="PRICE" value="500" >   
+<input id="" type="hidden" class="form-control" name="user" value="${sessionScope.name}">      
+  <button  id="ibutton" type="submit" class="button btn"  onclick=" return validationgrpsub('<c:out value="${py}34"/>','<c:out value="${py}py"/>')">
+  Envoyer la demande <i class="fa fa-sign-in fa-1x"></i></button>
+            
+				</form><!--.signup-form-->
+			</div></div><!-- content end  -->
+			
+			</div><!-- form-wrap end -->
+			
+			</div><!-- end model-->
+			<!-- end model payment  -->
      </div>
      </div> <!-- end comment 1 -->           
                   </li>
+                  <c:set var="py" value="${py+1}" scope="application" />
                    </c:if>
+                   
     </c:forEach>
      <c:if test="${count eq 1}">
                  
@@ -293,6 +332,7 @@
 </div>
  </div><!-- end of col-X -->
       </div><!-- fixed -->
+      <link href="<c:url value="/resources/css/notification.css" />" rel="stylesheet">
    <div class="col-lg-9 col-md-9 col-sm-8">
    <div class="row" >
 <div class="row" id="target">
@@ -317,7 +357,59 @@
     
    
    
+    <!-- model group confirmation -->
+    <div id="responsegrprst" class="modal fade" >
+ 
+        
+<div class="form-wrap">
+		<div class="tabs">
+				<div class="modal-header" >
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+					
+					
+				</div>
+		
+		</div><!--.tabs-->
+
+		<div class="tabs-content" Style="background-color: #f6f7f9;
+    border-radius: 11px;
+    font-weight: bold;
+    height: 203px;">
+			<div id="signup-tab-content" class="active">
+				 
+		     
+  
+	<div id="data3">  
+	<br>
     
+  <p align="left"> 
+       Merci pour votre fidélité,
+       </p>
+       
+ <p align="center" >
+une notification sera vous envoyez apres a voir envoyez credit !
+
+</p>
+ <div id="color">
+   <p align="left"> </p>
+
+       
+ 
+ </div>
+  
+     
+     </div>
+  
+					
+					
+					
+					
+				
+			</div></div><!-- content end  -->
+			
+			</div><!-- form-wrap end -->
+			
+			</div><!-- end model -->
   
   
   
@@ -410,6 +502,10 @@ $(function() {
 
 	});
 	
+	function getgroup(grp){
+		  var primary='<c:out value="${sessionScope.primary}" />';
+		$('#target').load('/rim_learning_spring_mvc/mygroup/'+grp+'/'+primary+'  #home');
+	}
 	
     // Your fnNamt function here
 

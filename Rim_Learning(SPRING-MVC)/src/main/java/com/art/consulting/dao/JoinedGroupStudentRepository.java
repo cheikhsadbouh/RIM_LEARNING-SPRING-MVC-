@@ -11,6 +11,6 @@ import com.art.consulting.entities.Student;
 
 public interface JoinedGroupStudentRepository  extends JpaRepository<JoinedGroupStudent, Integer>{
 
-	 @Query("FROM JoinedGroupStudent t  where t.id = :id") 
-	    public  List<JoinedGroupStudent> findgroupsbyid(@Param("id") int id);
+	 @Query("FROM JoinedGroupStudent t  where t.students = :id") 
+	    public  List<JoinedGroupStudent> findgroupsbyid(@Param("id") Student  std);
 }

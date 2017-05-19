@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +17,7 @@
       
 
     <!-- my style -->
-    
+     <link href="<c:url value="/resources/css/cours.css" />" rel="stylesheet">
       <!-- myfont -->
      <link href="<c:url value="/resources/css/font-awesome/css/font-awesome.min.css" />" rel="stylesheet">
       <!-- bitdash player -->
@@ -26,7 +25,8 @@
   
   </head>
   <body>
-<div id="home">
+  
+  <div id="home">
 
 <div class="col-md-11 col-lg-11 col-xs-10  col-xs-offset-1 col-sm-11 col-sm-offset-1 col-lg-offset-1 col-md-offset-1">
     <div class="content-hero">
@@ -93,102 +93,13 @@
 <!-- end cover  group -->
 
   <c:set var="sds" value="1" scope="application" />
-<div  class="">
+<div  class="row">
     <div class="col-lg-5 col-md-5 col-sm-11  pull-right"style="    margin-right: -3.666667%;">
 <c:forEach var="i" items="${lstprof}">
      <c:if test="${i.teacherId eq userid}">
      <c:set var="sds" value="${sds+1}" scope="application" />
      
-     <div id="group">
 
-<div  class="panel-group">
-       <div class="panel  panel-success" >
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                         Conference</h3>
-          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                         
-                    <span class="pull-right "><i class=""></i></span>
-                </div>
-                <div class="panel-body " id="padingbody">
-                     <div class="well" style="max-height: 71px;overflow: auto;">
-                <ul class="list-group checked-list-box">      
-                
-                 <li class="list-group-item">
-                  
-                  
-          
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/avatar1.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#"  onclick="getgroup('${r.idGroups}')" class="h4" style="text-decoration: none;">gfhghjfhgj </a> 
-    <br>
-      
-    <!--  <span class="text-danger">26  étudiants</span> -->
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li> 
-                   
-                 <li class="list-group-item">
-                  
-                  
-          
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/avatar1.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#"  onclick="getgroup('${r.idGroups}')" class="h4" style="text-decoration: none;">gfhghjfhgj </a> 
-    <br>
-      
-    <!--  <span class="text-danger">26  étudiants</span> -->
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li> 
-                   
-                 <li class="list-group-item">
-                  
-                  
-          
-                  <div class="media inner-all no-margin">
-     <div class="pull-left"> 
-     <img src="<c:url value="/resources/img/avatar1.png" />" alt="..." class="img-post2">
-     </div>
-     <div class="media-body"> 
-     <a href="#"  onclick="getgroup('${r.idGroups}')" class="h4" style="text-decoration: none;">gfhghjfhgj </a> 
-    <br>
-      
-    <!--  <span class="text-danger">26  étudiants</span> -->
-     </div>
-     </div> <!-- end comment 1 -->
-                  
-                  
-                  
-                  </li> 
-                
-                </ul>
-                </div>
-              
-                </div>
-            </div>
-            
-            
-            
-               
-            </div><!-- end panel group1 -->
-            
-           
-             
-          
-            </div><!-- end group1 -->
        
     
                                 
@@ -458,19 +369,9 @@ a.kit-avatar {
 .card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px; }
 
 </style>
+  
 
-
-
-
-
-
-
-
-
-
-
-</div>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
      <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -478,5 +379,5 @@ a.kit-avatar {
     
      <script src="<c:url value="/resources/js/player.js"/>"></script>
        <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
-  
-</body></html>
+   
+ </body></html>

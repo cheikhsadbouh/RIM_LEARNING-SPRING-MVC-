@@ -284,6 +284,7 @@ String[] sTemp=data.split("msgss");
 			  }else{
 				  boolean  isDirector = (new File(path+"/"+groupname)).mkdirs();
 				  if(isDirector){
+					  
 					  File destination = new File(path+"/"+groupname,file.getOriginalFilename());
 					  
 					  file.transferTo(destination); 
@@ -306,7 +307,7 @@ String[] sTemp=data.split("msgss");
 			grouptable=null;
 			list=null;
 			
-			logger.info("new group created !");
+			logger.info("new group created !" +destination.getAbsolutePath());
 			  return "1";
 				  }else{
 					  logger.info("prof here but can't create group directory ");

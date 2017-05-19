@@ -5,6 +5,8 @@ import java.util.List;
 import com.art.consulting.entities.ConferenceJoinedStudent;
 import com.art.consulting.entities.ConferenceTable;
 import com.art.consulting.entities.Groups;
+import com.art.consulting.entities.GroupsPosts;
+import com.art.consulting.entities.GroupsPostsTemporary;
 import com.art.consulting.entities.Homepage;
 import com.art.consulting.entities.StudentConferenceTemporary;
 import com.art.consulting.entities.Teacher;
@@ -36,6 +38,10 @@ public String generateCode();
 public  void savejoinedconference(ConferenceJoinedStudent obj);
 
 public void CreateNewgroup(Groups obj);
+public void add_post_to_group(GroupsPosts obj);
+
+
+
 
 
 

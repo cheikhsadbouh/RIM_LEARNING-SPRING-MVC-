@@ -3,6 +3,7 @@ package com.art.consulting.metier;
 import com.art.consulting.dao.ConferenceJoinedStudentRepository;
 import com.art.consulting.dao.ConferenceRepository;
 import com.art.consulting.dao.GroupRepository;
+import com.art.consulting.dao.GroupsPostsRepository;
 import com.art.consulting.dao.HomePageRepository;
 import com.art.consulting.dao.StduentConferenceTemporaryRepository;
 import com.art.consulting.dao.TeacherRepository;
@@ -10,6 +11,8 @@ import com.art.consulting.dao.VoteContentRepository;
 import com.art.consulting.entities.ConferenceJoinedStudent;
 import com.art.consulting.entities.ConferenceTable;
 import com.art.consulting.entities.Groups;
+import com.art.consulting.entities.GroupsPosts;
+import com.art.consulting.entities.GroupsPostsTemporary;
 import com.art.consulting.entities.Homepage;
 import com.art.consulting.entities.StudentConferenceTemporary;
 import com.art.consulting.entities.Teacher;
@@ -50,6 +53,17 @@ public class TeacherMetierImpl  implements TeacherMetier{
 	
 	@Autowired
 	private GroupRepository grouprepository ;
+	
+	@Autowired
+	private GroupsPostsRepository groups_posts ;
+	public GroupsPostsRepository getGroups_posts() {
+		return groups_posts;
+	}
+
+	public void setGroups_posts(GroupsPostsRepository groups_posts) {
+		this.groups_posts = groups_posts;
+	}
+
 	public GroupRepository getGrouprepository() {
 		return grouprepository;
 	}
@@ -264,6 +278,14 @@ public class TeacherMetierImpl  implements TeacherMetier{
 		
 	}
 
+	@Override
+	public void add_post_to_group(GroupsPosts obj) {
+		
+		groups_posts.save(obj);
+		
+	}
+
+	
 	
 
 	
