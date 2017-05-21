@@ -413,8 +413,8 @@ if(!listStudent.isEmpty()){
 				 {
 					 logger.info("payment process begin ");
 					 c=false;
-					 joingroup.setStudent(temptable.getStudent());
-					 joingroup.setGroup(temptable.getGroup());
+					 joingroup.setStudents(temptable.getStudent());
+					 joingroup.setGroups(temptable.getGroup());
 					 joingroup.setExpiredDate(studentMetier.getDateAfterThreeDays());
 					 
 					 studentMetier.addStudentToGroup(joingroup);

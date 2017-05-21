@@ -8,6 +8,7 @@ import com.art.consulting.entities.Groups;
 import com.art.consulting.entities.GroupsPosts;
 import com.art.consulting.entities.GroupsPostsTemporary;
 import com.art.consulting.entities.Homepage;
+import com.art.consulting.entities.JoinedGroupStudent;
 import com.art.consulting.entities.StudentConferenceTemporary;
 import com.art.consulting.entities.Teacher;
 import com.art.consulting.entities.VoteContent;
@@ -39,6 +40,9 @@ public  void savejoinedconference(ConferenceJoinedStudent obj);
 
 public void CreateNewgroup(Groups obj);
 public void add_post_to_group(GroupsPosts obj);
+
+public List<GroupsPosts> findAllPostGroup(Groups obj);
+
 
 
 

@@ -190,6 +190,26 @@ public class StudentMetierImpl implements StudentMetier{
 		return  grp_temp_post.find_temp_post(obj);
 	}
 
+	@Override
+	public GroupsPostsTemporary findTempGroup(int obj) {
+		
+		return grp_temp_post.findOne(obj);
+	}
+
+	@Override
+	public void deleteTempPost(int obj) {
+		
+		grp_temp_post.delete(obj);
+	}
+
+	@Override
+	public List<JoinedGroupStudent> findStudentInGroup(Groups id) {
+		
+		return joinedgrouprepository.findStudentInGroup(id);
+	}
+
+	
+
 
 	
 	

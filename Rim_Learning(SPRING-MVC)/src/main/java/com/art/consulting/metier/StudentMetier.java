@@ -17,6 +17,8 @@ public interface StudentMetier {
 	public Student findone(Integer arg0);
 	
 	public List<JoinedGroupStudent> findmygroups(Student std);
+
+      public List<JoinedGroupStudent> findStudentInGroup(Groups id);
 	public List<Groups> findallgroups();
 	
 	public void addStudentToTemporaryGroup(GroupTemporaryStudent obj);
@@ -35,5 +37,8 @@ public interface StudentMetier {
 	
 	public void add_grp_temp_post(GroupsPostsTemporary obj);
 	public List<GroupsPostsTemporary> find_grp_temp_post( Groups   obj);
+	public GroupsPostsTemporary findTempGroup(int obj);
+	
+	public void deleteTempPost(int obj);
 }
 

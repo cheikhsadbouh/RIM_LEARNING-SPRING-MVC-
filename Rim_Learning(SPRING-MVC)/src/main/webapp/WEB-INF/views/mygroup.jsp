@@ -31,11 +31,12 @@
 
 <div class="col-md-11 col-lg-11 col-xs-10  col-xs-offset-1 col-sm-11 col-sm-offset-1 col-lg-offset-1 col-md-offset-1">
     <div class="content-hero">
-      <img class="content-hero-embed" src="http://lorempixel.com/250/250/nature/8/" alt="cover">
+      <img class="content-hero-embed" src="https://images.pexels.com/photos/232/apple-iphone-books-desk.jpg?h=350&auto=compress&cs=tinysrgb" alt="cover">
       <div class="content-hero-overlay bg-grd-red"></div>
       <div class="content-hero-body">
         <div class="pull-right" role="group">
-          <a  class="btn btn-icon btn-default"><span class="fa fa-user"></span></a>
+       
+          <span  style="color: white;" class="fa fa-pencil-square-o fa-2x"></span>
         </div>
       </div>
     </div>
@@ -43,46 +44,54 @@
     <div class="content-hero content-hero-sm">
       <div class="row">
         <div class="col-md-6 col-xs-8">
+        
           <div class="media">
             <div class="media-left">
               <a class="kit-avatar kit-avatar-64 no-padding border-white hidden-xs" href="#">
-                <img alt="cover" src="http://bootdey.com/img/Content/avatar/avatar1.png">
+                <img alt="cover" src="/rim_learning_spring_mvc${infogrp.urlPhoto}">
               </a>
               <a class="kit-avatar kit-avatar-42 no-padding border-white visible-xs" href="#">
-                <img alt="cover" src="http://bootdey.com/img/Content/avatar/avatar1.png">
+                <img alt="cover" src="/rim_learning_spring_mvc${infogrp.urlPhoto}">
               </a>
             </div>
             <div class="media-body">
-              <h2 class="display-name media-heading text-red hidden-xs">Angela Fowler</h2>
-              <h3 class="display-name media-heading text-red visible-xs">Angela Fowler</h3>
-              <p class="text-muted"><span class="mr-2x">Since April 21, 2010</span> <span><i class="fa fa-skype fa-fw hidden-xs"></i> (+44) 212 008 5656</span></p>
+              <h2 class="display-name media-heading text-red hidden-xs">${infogrp.groupName}</h2>
+              <h3 class="display-name media-heading text-red visible-xs">${infogrp.groupName}</h3>
+              <c:forEach var="s" items="${infogrp.teacher}">
+              <p class="text-muted"><span class="mr-2x">Created By  ${s.firstName} ${s.lastName}</span></p>
+            </c:forEach>
             </div><!-- /.pull -->
           </div>
+          
         </div><!-- /.cols -->
     
         <div class="col-md-2 col-xs-4 col-md-push-4 text-right">
           <a href="#" rel="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="" aria-label="Poke" data-original-title="Jawil sitik"><i class="fa fa-thumbs-o-up"></i></a>
-          <a href="#" rel="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="" aria-label="Send a Messege" data-original-title="Send a Messege"><i class="fa fa-envelope-o"></i></a>
         </div><!-- /.cols -->
     
         <div class="col-md-4 col-xs-12 col-md-pull-2 text-center">
           <div class="row">
             <div class="col-xs-4">
-              <div class="p-1x">
-                <span class="headline"><strong>1,5K</strong></span>
-                <p>Activities</p>
-              </div>
+              
             </div><!-- /.cols -->
+            
             <div class="col-xs-4">
+            <c:set var="studetnN" value="0" scope="application" />
+            <c:forEach var="q" items="${infogrp.joinedgroupStudent}">
+             <c:set var="studetnN" value="${ studetnN + 1}" scope="application" />
+            </c:forEach>
               <div class="p-1x">
-                <span class="headline"><strong>23</strong></span>
-                <p>Events</p>
+                <span class="headline"><strong>${studetnN}</strong></span>
+                
+                <p>Students</p>
+             
               </div>
+              
             </div><!-- /.cols -->
             <div class="col-xs-4">
               <div class="p-1x">
                 <span class="headline"><strong>2,4K</strong></span>
-                <p>Followers</p>
+                <p>Liked</p>
               </div>
             </div><!-- /.cols -->
           </div><!-- /.row -->
@@ -112,15 +121,15 @@
                                         <div role="tabpanel" class="tab-pane active" id="homes" style="overflow-y: auto;">
                                     <ul class="list-group checked-list-box">  
                                      <div class="   chat-users chat">
-                                     <c:forEach var="e" begin="1" end="100" step="1">
+                                     <c:forEach var="e" items="${alluser}">
                                        <li class="list-group-item">
                                         <div class="user">
                     <div class="avatar">
-                    <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
+                    <img src="<c:url value="${e.students.urlPhoto}" />" alt="User name">
                     <div class="status online"></div>
                     </div>
-                    <div class="name">User name</div>
-                    <div class="mood">User mood</div>
+                    <div class="name">${e.students.username}</div>
+                    <div class="mood"></div>
                 </div>
                 </li>
                      </c:forEach>        
@@ -179,7 +188,7 @@
 class="actions"><div
 class="btn-group"> 							
   
-  <button type="button" class="btn btn-link"><i class="fa fa-thumbs-up"></i>  likes        </button> 
+  <button type="button" class="btn btn-link" onclick="postliked('${emp.idpost}')"><i class="fa fa-thumbs-up"></i>  likes        </button> 
 
 						
 							
@@ -206,7 +215,7 @@ class="pull-right"><button type="button" class="btn btn-link">	<i class="fa fa-t
                 
                 
                 </li>
-                
+                <br>
                 </c:forEach>  
                 </ul>
                 </div>
@@ -247,18 +256,18 @@ class="pull-right"><button type="button" class="btn btn-link">	<i class="fa fa-t
                                         <div role="tabpanel" class="tab-pane active" id="homes" style="overflow-y: auto;">
                                     <ul class="list-group checked-list-box">  
                                      <div class="   chat-users chat">
-                                     <c:forEach var="e" begin="1" end="100" step="1">
+                  <c:forEach var="e" items="${alluser}">
                                        <li class="list-group-item">
                                         <div class="user">
                     <div class="avatar">
-                    <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
+                    <img src="<c:url value="${e.students.urlPhoto}" />" alt="User name">
                     <div class="status online"></div>
                     </div>
-                    <div class="name">User name</div>
-                    <div class="mood">User mood</div>
+                    <div class="name">${e.students.username}</div>
+                    <div class="mood"></div>
                 </div>
                 </li>
-                     </c:forEach>        
+                     </c:forEach>          
                       </div>          
                                         </ul>
                                         </div>
@@ -340,29 +349,45 @@ class="pull-right"><button type="button" class="btn btn-link">	<i class="fa fa-t
 
 
 
-<c:forEach var="u" begin="1" end="10" step="1">
+<c:forEach var="u" items="${allpost}">
    
   <div class="col-md-7 col-xs-12 custom " style="  margin-left: -3.666667%;">
    
     <div class="panel panel-success rounded shadow   " id="borderheader">
    <div class="panel-heading no-border" id="header">
    <div class="pull-left half">
+   <c:if test="${not empty u.teacher_grp_post}">
    <div class="media">
    <div class="media-object pull-left"> 
-   <img src="<c:url value="${j.teacher.urlPhoto}" />" alt="..." class="img-rounded img-post">
+   <img src="<c:url value="${u.teacher_grp_post.urlPhoto}" />" alt="..." class="img-rounded img-post">
    </div>
    <div class="media-body ">
-   <c:forEach var="i" items="${lstprof}">
-    <c:if test="${i.teacherId  eq userid}">
+   
    <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
-   </c:if>
-   </c:forEach>
+  
     <a href="#" class="media-heading block mb-0 h4 text-white">
-     <c:out value="${j.teacher.username}"></c:out>
+     <c:out value="${u.teacher_grp_post.username}"></c:out>
     </a>
    
      </div>
      </div>
+     </c:if>
+      <c:if test="${not empty u.student_grp_post}">
+   <div class="media">
+   <div class="media-object pull-left"> 
+   <img src="<c:url value="${u.student_grp_post.urlPhoto}" />" alt="..." class="img-rounded img-post">
+   </div>
+   <div class="media-body ">
+   
+   <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
+  
+    <a href="#" class="media-heading block mb-0 h4 text-white">
+     <c:out value="${u.student_grp_post.username}"></c:out>
+    </a>
+   
+     </div>
+     </div>
+     </c:if>
      </div>
      <div class="pull-right"> 
      <a href="#" class="text-white h5">
@@ -375,7 +400,7 @@ class="pull-right"><button type="button" class="btn btn-link">	<i class="fa fa-t
         <div class="well" style="     min-height: 105px; max-height: 300px;overflow: auto;">
        
         
-          <p style="padding: 8px;"> <c:out value="${j.msg}"></c:out><br></p>
+          <p style="padding: 8px;"> <c:out value="${u.content}"></c:out><br></p>
         
         
         </div>
@@ -542,7 +567,7 @@ a.kit-avatar {
 }
 
 .text-red {
-    color: #ED5565!important;
+    color: #000!important;
 }
 .h2, .headline, h2 {
     font-size: 24px;
@@ -550,7 +575,7 @@ a.kit-avatar {
     line-height: 32px;
 }
 .text-red {
-    color: #ED5565!important;
+    color: #000!important;
 }
 .col-lg-offset-1 {
     margin-left: 6.333333%;

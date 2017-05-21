@@ -41,7 +41,7 @@ public class Groups  implements Serializable {
 	private List<GroupTemporaryStudent> grouptemporaryStudent;
 	
 	@OneToMany(targetEntity=JoinedGroupStudent.class,mappedBy="groups",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	private List<JoinedGroupStudent> JoinedgroupStudent;
+	private List<JoinedGroupStudent> joinedgroupStudent;
 	
 
 	@OneToMany(targetEntity=GroupsPosts.class,mappedBy="group_post",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
@@ -52,7 +52,6 @@ public class Groups  implements Serializable {
 	public Groups(){}
 
 
-	
 
 	public Groups(int idGroups, String groupName, String itemType, String section, String urlPhoto,
 			List<Teacher> teacher, List<GroupTemporaryStudent> grouptemporaryStudent,
@@ -65,39 +64,57 @@ public class Groups  implements Serializable {
 		this.urlPhoto = urlPhoto;
 		this.teacher = teacher;
 		this.grouptemporaryStudent = grouptemporaryStudent;
-		JoinedgroupStudent = joinedgroupStudent;
+		joinedgroupStudent = joinedgroupStudent;
 		Groupsposts = groupsposts;
 	}
 
 
 
-
-
-
-
-
-
-	public List<GroupsPosts> getGroupsposts() {
-		return Groupsposts;
+	public int getIdGroups() {
+		return idGroups;
 	}
 
 
 
-
-
-
-
-
-
-	public void setGroupsposts(List<GroupsPosts> groupsposts) {
-		Groupsposts = groupsposts;
+	public void setIdGroups(int idGroups) {
+		this.idGroups = idGroups;
 	}
 
 
 
+	public String getGroupName() {
+		return groupName;
+	}
 
 
 
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+	}
+
+
+
+	public String getItemType() {
+		return itemType;
+	}
+
+
+
+	public void setItemType(String itemType) {
+		this.itemType = itemType;
+	}
+
+
+
+	public String getSection() {
+		return section;
+	}
+
+
+
+	public void setSection(String section) {
+		this.section = section;
+	}
 
 
 
@@ -107,17 +124,21 @@ public class Groups  implements Serializable {
 
 
 
-
-
-
-
 	public void setUrlPhoto(String urlPhoto) {
 		this.urlPhoto = urlPhoto;
 	}
 
 
 
+	public List<Teacher> getTeacher() {
+		return teacher;
+	}
 
+
+
+	public void setTeacher(List<Teacher> teacher) {
+		this.teacher = teacher;
+	}
 
 
 
@@ -127,67 +148,38 @@ public class Groups  implements Serializable {
 
 
 
-
 	public void setGrouptemporaryStudent(List<GroupTemporaryStudent> grouptemporaryStudent) {
 		this.grouptemporaryStudent = grouptemporaryStudent;
 	}
 
 
 
-
 	public List<JoinedGroupStudent> getJoinedgroupStudent() {
-		return JoinedgroupStudent;
+		return joinedgroupStudent;
 	}
-
 
 
 
 	public void setJoinedgroupStudent(List<JoinedGroupStudent> joinedgroupStudent) {
-		JoinedgroupStudent = joinedgroupStudent;
+		joinedgroupStudent = joinedgroupStudent;
 	}
 
 
 
-
-	public int getIdGroups() {
-		return idGroups;
+	public List<GroupsPosts> getGroupsposts() {
+		return Groupsposts;
 	}
 
-	public void setIdGroups(int idGroups) {
-		this.idGroups = idGroups;
+
+
+	public void setGroupsposts(List<GroupsPosts> groupsposts) {
+		Groupsposts = groupsposts;
 	}
 
-	public String getGroupName() {
-		return groupName;
-	}
 
-	public void setGroupName(String groupName) {
-		this.groupName = groupName;
-	}
+	
 
-	public String getItemType() {
-		return itemType;
-	}
-
-	public void setItemType(String itemType) {
-		this.itemType = itemType;
-	}
-
-	public String getSection() {
-		return section;
-	}
-
-	public void setSection(String section) {
-		this.section = section;
-	}
-
-	public List<Teacher> getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(List<Teacher> teacher) {
-		this.teacher = teacher;
-	}
+	
 	
 	
 	

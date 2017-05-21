@@ -285,6 +285,12 @@ public class TeacherMetierImpl  implements TeacherMetier{
 		
 	}
 
+	@Override
+	public List<GroupsPosts> findAllPostGroup(Groups obj) {
+		
+		return groups_posts.find_posts(obj);
+	}
+
 	
 	
 

@@ -20,7 +20,7 @@ public class GroupsPosts  implements Serializable {
 	
 
 	@Column(columnDefinition = "longtext")
-	private String Content  ;
+	private String content  ;
 	
 	@ManyToOne
 	@JoinColumn(name="id_group")
@@ -35,24 +35,29 @@ public class GroupsPosts  implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="id_teacher")
 	private  Teacher teacher_grp_post ;
-
+      
 	
 	
 	
 	
 	public GroupsPosts(){}
-	
 
-	public GroupsPosts(int idpost, String urlphoto, String content, Groups group_post, Student student,
-			Teacher teacher) {
+
+
+
+
+	public GroupsPosts(int idpost, String content, Groups group_post, Student student_grp_post,
+			Teacher teacher_grp_post) {
 		super();
 		this.idpost = idpost;
-		
-		Content = content;
+		this.content = content;
 		this.group_post = group_post;
-		this.student_grp_post = student;
-		this.teacher_grp_post = teacher;
+		this.student_grp_post = student_grp_post;
+		this.teacher_grp_post = teacher_grp_post;
 	}
+
+
+
 
 
 	public int getIdpost() {
@@ -60,21 +65,31 @@ public class GroupsPosts  implements Serializable {
 	}
 
 
+
+
+
 	public void setIdpost(int idpost) {
 		this.idpost = idpost;
 	}
 
 
-	
+
+
 
 	public String getContent() {
-		return Content;
+		return content;
 	}
+
+
+
 
 
 	public void setContent(String content) {
-		Content = content;
+		this.content = content;
 	}
+
+
+
 
 
 	public Groups getGroup_post() {
@@ -82,30 +97,46 @@ public class GroupsPosts  implements Serializable {
 	}
 
 
+
+
+
 	public void setGroup_post(Groups group_post) {
 		this.group_post = group_post;
 	}
 
 
-	public Student getStudent() {
+
+
+
+	public Student getStudent_grp_post() {
 		return student_grp_post;
 	}
 
 
-	public void setStudent(Student student) {
-		this.student_grp_post = student;
+
+
+
+	public void setStudent_grp_post(Student student_grp_post) {
+		this.student_grp_post = student_grp_post;
 	}
 
 
-	public Teacher getTeacher() {
+
+
+
+	public Teacher getTeacher_grp_post() {
 		return teacher_grp_post;
 	}
 
 
-	public void setTeacher(Teacher teacher) {
-		this.teacher_grp_post = teacher;
+
+
+
+	public void setTeacher_grp_post(Teacher teacher_grp_post) {
+		this.teacher_grp_post = teacher_grp_post;
 	}
 	
+
 	
 
 }

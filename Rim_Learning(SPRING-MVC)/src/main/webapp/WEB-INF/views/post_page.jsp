@@ -40,7 +40,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                          Conference</h3>
-                          <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
+                          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                     <span class="pull-right "><i class=""></i></span>
                 </div>
                 <div class="panel-body " id="padingbody">
@@ -91,7 +91,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                          VisioConference</h3>
-                    <span class="pull-right "><i class=""></i></span>
+                  <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
                 <div class="panel-body" id="padingbody">
                  <div class="well" style="max-height: 71px;overflow: auto;">
@@ -142,7 +142,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                          Formations</h3>
-                    <span class="pull-right "><i class=""></i></span>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
                 <div class="panel-body" id="padingbody">
                  <div class="well" style="max-height: 71px;overflow: auto;">

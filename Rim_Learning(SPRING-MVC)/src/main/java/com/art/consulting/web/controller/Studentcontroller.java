@@ -3,6 +3,7 @@ package com.art.consulting.web.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,6 +25,7 @@ import com.art.consulting.entities.GroupTemporaryStudent;
 import com.art.consulting.entities.Groups;
 import com.art.consulting.entities.GroupsPosts;
 import com.art.consulting.entities.GroupsPostsTemporary;
+import com.art.consulting.entities.Homepage;
 import com.art.consulting.entities.JoinedGroupStudent;
 import com.art.consulting.entities.Student;
 import com.art.consulting.entities.StudentTrainingTemporary;
@@ -165,7 +167,7 @@ public class Studentcontroller {
   			
   			joingroup=(JoinedGroupStudent)rt.next();
   			
-  			mygroups.add(studentMetier.findGroupById(joingroup.getGroup().getIdGroups()));
+  			mygroups.add(studentMetier.findGroupById(joingroup.getGroups().getIdGroups()));
   			
   		}
   		model.addAttribute("mygroups",mygroups);
@@ -463,12 +465,28 @@ public class Studentcontroller {
 		public String  mygroup(@ModelAttribute("idgrp") String  id
 				,@ModelAttribute("iduser") String userid
 				, Model model)
-		{
+		{     
+			if(teachermetier.findTeacherById(Integer.valueOf(userid))!=null){
+				logger.info("is request from teacher");
+				 model.addAttribute("imguser",teachermetier.findTeacherById(Integer.valueOf(userid)).getUrlPhoto());
+			}else{
+	 			logger.info("is request from std");
+				 model.addAttribute("imguser",studentMetier.findone(Integer.valueOf(userid)).getUrlPhoto());
+			}
+	
+			
 			 model.addAttribute("userid",  userid);
 			 model.addAttribute("idgrps",  id);
-			 model.addAttribute("list_temp_post", studentMetier.find_grp_temp_post(studentMetier.findGroupById(Integer.parseInt(id))));
+			 List<GroupsPostsTemporary> listpost =studentMetier.find_grp_temp_post(studentMetier.findGroupById(Integer.parseInt(id)));
+				Collections.reverse(listpost);
+			 model.addAttribute("list_temp_post", listpost);
 			 model.addAttribute("lstprof", teachermetier.findAll());
-			
+			 model.addAttribute("alluser",  studentMetier.findStudentInGroup(studentMetier.findGroupById(Integer.parseInt(id))));
+			 
+			  List<GroupsPosts> postlst = teachermetier.findAllPostGroup(studentMetier.findGroupById(Integer.parseInt(id)));
+			 Collections.reverse(postlst);
+			 model.addAttribute("allpost", postlst);
+			 model.addAttribute("infogrp",studentMetier.findGroupById(Integer.parseInt(id)));
 			logger.info("id grp :"+id);
 			logger.info("id user :"+userid);
 			
@@ -503,13 +521,36 @@ public class Studentcontroller {
 				
 				tb.setContent(content);
 				tb.setGroup_post(studentMetier.findGroupById(Integer.parseInt(idgrps)));
-				tb.setTeacher(teachermetier.findTeacherById(Integer.parseInt(iduser)));
+				tb.setTeacher_grp_post(teachermetier.findTeacherById(Integer.parseInt(iduser)));
 				
 				teachermetier.add_post_to_group(tb);
 			tb=null;
 			}
 			logger.info("conetnt   "+content+"  iduser  "+iduser+"   howis "+howis+"  grpid "+idgrps);
 			
+			
+		}
+		
+		
+		
+
+		@RequestMapping(value = "/addpost/{id}", method = RequestMethod.POST)
+		@ResponseBody
+		public void  addpost_in_group(@ModelAttribute("id")  String id_post) throws InstantiationException, IllegalAccessException{
+			
+			GroupsPosts tb=	genericobjmetier.createObj(GroupsPosts.class);
+			tb.setContent(studentMetier.findTempGroup(Integer.parseInt(id_post)).getContent());
+			tb.setGroup_post(studentMetier.findTempGroup(Integer.parseInt(id_post)).getGroup_post());
+			tb.setStudent_grp_post(studentMetier.findTempGroup(Integer.parseInt(id_post)).getStudentpost());
+			teachermetier.add_post_to_group(tb);
+			
+			tb=null;
+		    
+			studentMetier.deleteTempPost(Integer.parseInt(id_post));
+		
+			
+			
+			logger.info("idpost "+id_post);
 			
 		}
 }

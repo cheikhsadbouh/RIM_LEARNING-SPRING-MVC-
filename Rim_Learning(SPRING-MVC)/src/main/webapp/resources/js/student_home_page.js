@@ -222,22 +222,21 @@ function postvalid(){
 		area.focus();
 	         return false;
 	}else if(inc !=1){
-	
+	alert("inc !=1");
 		for( r=1; r<=inc;r++){
+			alert("inside loop");
 			var elm =$('[name="ds'+r+'"]');
 			
-			if(elm.value.trim()=='')
+			if(!$.trim(elm.value).length =="")
 			{
 				
-			
+				alert("i empty");
 				
 				
 				
 			       b=false;
 			       
 			         return false ;
-			}else{
-				
 			}
 			
 			
@@ -247,8 +246,10 @@ function postvalid(){
 		
 		//alert("b :"+b+"area : "+area.value);
 	}
-	if(area.lenght!=0 && b!= false ){
+	if(area.lenght != 0 && b!= false ){
+		alert("call sndpost");
 		sendpost();
+		
 		 return true ;
 		
 	}
@@ -287,7 +288,7 @@ function sendpost(){
 		   // var form = $(this);
 		var DATA={};
 		var area =document.getElementById('area');
-		DATA["rt"]=area.value+"msg";
+		DATA["rt"]=area.value+"msgss";
 		for( r=1; r<inc;r++){
 			var elm =$('[name="ds'+r+'"]');
 			DATA["rt"]=DATA["rt"]+elm.val()+"input" ;
@@ -386,7 +387,7 @@ function sendpost(){
 		
 		var DATA={};
 		var area =document.getElementById('area');
-		DATA["rt"]=area.value+"msg";
+		DATA["rt"]=area.value+"msgss";
 		
 		 $.ajax({
 		      type: 'POST',
@@ -703,3 +704,22 @@ function getSubpostgrp() {
 	 
 }
 		  
+function postliked(x){
+	
+	alert("liked :"+x);
+	
+	 $.ajax({
+	      type: 'POST',
+	      url: '/rim_learning_spring_mvc/addpost/'+x,
+	      data: x
+	    }).done(function(data) {
+	      // Optionally alert the user of success here...
+	    	
+	    	alert("success");
+	    }).fail(function(data) {
+	      // Optionally alert the user of an error here...
+	    	alert("error");
+	    });
+	
+	
+}
