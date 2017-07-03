@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 03, 2017 at 03:27 PM
+-- Generation Time: Jul 03, 2017 at 06:41 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.18-0ubuntu0.16.04.1
 
@@ -512,8 +512,8 @@ CREATE TABLE `Training` (
 --
 
 INSERT INTO `Training` (`idTraining`, `name`, `presentation_video`, `price`, `type`, `url_photo_poster`, `teacher_id`) VALUES
-(5000, 'nombre_complexe', NULL, 1500, 'math', '/resources/formations/formation-math/nombre-complexe/presentation/card.png', 23),
-(5001, 'test', NULL, 1500, 'math', '/resources/formations/formation-math/nombre-complexe/presentation/card.png', 23);
+(5000, 'nombre_complexe', NULL, 500, 'math', '/resources/formations/formation-math/nombre-complexe/presentation/card.png', 23),
+(5001, 'test', NULL, 500, 'math', '/resources/formations/formation-math/nombre-complexe/presentation/card.png', 23);
 
 -- --------------------------------------------------------
 
