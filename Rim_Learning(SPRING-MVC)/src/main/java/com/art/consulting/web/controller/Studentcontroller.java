@@ -249,11 +249,11 @@ public class Studentcontroller {
 			   logger.info("if date []");
 			if(date[0]< 0 || date[1] < 0|| date[2] < 0|| date[3] < 0){
 				logger.info("d5al v date negative ");     
-				logger.info("date[0]"+date[0]);
-				logger.info("date[1]"+date[1]);
-				logger.info("date[2]"+date[2]);
-				logger.info("date[3]"+date[3]);
-				logger.info("date[4]"+date[4]);
+				//logger.info("date[0]"+date[0]);
+				//logger.info("date[1]"+date[1]);
+				//logger.info("date[2]"+date[2]);
+				//logger.info("date[3]"+date[3]);
+				//logger.info("date[4]"+date[4]);
 				
 				trainingmetier.deletefromduplicatedtraings(Integer.valueOf(training.getId()));
 		     
@@ -552,5 +552,12 @@ public class Studentcontroller {
 			
 			logger.info("idpost "+id_post);
 			
+		}
+		
+		@RequestMapping(value = "/addMeIntoVisio")
+		public String addStudentToVisoconference(){
+			
+			
+			return "StudentVisioconference";
 		}
 }

@@ -23,15 +23,33 @@
      
       <link href="<c:url value="/resources/css/student_home_page.css" />" rel="stylesheet">
         <!-- bitdash player -->
-  
+  <script src="<c:url value="/resources/webRTCMultiConnection/dist/RTCMultiConnection.js"/>"></script>
+        <!-- custom layout for HTML5 audio/video elements -->
+        <script src="https://cdn.webrtc-experiment.com/getMediaElement.js"></script>
+<!-- <script src="https://cdn.webrtc-experiment.com/FileBufferReader.js"></script> -->
+ <script src="<c:url value="/resources/webRTCMultiConnection/dev/FileBufferReader.js"/>"></script>
+        <!-- socket.io for signaling -->
+      
+        <script src="<c:url value="/resources/js/socketiob.js"/>"></script>
+        
+        <!-- capture screen from any HTTPs domain! -->
+        <script src="https://cdn.webrtc-experiment.com:443/getScreenId.js"></script>
+        
+ 
+ <script src="<c:url value="/resources/js/rtcStudent.js"/>"></script>
   </head>
   <body onload="zero()">
    <script type="text/javascript">
      var r= '<c:out value="${sessionScope.name}" />' ;
      var section= '<c:out value="${sessionScope.sec}" />';
      var primary='<c:out value="${sessionScope.primary}" />';
-   console.log(r);
+     var imguser='<c:out value="${sessionScope.img}"/>';
+     var nm= '<c:out value="${sessionScope.name}" />' ;
+     
+   console.log(imguser);
+   localStorage.setItem("user",nm);
      localStorage.setItem("username",r);
+     localStorage.setItem("im",imguser);
      localStorage.setItem("pr",primary);
      localStorage.setItem("section",section);
      </script>
@@ -72,7 +90,7 @@
                     
                    
                     <li>
-                   <a href="#">
+                   <a  onclick="joinv();" >
                    <span  class="fa fa-video-camera" aria-hidden="true" ></span> visioconférence </a>
                    </li>
       <li>
@@ -441,7 +459,57 @@ une notification sera vous envoyez apres a voir envoyez credit !
     <link href="<c:url value="/resources/css/notification.css" />" rel="stylesheet">
        <script src="<c:url value="/resources/js/student_home_page.js"/>"></script>
        <script src="<c:url value="/resources/js/notification.js"/>"></script>
-       
+       <div id="openv" class="modal fade" role="dialog">
+ 
+        
+<div class="form-wrap">
+		<div class="tabs">
+				<div class="modal-header" align="center">
+				
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				
+		
+				<b>Créer un nouvelle room </b>
+					
+				</div>
+		
+		</div><!--.tabs-->
+
+		<div class="tabs-content">
+			<div id="signup-tab-content" class="active">
+				<form   onsubmit="return false;" class="signup-form">
+				 
+					<input type="text" class="input"  name="user" id="namegroup" autocomplete="off" placeholder="type id Room">
+					 
+    <div class="row">    
+        <div class="col-xs-12 col-md-12  col-sm-12">  
+            <!-- image-preview-filename input [CUT FROM HERE]-->
+            <div class="input-group image-preview">
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                   <!--   <button type="button" class="btn btn-default image-preview-clear" style="display:none;"> 
+                         <span class="glyphicon glyphicon-remove"></span> Clear 
+                   </button>  -->
+                    <!-- image-preview-input -->
+           
+                    <div class="clearfix">
+                                    </div>
+                </span>
+            </div><!-- /input-group image-preview [TO HERE]--> 
+        </div>
+    </div>
+
+		
+		<div class="clearfix">
+                                    </div>
+		     
+                <button  class="button btn"  onclick="joined()"><b>Open</b> <i class="fa fa-sign-in fa-1x"></i></button>
+            
+				</form><!--.signup-form-->
+			</div></div><!-- content end  -->
+			
+			</div><!-- form-wrap end -->
+			</div><!-- end model create group -->
      
    <style>
 video {
@@ -563,7 +631,20 @@ $(function() {
 
 
 
-
+function joinv(){
+	
+	
+	
+	
+	$('#target').load('/rim_learning_spring_mvc/addMeIntoVisio   #visio');
+	 $('#openv').modal('show');
+}
+function joined(){
+	var input = document.getElementById("namegroup").value;
+	$('#openv').modal('hide');
+	startv(input);
+	
+}
 
 </script>
      

@@ -293,5 +293,36 @@ stdtemporaryconference=null;
 	
 		;
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+	static int a =1 ;
+	@RequestMapping(value = "/test1", method = RequestMethod.GET)
+	public String test1(Model model) {
+		
+		
+		model.addAttribute("a",a);
+		logger.info("a :"+a);
+		a++;
+		return "test1";
+	}
+	@RequestMapping(value = "/test2", method = RequestMethod.GET)
+	public String test2() {
+		
+		
+		
+		return "test2";
+	}
+	
+	
+	
+	
 	
 }

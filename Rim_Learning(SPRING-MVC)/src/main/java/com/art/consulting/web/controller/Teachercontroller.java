@@ -367,4 +367,10 @@ String[] sTemp=data.split("msgss");
 
 	}
 
+	
+	@RequestMapping(value = "/createvisio")
+	public String createVisoconference(){
+		
+		return "TeacherVisioconference";
+	}
 }

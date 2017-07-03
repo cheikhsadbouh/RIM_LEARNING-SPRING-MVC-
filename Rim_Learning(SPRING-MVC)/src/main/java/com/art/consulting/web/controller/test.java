@@ -30,8 +30,8 @@ public class test {
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
 	///Rim_Learning(SPRING-MVC)
-		
-		
+		 
+		/*
 		 String path = "./src/main/webapp/resources/img_groups/profmath/rt3ererr";
 			    
 		File f = new File(path);
@@ -44,14 +44,14 @@ public class test {
 			 boolean   isDirector = (new File(path+"/"+"ff")).mkdirs();
 			  logger.info("walo !");
 		  }
-		  
+		  */
 		  
 		//  logger.info("string[0] :"+args[0]);
 		//  logger.info("string[1] :"+args[1]);
 		  
 	}
 	
-	public static  void crtfile(){
+	/*public static  void crtfile(){
 		 String path = "./src/main/webapp/resources/img_groups/profmath/math90";
 		    
 			File f = new File(path);
@@ -66,5 +66,5 @@ public class test {
 			  }
 		  logger.info("from fnct !");
 	}
-
+*/
 }

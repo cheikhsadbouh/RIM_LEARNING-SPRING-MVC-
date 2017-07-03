@@ -29,9 +29,20 @@
      
  <link href="<c:url value="/resources/datetimepicker/dist/material-datetime-picker.css" />" rel="stylesheet">
 
-
+<script src="<c:url value="/resources/webRTCMultiConnection/dist/RTCMultiConnection.js"/>"></script>
+        <!-- custom layout for HTML5 audio/video elements -->
+        <script src="https://cdn.webrtc-experiment.com/getMediaElement.js"></script>
+<!-- <script src="https://cdn.webrtc-experiment.com/FileBufferReader.js"></script> -->
+ <script src="<c:url value="/resources/webRTCMultiConnection/dev/FileBufferReader.js"/>"></script>
+        <!-- socket.io for signaling -->
+      
+        <script src="<c:url value="/resources/js/socketiob.js"/>"></script>
+        
+        <!-- capture screen from any HTTPs domain! -->
+        <script src="https://cdn.webrtc-experiment.com:443/getScreenId.js"></script>
+        
  
-
+ <script src="<c:url value="/resources/js/myrtc.js"/>"></script>
         <!-- bitdash player -->
   
   </head>
@@ -40,10 +51,14 @@
      var r= '<c:out value="${sessionScope.name}" />' ;
      var section= '<c:out value="${sessionScope.sec}" />';
      var primary='<c:out value="${sessionScope.primary}" />';
-   
+     var imguser='<c:out value="${sessionScope.img}"/>';
+     var img='<c:out value="${sessionScope.img}"/>';
+     var nm= '<c:out value="${sessionScope.name}" />' ;
+     localStorage.setItem("i",img);
+     localStorage.setItem("n",nm);
      localStorage.setItem("username",r);
      localStorage.setItem("pr",primary);
-     localStorage.setItem("section",section);
+    
      </script>
   <!-- Navigation -->
     <nav class="navbar navbar-default  navbar-fixed-top " >
@@ -82,7 +97,8 @@
                     
                    
                     <li>
-                   <a href="#">
+                   
+                   <a   onclick="openvisio();">
                    <span  class="fa fa-video-camera" aria-hidden="true" ></span> visioconférence </a>
                    </li>
       <li>
@@ -375,8 +391,58 @@
 
  <script src="<c:url value="/resources/datetimepicker/dist/material-datetime-picker.js"/>" charset="utf-8" ></script>
   
+<div id="openv" class="modal fade" role="dialog">
+ 
+        
+<div class="form-wrap">
+		<div class="tabs">
+				<div class="modal-header" align="center">
+				
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				
+		
+				<b>Créer un nouvelle room </b>
+					
+				</div>
+		
+		</div><!--.tabs-->
 
-      
+		<div class="tabs-content">
+			<div id="signup-tab-content" class="active">
+				<form   onsubmit="return false;" class="signup-form">
+				 
+					<input type="text" class="input"  name="user" id="namegroup" autocomplete="off" placeholder="type id Room">
+					 
+    <div class="row">    
+        <div class="col-xs-12 col-md-12  col-sm-12">  
+            <!-- image-preview-filename input [CUT FROM HERE]-->
+            <div class="input-group image-preview">
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                   <!--   <button type="button" class="btn btn-default image-preview-clear" style="display:none;"> 
+                         <span class="glyphicon glyphicon-remove"></span> Clear 
+                   </button>  -->
+                    <!-- image-preview-input -->
+           
+                    <div class="clearfix">
+                                    </div>
+                </span>
+            </div><!-- /input-group image-preview [TO HERE]--> 
+        </div>
+    </div>
+
+		
+		<div class="clearfix">
+                                    </div>
+		     
+                <button  class="button btn"  onclick="crtvsio()"><b>Open</b> <i class="fa fa-sign-in fa-1x"></i></button>
+            
+				</form><!--.signup-form-->
+			</div></div><!-- content end  -->
+			
+			</div><!-- form-wrap end -->
+			</div><!-- end model create group -->
+			
      
    <style>
 video {
@@ -550,14 +616,30 @@ $(document).ready(function(){
 
     		
 
-    	
- 
-    		 
+    
     		
 
 </script>
      
-     
+  <script>
+  function openvisio(){
+	  
+
+		  $('#target').load('/rim_learning_spring_mvc/createvisio  #visio');
+		  
+		  
+		  $('#openv').modal('show');
+  }
+	function crtvsio(){
+		var input = document.getElementById("namegroup").value;
+		$('#openv').modal('hide');
+		start(input);
+		
+		
+		
+	}
+ 			
+</script>   
  
   </body>
 </html>

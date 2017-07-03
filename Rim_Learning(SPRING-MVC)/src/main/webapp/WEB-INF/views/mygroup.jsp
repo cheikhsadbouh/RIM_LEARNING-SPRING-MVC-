@@ -236,7 +236,7 @@ class="pull-right"><button type="button" class="btn btn-link">	<i class="fa fa-t
                                         
                                         </div><!-- end content  -->
                             </div>
-                            </div>
+</div>
                           
 </c:if>
 </c:forEach>

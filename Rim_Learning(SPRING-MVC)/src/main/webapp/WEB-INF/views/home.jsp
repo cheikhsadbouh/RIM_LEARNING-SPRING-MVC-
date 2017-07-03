@@ -435,15 +435,12 @@
       
        <script type="text/javascript">
  Notification.requestPermission().then(function(result){
-
 notify();
 });
-
-
   function notify() {
-    var notification = new Notification('TITLE OF NOTIFICATION', {
+    var notification = new Notification('welecome in Rim-Learning!', {
       icon: '<c:url value="/resources/img/rimlearninglogo.png" />',
-      body: "Hey! You are on notice!",
+      body: "welecome in Rim-Learning!",
       sound: '',
  
     });
@@ -455,9 +452,6 @@ notify();
     };
     setTimeout(notification.close.bind(notification), 7000); 
   }
-
-
-
  </script>
 
  

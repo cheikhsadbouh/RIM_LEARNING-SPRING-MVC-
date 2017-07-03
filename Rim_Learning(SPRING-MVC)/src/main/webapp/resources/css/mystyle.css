@@ -8,7 +8,8 @@ body {
 
 
 .business-header {
-	position:relative;
+	/*position: relative;*/
+	
     height: 400px;
     background: url('../img/logo-banner-search-1.jpg');
     -webkit-background-size: cover;
@@ -19,12 +20,48 @@ body {
     
     
 }
+@media (min-width: 768px){
+	.col-sm-10 {
+   
+}
+}
+
+
 .d{
 		
 	height: 400px;
 	background-color:rgba(0,0,0,0.5);
 
 	
+}
+.gretting{
+	position: absolute;
+	   
+    left:252px;
+    top: 219px;
+    color:#fff;
+   
+  
+    }
+    
+    
+.img-responsive{
+  
+   
+        max-height: 230px;
+    margin-top: 45px;
+    margin-left: 506px;
+    	
+    }
+    
+
+    
+    hr.small {
+   ax-width: 400px;
+    margin: 15px auto;
+    border-width: 3px;
+    width: 280px;
+    border-color: #71c9c6;
 }
 .navbar-default {
     background-color: transparent;
@@ -96,34 +133,7 @@ background: #fff;
    
       font-size: 37px;
 }
-.gretting{
-	position: absolute;
-    left:252px;
-    top: 219px;
-    color:#fff;
-   
-  
-    }
-    
-    
-.img-responsive{
-  
-   
-        max-height: 230px;
-    margin-top: 45px;
-    margin-left: 506px;
-    	
-    }
-    
 
-    
-    hr.small {
-   ax-width: 400px;
-    margin: 15px auto;
-    border-width: 3px;
-    width: 280px;
-    border-color: #71c9c6;
-}
 
 
  .sec{
@@ -159,7 +169,7 @@ background: #fff;
 	
 	    position: absolute;
     right: 34px;
-    top: -67px;
+   top: -27px;
     max-height: 352px;
     height: 193px;
     width: 275px;
